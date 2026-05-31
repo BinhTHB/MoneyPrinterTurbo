@@ -25,6 +25,11 @@ from openai import OpenAI
 from app.config import config
 from app.utils import utils
 
+# Constants for subtitle fallback timing (100-nanosecond units, edge_tts format)
+_SRT_TIME_100NS = 10000000
+_FALLBACK_DURATION_100NS = 30000000
+_FALLBACK_START_100NS  = 1000000000
+
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"
@@ -2237,7 +2242,7 @@ def create_subtitle(sub_maker: SubMaker, text: str, subtitle_file: str):
                 f"filling remaining {len(script_lines) - len(sub_items)} lines to avoid fallback"
             )
             formatter = _build_subtitle_formatter()
-            last_end_100ns = 1000000000
+            last_end_100ns = _FALLBACK_START_100NS
             if sub_items:
                 last_line = sub_items[-1]
                 time_match = re.findall(r"(\d+:\d+:\d+,\d+)", last_line)
@@ -2245,11 +2250,11 @@ def create_subtitle(sub_maker: SubMaker, text: str, subtitle_file: str):
                     parts = time_match[-1].replace(",", ".").split(":")
                     last_end_100ns = int(
                         (int(parts[0]) * 3600 + int(parts[1]) * 60 + float(parts[2]))
-                        * 10000000
+                        * _SRT_TIME_100NS
                     )
             for i in range(len(sub_items), len(script_lines)):
-                start_100ns = last_end_100ns + (i - len(sub_items)) * 30000000
-                end_100ns = start_100ns + 30000000
+                start_100ns = last_end_100ns + (i - len(sub_items)) * _FALLBACK_DURATION_100NS
+                end_100ns = start_100ns + _FALLBACK_DURATION_100NS
                 sub_items.append(
                     formatter(
                         idx=len(sub_items) + 1,

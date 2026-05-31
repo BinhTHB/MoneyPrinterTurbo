@@ -1,4 +1,4 @@
-import glob
+﻿import glob
 import itertools
 import io
 import os
@@ -52,8 +52,8 @@ class SubClippedVideoClip:
 
 
 audio_codec = "aac"
-# Docker 里的 ffmpeg/AAC 组合在默认配置下更容易出现音频质量波动，
-# 这里显式抬高音频码率，避免成片阶段因为默认值过低而引入明显失真。
+# Docker é‡Œçš„ ffmpeg/AAC ç»„åˆåœ¨é»˜è®¤é…ç½®ä¸‹æ›´å®¹æ˜“å‡ºçŽ°éŸ³é¢‘è´¨é‡æ³¢åŠ¨ï¼Œ
+# è¿™é‡Œæ˜¾å¼æŠ¬é«˜éŸ³é¢‘ç çŽ‡ï¼Œé¿å…æˆç‰‡é˜¶æ®µå› ä¸ºé»˜è®¤å€¼è¿‡ä½Žè€Œå¼•å…¥æ˜Žæ˜¾å¤±çœŸã€‚
 audio_bitrate = "192k"
 video_codec = "libx264"
 fps = 30
@@ -61,8 +61,8 @@ _BGM_EXTENSIONS = (".mp3",)
 
 
 def get_ffmpeg_binary():
-    # 优先复用用户在 config.toml / 环境变量里显式指定的 ffmpeg，可避免
-    # Windows 便携包、Docker、自定义安装目录等场景下 PATH 不一致。
+    # ä¼˜å…ˆå¤ç”¨ç”¨æˆ·åœ¨ config.toml / çŽ¯å¢ƒå˜é‡é‡Œæ˜¾å¼æŒ‡å®šçš„ ffmpegï¼Œå¯é¿å…
+    # Windows ä¾¿æºåŒ…ã€Dockerã€è‡ªå®šä¹‰å®‰è£…ç›®å½•ç­‰åœºæ™¯ä¸‹ PATH ä¸ä¸€è‡´ã€‚
     configured_ffmpeg = os.environ.get("IMAGEIO_FFMPEG_EXE")
     if configured_ffmpeg:
         return configured_ffmpeg
@@ -84,7 +84,7 @@ def get_ffmpeg_binary():
 
 
 def _escape_ffmpeg_concat_path(file_path: str) -> str:
-    # concat demuxer 使用单引号包裹路径，路径中的单引号需要先转义。
+    # concat demuxer ä½¿ç”¨å•å¼•å·åŒ…è£¹è·¯å¾„ï¼Œè·¯å¾„ä¸­çš„å•å¼•å·éœ€è¦å…ˆè½¬ä¹‰ã€‚
     return file_path.replace("'", "'\\''")
 
 
@@ -116,8 +116,8 @@ def concat_video_clips_with_ffmpeg(
     ]
 
     try:
-        # 使用 ffmpeg 只做一次串联与编码，避免 MoviePy 逐段合并时反复重编码，
-        # 从而降低画质劣化与颜色偏移风险。
+        # ä½¿ç”¨ ffmpeg åªåšä¸€æ¬¡ä¸²è”ä¸Žç¼–ç ï¼Œé¿å… MoviePy é€æ®µåˆå¹¶æ—¶åå¤é‡ç¼–ç ï¼Œ
+        # ä»Žè€Œé™ä½Žç”»è´¨åŠ£åŒ–ä¸Žé¢œè‰²åç§»é£Žé™©ã€‚
         result = subprocess.run(
             command,
             capture_output=True,
@@ -132,14 +132,14 @@ def concat_video_clips_with_ffmpeg(
 
 
 def _sanitize_image_file(image_path: str) -> str:
-    # 某些本地图片虽然能被 Pillow 打开，但会因为损坏的 EXIF/eXIf 元数据导致
-    # ImageClip 在解析阶段直接抛异常。这里重新导出一份“干净图片”，把坏元数据剥离掉。
+    # æŸäº›æœ¬åœ°å›¾ç‰‡è™½ç„¶èƒ½è¢« Pillow æ‰“å¼€ï¼Œä½†ä¼šå› ä¸ºæŸåçš„ EXIF/eXIf å…ƒæ•°æ®å¯¼è‡´
+    # ImageClip åœ¨è§£æžé˜¶æ®µç›´æŽ¥æŠ›å¼‚å¸¸ã€‚è¿™é‡Œé‡æ–°å¯¼å‡ºä¸€ä»½â€œå¹²å‡€å›¾ç‰‡â€ï¼ŒæŠŠåå…ƒæ•°æ®å‰¥ç¦»æŽ‰ã€‚
     image_root, _ = os.path.splitext(image_path)
     sanitized_path = f"{image_root}.sanitized.png"
 
     with Image.open(image_path) as image:
         image.load()
-        # 统一导出为 PNG，避免 JPEG/PNG 不同元数据路径继续把坏块带过去。
+        # ç»Ÿä¸€å¯¼å‡ºä¸º PNGï¼Œé¿å… JPEG/PNG ä¸åŒå…ƒæ•°æ®è·¯å¾„ç»§ç»­æŠŠåå—å¸¦è¿‡åŽ»ã€‚
         cleaned_image = Image.new(image.mode, image.size)
         cleaned_image.putdata(list(image.getdata()))
         cleaned_image.save(sanitized_path)
@@ -148,7 +148,7 @@ def _sanitize_image_file(image_path: str) -> str:
 
 
 def _open_image_clip_with_fallback(image_path: str):
-    # 优先直接打开原始图片；如果因为损坏元数据失败，再尝试生成无元数据副本。
+    # ä¼˜å…ˆç›´æŽ¥æ‰“å¼€åŽŸå§‹å›¾ç‰‡ï¼›å¦‚æžœå› ä¸ºæŸåå…ƒæ•°æ®å¤±è´¥ï¼Œå†å°è¯•ç”Ÿæˆæ— å…ƒæ•°æ®å‰¯æœ¬ã€‚
     try:
         return ImageClip(image_path), image_path
     except Exception as exc:
@@ -161,19 +161,19 @@ def _open_image_clip_with_fallback(image_path: str):
 
 def _open_video_clip_quietly(video_path: str, audio: bool = False) -> VideoFileClip:
     """
-    安静地打开视频文件，避免 MoviePy 2.1.x 把 ffmpeg 探测信息直接打印到 stdout。
+    å®‰é™åœ°æ‰“å¼€è§†é¢‘æ–‡ä»¶ï¼Œé¿å… MoviePy 2.1.x æŠŠ ffmpeg æŽ¢æµ‹ä¿¡æ¯ç›´æŽ¥æ‰“å°åˆ° stdoutã€‚
 
-    背景：
-    当前依赖版本的 `FFMPEG_VideoReader` 内部存在 `print(self.infos)` 和
-    `print(ffmpeg command)`，读取无音轨的中间视频时会输出
-    `audio_found: False`。这只是输入素材 metadata，不代表最终成片没有音频，
-    但会误导 WebUI/终端用户以为生成失败。
+    èƒŒæ™¯ï¼š
+    å½“å‰ä¾èµ–ç‰ˆæœ¬çš„ `FFMPEG_VideoReader` å†…éƒ¨å­˜åœ¨ `print(self.infos)` å’Œ
+    `print(ffmpeg command)`ï¼Œè¯»å–æ— éŸ³è½¨çš„ä¸­é—´è§†é¢‘æ—¶ä¼šè¾“å‡º
+    `audio_found: False`ã€‚è¿™åªæ˜¯è¾“å…¥ç´ æ metadataï¼Œä¸ä»£è¡¨æœ€ç»ˆæˆç‰‡æ²¡æœ‰éŸ³é¢‘ï¼Œ
+    ä½†ä¼šè¯¯å¯¼ WebUI/ç»ˆç«¯ç”¨æˆ·ä»¥ä¸ºç”Ÿæˆå¤±è´¥ã€‚
 
-    实现：
-    1. 只在打开 VideoFileClip 的短窗口内重定向 stdout；
-    2. 默认 `audio=False`，因为项目视频素材阶段不需要保留素材原声，
-       最终音频会在 `generate_video()` 阶段统一挂载；
-    3. 如果依赖库确实输出了内容，降级为 debug 日志，便于必要时排查。
+    å®žçŽ°ï¼š
+    1. åªåœ¨æ‰“å¼€ VideoFileClip çš„çŸ­çª—å£å†…é‡å®šå‘ stdoutï¼›
+    2. é»˜è®¤ `audio=False`ï¼Œå› ä¸ºé¡¹ç›®è§†é¢‘ç´ æé˜¶æ®µä¸éœ€è¦ä¿ç•™ç´ æåŽŸå£°ï¼Œ
+       æœ€ç»ˆéŸ³é¢‘ä¼šåœ¨ `generate_video()` é˜¶æ®µç»Ÿä¸€æŒ‚è½½ï¼›
+    3. å¦‚æžœä¾èµ–åº“ç¡®å®žè¾“å‡ºäº†å†…å®¹ï¼Œé™çº§ä¸º debug æ—¥å¿—ï¼Œä¾¿äºŽå¿…è¦æ—¶æŽ’æŸ¥ã€‚
     """
     captured_stdout = io.StringIO()
     with redirect_stdout(captured_stdout):
@@ -238,11 +238,11 @@ def delete_files(files: List[str] | str):
 
 
 def _resolve_bgm_file_path(song_dir: str, bgm_file: str) -> str:
-    # 背景音乐只允许读取 resource/songs 目录内的文件，避免用户输入任意路径后
-    # 被 MoviePy 打开。这里兼容两种常见输入：
-    # 1. output000.mp3：来自 BGM 列表或用户只填写文件名
-    # 2. ./resource/songs/output000.mp3：用户按项目目录结构填写的相对路径
-    # 两种写法最终都会再次通过 resource/songs 白名单校验，不能绕过目录限制。
+    # èƒŒæ™¯éŸ³ä¹åªå…è®¸è¯»å– resource/songs ç›®å½•å†…çš„æ–‡ä»¶ï¼Œé¿å…ç”¨æˆ·è¾“å…¥ä»»æ„è·¯å¾„åŽ
+    # è¢« MoviePy æ‰“å¼€ã€‚è¿™é‡Œå…¼å®¹ä¸¤ç§å¸¸è§è¾“å…¥ï¼š
+    # 1. output000.mp3ï¼šæ¥è‡ª BGM åˆ—è¡¨æˆ–ç”¨æˆ·åªå¡«å†™æ–‡ä»¶å
+    # 2. ./resource/songs/output000.mp3ï¼šç”¨æˆ·æŒ‰é¡¹ç›®ç›®å½•ç»“æž„å¡«å†™çš„ç›¸å¯¹è·¯å¾„
+    # ä¸¤ç§å†™æ³•æœ€ç»ˆéƒ½ä¼šå†æ¬¡é€šè¿‡ resource/songs ç™½åå•æ ¡éªŒï¼Œä¸èƒ½ç»•è¿‡ç›®å½•é™åˆ¶ã€‚
     try:
         return file_security.resolve_path_within_directory(song_dir, bgm_file)
     except ValueError as song_dir_exc:
@@ -267,9 +267,9 @@ def get_bgm_file(bgm_type: str = "random", bgm_file: str = ""):
         try:
             resolved_bgm_file = _resolve_bgm_file_path(song_dir, bgm_file)
         except ValueError as exc:
-            # API 请求里的 bgm_file 来自用户输入，不能直接把任意绝对路径交给
-            # MoviePy 打开。这里强制限制到 resource/songs 目录，阻止读取
-            # /etc/passwd、配置文件、密钥等非背景音乐文件。
+            # API è¯·æ±‚é‡Œçš„ bgm_file æ¥è‡ªç”¨æˆ·è¾“å…¥ï¼Œä¸èƒ½ç›´æŽ¥æŠŠä»»æ„ç»å¯¹è·¯å¾„äº¤ç»™
+            # MoviePy æ‰“å¼€ã€‚è¿™é‡Œå¼ºåˆ¶é™åˆ¶åˆ° resource/songs ç›®å½•ï¼Œé˜»æ­¢è¯»å–
+            # /etc/passwdã€é…ç½®æ–‡ä»¶ã€å¯†é’¥ç­‰éžèƒŒæ™¯éŸ³ä¹æ–‡ä»¶ã€‚
             logger.warning(
                 f"reject unsafe bgm file: {bgm_file}, song_dir: {song_dir}, error: {str(exc)}"
             )
@@ -285,7 +285,7 @@ def get_bgm_file(bgm_type: str = "random", bgm_file: str = ""):
         suffix = "*.mp3"
         song_dir = utils.song_dir()
         files = glob.glob(os.path.join(song_dir, suffix))
-        # 当背景音乐目录为空时，直接回退为“不使用 BGM”，避免 random.choice([]) 抛异常。
+        # å½“èƒŒæ™¯éŸ³ä¹ç›®å½•ä¸ºç©ºæ—¶ï¼Œç›´æŽ¥å›žé€€ä¸ºâ€œä¸ä½¿ç”¨ BGMâ€ï¼Œé¿å… random.choice([]) æŠ›å¼‚å¸¸ã€‚
         if not files:
             logger.warning(f"no bgm files found in song directory: {song_dir}")
             return ""
@@ -306,15 +306,15 @@ def combine_videos(
 ) -> str:
     audio_clip = AudioFileClip(audio_file)
     try:
-        # 这里只需要读取旁白音频时长来决定素材视频拼接长度；后续不会再使用
-        # audio_clip。读取完成后立即关闭，避免早退或异常路径泄漏文件句柄。
+        # è¿™é‡Œåªéœ€è¦è¯»å–æ—ç™½éŸ³é¢‘æ—¶é•¿æ¥å†³å®šç´ æè§†é¢‘æ‹¼æŽ¥é•¿åº¦ï¼›åŽç»­ä¸ä¼šå†ä½¿ç”¨
+        # audio_clipã€‚è¯»å–å®ŒæˆåŽç«‹å³å…³é—­ï¼Œé¿å…æ—©é€€æˆ–å¼‚å¸¸è·¯å¾„æ³„æ¼æ–‡ä»¶å¥æŸ„ã€‚
         audio_duration = audio_clip.duration
     finally:
         close_clip(audio_clip)
     logger.info(f"audio duration: {audio_duration} seconds")
     logger.info(f"maximum clip duration: {max_clip_duration} seconds")
 
-    # 兼容 API 直接调用时未传转场模式的情况，避免后续访问 .value 时崩溃。
+    # å…¼å®¹ API ç›´æŽ¥è°ƒç”¨æ—¶æœªä¼ è½¬åœºæ¨¡å¼çš„æƒ…å†µï¼Œé¿å…åŽç»­è®¿é—® .value æ—¶å´©æºƒã€‚
     transition_value = getattr(video_transition_mode, "value", video_transition_mode)
     output_dir = os.path.dirname(combined_video_path)
 
@@ -335,9 +335,9 @@ def combine_videos(
         while start_time < clip_duration:
             end_time = min(start_time + max_clip_duration, clip_duration)
 
-            # 保留所有有效分段。
-            # 这样既不会丢掉“整段视频本身就短于 max_clip_duration”的素材，
-            # 也不会吞掉长视频最后剩下的一小段尾部内容。
+            # ä¿ç•™æ‰€æœ‰æœ‰æ•ˆåˆ†æ®µã€‚
+            # è¿™æ ·æ—¢ä¸ä¼šä¸¢æŽ‰â€œæ•´æ®µè§†é¢‘æœ¬èº«å°±çŸ­äºŽ max_clip_durationâ€çš„ç´ æï¼Œ
+            # ä¹Ÿä¸ä¼šåžæŽ‰é•¿è§†é¢‘æœ€åŽå‰©ä¸‹çš„ä¸€å°æ®µå°¾éƒ¨å†…å®¹ã€‚
             if end_time > start_time:
                 subclipped_items.append(
                     SubClippedVideoClip(
@@ -473,9 +473,9 @@ def combine_videos(
 
 
 def wrap_text(text, max_width, font="Arial", fontsize=60):
-    # 字幕换行必须在真正创建 TextClip 前完成，否则 MoviePy 只会按原始文本
-    # 计算渲染区域。这里用 PIL 按当前字体和字号测量宽度，确保每一行都尽量
-    # 控制在视频可用宽度内，避免大字号或中文长句直接溢出画面。
+    # å­—å¹•æ¢è¡Œå¿…é¡»åœ¨çœŸæ­£åˆ›å»º TextClip å‰å®Œæˆï¼Œå¦åˆ™ MoviePy åªä¼šæŒ‰åŽŸå§‹æ–‡æœ¬
+    # è®¡ç®—æ¸²æŸ“åŒºåŸŸã€‚è¿™é‡Œç”¨ PIL æŒ‰å½“å‰å­—ä½“å’Œå­—å·æµ‹é‡å®½åº¦ï¼Œç¡®ä¿æ¯ä¸€è¡Œéƒ½å°½é‡
+    # æŽ§åˆ¶åœ¨è§†é¢‘å¯ç”¨å®½åº¦å†…ï¼Œé¿å…å¤§å­—å·æˆ–ä¸­æ–‡é•¿å¥ç›´æŽ¥æº¢å‡ºç”»é¢ã€‚
     font = ImageFont.truetype(font, fontsize)
     max_width = int(max_width)
 
@@ -491,9 +491,9 @@ def wrap_text(text, max_width, font="Arial", fontsize=60):
         return text, height
 
     def split_long_token(token):
-        # 当一个 token 本身就超宽时（常见于中文无空格长句，或英文超长单词），
-        # 退化为字符级拆分。关键点是：检测到 candidate 超宽时，先提交上一个
-        # 仍然合法的 current，再把当前字符放入下一行，不能把超宽字符塞回上一行。
+        # å½“ä¸€ä¸ª token æœ¬èº«å°±è¶…å®½æ—¶ï¼ˆå¸¸è§äºŽä¸­æ–‡æ— ç©ºæ ¼é•¿å¥ï¼Œæˆ–è‹±æ–‡è¶…é•¿å•è¯ï¼‰ï¼Œ
+        # é€€åŒ–ä¸ºå­—ç¬¦çº§æ‹†åˆ†ã€‚å…³é”®ç‚¹æ˜¯ï¼šæ£€æµ‹åˆ° candidate è¶…å®½æ—¶ï¼Œå…ˆæäº¤ä¸Šä¸€ä¸ª
+        # ä»ç„¶åˆæ³•çš„ currentï¼Œå†æŠŠå½“å‰å­—ç¬¦æ”¾å…¥ä¸‹ä¸€è¡Œï¼Œä¸èƒ½æŠŠè¶…å®½å­—ç¬¦å¡žå›žä¸Šä¸€è¡Œã€‚
         lines = []
         current = ""
         for char in token:
@@ -541,11 +541,11 @@ def _detect_vietnamese_in_file(subtitle_path: str) -> bool:
         return False
     try:
         with open(subtitle_path, "r", encoding="utf-8") as f:
-            content = f.read(4096)
+            content = f.read()
         vietnamese_chars = re.compile(
-            r"[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợ"
-            r"ùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊ"
-            r"ÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]"
+            r"[Ã Ã¡áº£Ã£áº¡Äƒáº±áº¯áº³áºµáº·Ã¢áº§áº¥áº©áº«áº­Ã¨Ã©áº»áº½áº¹Ãªá»áº¿á»ƒá»…á»‡Ã¬Ã­á»‰Ä©á»‹Ã²Ã³á»Ãµá»Ã´á»“á»‘á»•á»—á»™Æ¡á»á»›á»Ÿá»¡á»£"
+            r"Ã¹Ãºá»§Å©á»¥Æ°á»«á»©á»­á»¯á»±á»³Ã½á»·á»¹á»µÄ‘Ã€Ãáº¢Ãƒáº Ä‚áº°áº®áº²áº´áº¶Ã‚áº¦áº¤áº¨áºªáº¬ÃˆÃ‰áººáº¼áº¸ÃŠá»€áº¾á»‚á»„á»†ÃŒÃá»ˆÄ¨á»Š"
+            r"Ã’Ã“á»ŽÃ•á»ŒÃ”á»’á»á»”á»–á»˜Æ á»œá»šá»žá» á»¢Ã™Ãšá»¦Å¨á»¤Æ¯á»ªá»¨á»¬á»®á»°á»²Ãá»¶á»¸á»´Ä]"
         )
         return bool(vietnamese_chars.search(content))
     except Exception:
@@ -563,10 +563,10 @@ def generate_video(
     video_width, video_height = aspect.to_resolution()
 
     logger.info(f"generating video: {video_width} x {video_height}")
-    logger.info(f"  ① video: {video_path}")
-    logger.info(f"  ② audio: {audio_path}")
-    logger.info(f"  ③ subtitle: {subtitle_path}")
-    logger.info(f"  ④ output: {output_file}")
+    logger.info(f"  â‘  video: {video_path}")
+    logger.info(f"  â‘¡ audio: {audio_path}")
+    logger.info(f"  â‘¢ subtitle: {subtitle_path}")
+    logger.info(f"  â‘£ output: {output_file}")
 
     # https://github.com/harry0703/MoneyPrinterTurbo/issues/217
     # PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'final-1.mp4.tempTEMP_MPY_wvf_snd.mp3'
@@ -585,18 +585,18 @@ def generate_video(
             viet_font = os.path.join(utils.font_dir(), "UTM Kabel KT.ttf")
             if os.path.exists(viet_font) and "UTM Kabel KT" not in params.font_name:
                 logger.info(
-                    f"  ⑥ Vietnamese detected, switching font to UTM Kabel KT.ttf "
+                    f"  â‘¥ Vietnamese detected, switching font to UTM Kabel KT.ttf "
                     f"(was: {params.font_name})"
                 )
                 font_path = viet_font.replace("\\", "/") if os.name == "nt" else viet_font
                 params.font_name = "UTM Kabel KT.ttf"
 
-        logger.info(f"  ⑤ font: {font_path}")
+        logger.info(f"  â‘¤ font: {font_path}")
 
     def resolve_subtitle_background_color():
-        # 兼容历史参数：API 里 `text_background_color` 既可能是布尔值，
-        # 也可能是实际颜色字符串。统一在这里归一化，避免把 True/False
-        # 直接传给 TextClip 后出现不可预期的渲染结果。
+        # å…¼å®¹åŽ†å²å‚æ•°ï¼šAPI é‡Œ `text_background_color` æ—¢å¯èƒ½æ˜¯å¸ƒå°”å€¼ï¼Œ
+        # ä¹Ÿå¯èƒ½æ˜¯å®žé™…é¢œè‰²å­—ç¬¦ä¸²ã€‚ç»Ÿä¸€åœ¨è¿™é‡Œå½’ä¸€åŒ–ï¼Œé¿å…æŠŠ True/False
+        # ç›´æŽ¥ä¼ ç»™ TextClip åŽå‡ºçŽ°ä¸å¯é¢„æœŸçš„æ¸²æŸ“ç»“æžœã€‚
         if isinstance(params.text_background_color, bool):
             return "#000000" if params.text_background_color else None
         return params.text_background_color
@@ -612,10 +612,10 @@ def generate_video(
         interline = int(params.font_size * 0.25)
         line_count = wrapped_txt.count("\n") + 1
         vertical_padding = int(params.font_size * 0.35)
-        # MoviePy 在 `method=label` 下会自动收缩文本框高度，遇到多行字幕、
-        # 描边或背景色时，容易把最后一行的下半部分裁掉。这里显式传入
-        # 一个更保守的高度，把行间距和额外上下留白一并算进去，保证字幕
-        # 背景框与文字本身都能完整渲染出来。
+        # MoviePy åœ¨ `method=label` ä¸‹ä¼šè‡ªåŠ¨æ”¶ç¼©æ–‡æœ¬æ¡†é«˜åº¦ï¼Œé‡åˆ°å¤šè¡Œå­—å¹•ã€
+        # æè¾¹æˆ–èƒŒæ™¯è‰²æ—¶ï¼Œå®¹æ˜“æŠŠæœ€åŽä¸€è¡Œçš„ä¸‹åŠéƒ¨åˆ†è£æŽ‰ã€‚è¿™é‡Œæ˜¾å¼ä¼ å…¥
+        # ä¸€ä¸ªæ›´ä¿å®ˆçš„é«˜åº¦ï¼ŒæŠŠè¡Œé—´è·å’Œé¢å¤–ä¸Šä¸‹ç•™ç™½ä¸€å¹¶ç®—è¿›åŽ»ï¼Œä¿è¯å­—å¹•
+        # èƒŒæ™¯æ¡†ä¸Žæ–‡å­—æœ¬èº«éƒ½èƒ½å®Œæ•´æ¸²æŸ“å‡ºæ¥ã€‚
         size = (
             int(max_width),
             int(txt_height + vertical_padding + (interline * line_count)),
@@ -692,8 +692,8 @@ def generate_video(
             logger.error(f"failed to add bgm: {str(e)}")
 
     video_clip = video_clip.with_audio(audio_clip)
-    # 显式沿用输入音频的采样率；如果取不到，再回退到 MoviePy 默认的 44100Hz。
-    # 这样可以减少不同运行环境，尤其是 Docker 环境中再次重采样带来的音质波动。
+    # æ˜¾å¼æ²¿ç”¨è¾“å…¥éŸ³é¢‘çš„é‡‡æ ·çŽ‡ï¼›å¦‚æžœå–ä¸åˆ°ï¼Œå†å›žé€€åˆ° MoviePy é»˜è®¤çš„ 44100Hzã€‚
+    # è¿™æ ·å¯ä»¥å‡å°‘ä¸åŒè¿è¡ŒçŽ¯å¢ƒï¼Œå°¤å…¶æ˜¯ Docker çŽ¯å¢ƒä¸­å†æ¬¡é‡é‡‡æ ·å¸¦æ¥çš„éŸ³è´¨æ³¢åŠ¨ã€‚
     output_audio_fps = int(getattr(audio_clip, "fps", 0) or 44100)
     video_clip.write_videofile(
         output_file,
@@ -710,23 +710,23 @@ def generate_video(
     video_clip = video_clip.with_audio(None)
     try:
         audio_clip.close()
-    except Exception:
-        pass
-    if bgm_file:
+    except Exception as e:
+        logger.debug("Suppressed error closing audio clip: " + str(e))
+    if bgm_file and "bgm_clip" in dir():
         try:
             bgm_clip.close()
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug("Suppressed error closing BGM clip: " + str(e))
     video_clip.close()
     del video_clip
 
 
 def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
-    # WebUI 在某些二次生成场景下可能传入空素材列表，这里直接返回空结果，避免抛出 NoneType 异常。
+    # WebUI åœ¨æŸäº›äºŒæ¬¡ç”Ÿæˆåœºæ™¯ä¸‹å¯èƒ½ä¼ å…¥ç©ºç´ æåˆ—è¡¨ï¼Œè¿™é‡Œç›´æŽ¥è¿”å›žç©ºç»“æžœï¼Œé¿å…æŠ›å‡º NoneType å¼‚å¸¸ã€‚
     if not materials:
         return []
 
-    # 仅返回通过预处理校验的素材，避免低分辨率图片继续进入后续的视频合成流程。
+    # ä»…è¿”å›žé€šè¿‡é¢„å¤„ç†æ ¡éªŒçš„ç´ æï¼Œé¿å…ä½Žåˆ†è¾¨çŽ‡å›¾ç‰‡ç»§ç»­è¿›å…¥åŽç»­çš„è§†é¢‘åˆæˆæµç¨‹ã€‚
     valid_materials = []
     local_videos_dir = utils.storage_dir("local_videos", create=True)
 
@@ -739,9 +739,9 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
                 local_videos_dir, material.url
             )
         except ValueError as exc:
-            # local video_source 的素材路径来自 API 参数，必须限制在专用素材目录。
-            # 允许用户传文件名，也兼容历史返回的绝对路径，但不允许逃逸到系统
-            # 其他目录，避免任意文件读取或通过 MoviePy 探测本地敏感文件。
+            # local video_source çš„ç´ æè·¯å¾„æ¥è‡ª API å‚æ•°ï¼Œå¿…é¡»é™åˆ¶åœ¨ä¸“ç”¨ç´ æç›®å½•ã€‚
+            # å…è®¸ç”¨æˆ·ä¼ æ–‡ä»¶åï¼Œä¹Ÿå…¼å®¹åŽ†å²è¿”å›žçš„ç»å¯¹è·¯å¾„ï¼Œä½†ä¸å…è®¸é€ƒé€¸åˆ°ç³»ç»Ÿ
+            # å…¶ä»–ç›®å½•ï¼Œé¿å…ä»»æ„æ–‡ä»¶è¯»å–æˆ–é€šè¿‡ MoviePy æŽ¢æµ‹æœ¬åœ°æ•æ„Ÿæ–‡ä»¶ã€‚
             logger.warning(
                 f"skip unsafe local material: {material.url}, "
                 f"local_videos_dir: {local_videos_dir}, error: {str(exc)}"
@@ -750,7 +750,7 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
 
         ext = utils.parse_extension(material_source_path)
         try:
-            # 图片素材直接按图片方式读取，避免先走 VideoFileClip 误判后触发不稳定的回退分支。
+            # å›¾ç‰‡ç´ æç›´æŽ¥æŒ‰å›¾ç‰‡æ–¹å¼è¯»å–ï¼Œé¿å…å…ˆèµ° VideoFileClip è¯¯åˆ¤åŽè§¦å‘ä¸ç¨³å®šçš„å›žé€€åˆ†æ”¯ã€‚
             if ext in const.FILE_TYPE_IMAGES:
                 clip, material_source_path = _open_image_clip_with_fallback(
                     material_source_path
@@ -758,7 +758,7 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
             else:
                 clip = _open_video_clip_quietly(material_source_path)
         except Exception:
-            # 非标准扩展名或探测失败时再回退到图片模式，兼容历史上直接传本地图片路径的情况。
+            # éžæ ‡å‡†æ‰©å±•åæˆ–æŽ¢æµ‹å¤±è´¥æ—¶å†å›žé€€åˆ°å›¾ç‰‡æ¨¡å¼ï¼Œå…¼å®¹åŽ†å²ä¸Šç›´æŽ¥ä¼ æœ¬åœ°å›¾ç‰‡è·¯å¾„çš„æƒ…å†µã€‚
             try:
                 clip, material_source_path = _open_image_clip_with_fallback(
                     material_source_path
@@ -773,13 +773,13 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
             height = clip.size[1]
             if width < 480 or height < 480:
                 logger.warning(f"low resolution material: {width}x{height}, minimum 480x480 required")
-                # 探测到低分辨率素材后立即关闭资源，并且不要把该素材返回给后续流程。
+                # æŽ¢æµ‹åˆ°ä½Žåˆ†è¾¨çŽ‡ç´ æåŽç«‹å³å…³é—­èµ„æºï¼Œå¹¶ä¸”ä¸è¦æŠŠè¯¥ç´ æè¿”å›žç»™åŽç»­æµç¨‹ã€‚
                 close_clip(clip)
                 continue
 
             if ext in const.FILE_TYPE_IMAGES:
                 logger.info(f"processing image: {material_source_path}")
-                # 探测尺寸时已经打开过一次素材，这里先释放探测句柄，再重新创建用于导出的图片 clip。
+                # æŽ¢æµ‹å°ºå¯¸æ—¶å·²ç»æ‰“å¼€è¿‡ä¸€æ¬¡ç´ æï¼Œè¿™é‡Œå…ˆé‡Šæ”¾æŽ¢æµ‹å¥æŸ„ï¼Œå†é‡æ–°åˆ›å»ºç”¨äºŽå¯¼å‡ºçš„å›¾ç‰‡ clipã€‚
                 close_clip(clip)
                 # Create an image clip and set its duration to 3 seconds
                 clip = (
@@ -808,7 +808,7 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
                 material.url = video_file
                 logger.success(f"image processed: {video_file}")
             else:
-                # 普通视频素材只需要读取尺寸做校验，校验完成后立即释放句柄即可。
+                # æ™®é€šè§†é¢‘ç´ æåªéœ€è¦è¯»å–å°ºå¯¸åšæ ¡éªŒï¼Œæ ¡éªŒå®ŒæˆåŽç«‹å³é‡Šæ”¾å¥æŸ„å³å¯ã€‚
                 close_clip(clip)
         except Exception:
             close_clip(clip)
@@ -817,3 +817,4 @@ def preprocess_video(materials: List[MaterialInfo], clip_duration=4):
         valid_materials.append(material)
 
     return valid_materials
+
