@@ -3,6 +3,42 @@ import sys
 import webbrowser
 from uuid import UUID, uuid4
 
+import asyncio
+import warnings
+
+# --- Suppress benign asyncio/Tornado WebSocket errors ---
+# These occur when Streamlit's internal Tornado server tries to write to a
+# WebSocket that was already closed (e.g., browser disconnect during a long
+# video generation task, or page refresh during an app rerun). The errors
+# are harmless but spam the console.
+_WEBSOCKET_EXC_ORIGINAL = None
+
+
+def _websocket_exc_filter(loop, context):
+    exc = context.get("exception")
+    if exc is not None:
+        exc_name = type(exc).__qualname__
+        if exc_name in ("WebSocketClosedError", "StreamClosedError"):
+            return
+        if isinstance(exc, RuntimeError) and (
+            "no running event loop" in str(exc)
+            or "cannot be called from a running event loop" in str(exc)
+        ):
+            return
+    _WEBSOCKET_EXC_ORIGINAL(loop, context)
+
+
+try:
+    _loop = asyncio.get_running_loop()
+    _WEBSOCKET_EXC_ORIGINAL = _loop.get_exception_handler() or _loop.default_exception_handler
+    _loop.set_exception_handler(_websocket_exc_filter)
+except RuntimeError:
+    pass
+
+warnings.filterwarnings("ignore", message="Task exception was never retrieved")
+# ---
+
+
 import streamlit as st
 from loguru import logger
 

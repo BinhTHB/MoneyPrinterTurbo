@@ -11,6 +11,16 @@ Rules:
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
 
+
+## Custome Branch Rules
+
+This is a personal fork. Follow these rules strictly:
+- Never create pull requests to the upstream (harry0703/MoneyPrinterTurbo) unless explicitly asked.
+- Always perform all code changes on the custome branch. Never commit directly to main.
+- main must always stay identical to upstream — no custom commits.
+- Upstream URL: https://github.com/harry0703/MoneyPrinterTurbo (remote name: upstream)
+- Fork URL: https://github.com/BinhTHB/MoneyPrinterTurbo (remote name: origin)
+
 ## Language
 
 Always respond in Vietnamese (tiếng Việt) unless the user explicitly requests another language.
