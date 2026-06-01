@@ -685,9 +685,11 @@ with middle_panel:
                 accept_multiple_files=True,
             )
 
+        saved_concat_mode = config.app.get("video_concat_mode", "sequential")
+        saved_concat_index = [v[1] for v in video_concat_modes].index(saved_concat_mode)
         selected_index = st.selectbox(
             tr("Video Concat Mode"),
-            index=1,
+            index=saved_concat_index,
             options=range(
                 len(video_concat_modes)
             ),  # Use the index as the internal option value
