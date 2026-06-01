@@ -1,5 +1,6 @@
 [app]
 video_source = "pexels" # "pexels" or "pixabay"
+video_concat_mode = "sequential" # "random" or "sequential"
 
 # 是否隐藏配置面板
 hide_config = false
