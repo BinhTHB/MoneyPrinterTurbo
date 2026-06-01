@@ -1028,11 +1028,19 @@ with middle_panel:
             index=2,
         )
 
+        saved_voice_rate = config.ui.get("voice_rate", 1.2)
+        voice_rate_options = [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 1.8, 2.0]
+        saved_voice_rate_index = 2
+        for i, v in enumerate(voice_rate_options):
+            if v == saved_voice_rate:
+                saved_voice_rate_index = i
+                break
         params.voice_rate = st.selectbox(
             tr("Speech Rate"),
-            options=[0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 1.8, 2.0],
-            index=2,
+            options=voice_rate_options,
+            index=saved_voice_rate_index,
         )
+        config.ui["voice_rate"] = params.voice_rate
 
         custom_audio_file_types = ["mp3", "wav", "m4a", "aac", "flac", "ogg"]
         uploaded_audio_file = st.file_uploader(
@@ -1151,9 +1159,17 @@ with right_panel:
 
         stroke_cols = st.columns([0.3, 0.7])
         with stroke_cols[0]:
-            params.stroke_color = st.color_picker(tr("Stroke Color"), "#000000")
+            saved_stroke_color = config.ui.get("stroke_color", "#000000")
+            params.stroke_color = st.color_picker(
+                tr("Stroke Color"), saved_stroke_color
+            )
+            config.ui["stroke_color"] = params.stroke_color
         with stroke_cols[1]:
-            params.stroke_width = st.slider(tr("Stroke Width"), 0.0, 10.0, 1.5)
+            saved_stroke_width = config.ui.get("stroke_width", 1.5)
+            params.stroke_width = st.slider(
+                tr("Stroke Width"), 0.0, 10.0, saved_stroke_width
+            )
+            config.ui["stroke_width"] = params.stroke_width
         saved_rounded_subtitle_background = config.ui.get(
             "rounded_subtitle_background", False
         )
