@@ -12,28 +12,25 @@ Rules:
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
 
 
-## Custome Branch Rules
+## Main Branch Workflow
 
-This is a personal fork. Follow these rules strictly:
-- Never create pull requests to the upstream (harry0703/MoneyPrinterTurbo) unless explicitly asked.
-- main must always stay identical to upstream — no custom commits.
-- Upstream URL: https://github.com/harry0703/MoneyPrinterTurbo (remote name: upstream)
-- Fork URL: https://github.com/BinhTHB/MoneyPrinterTurbo (remote name: origin)
+This is a personal fork. The `main` branch is the active development
+branch containing both upstream changes and personal customizations.
+
+Upstream URL: https://github.com/harry0703/MoneyPrinterTurbo (remote: upstream)
+Fork URL: https://github.com/BinhTHB/MoneyPrinterTurbo (remote: origin)
+
+Rules:
+- Never create pull requests to the upstream unless explicitly asked.
+- When upstream has new changes, merge them into main, resolving
+  conflicts to keep our customizations:
+  ```
+  git fetch upstream
+  git merge upstream/main
+  # resolve conflicts, keeping our changes
+  git push origin main
+  ```
 
 ## Language
 
 Always respond in Vietnamese (tiếng Việt) unless the user explicitly requests another language.
-
-
-## Update rule
-Lấy thay đổi từ upstream (repo gốc):
-git fetch upstream
-
-Chuyển về nhánh chính (main/master):
-git checkout main
-
-Merge thay đổi từ upstream/main vào local main:
-git merge upstream/main
-
-Push lên fork của bạn (origin):
-git push origin main
