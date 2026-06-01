@@ -6,6 +6,8 @@ import random
 import gc
 import shutil
 import subprocess
+import unicodedata
+import re
 from contextlib import redirect_stdout
 from typing import List
 from loguru import logger
@@ -545,7 +547,6 @@ def _hex_to_rgb(color: str) -> tuple[int, int, int]:
             pass
     return (0, 0, 0)
 
-
 def _rounded_subtitle_background_clip(
     width: int,
     height: int,
@@ -566,6 +567,23 @@ def _rounded_subtitle_background_clip(
         fill=(rgb[0], rgb[1], rgb[2], safe_alpha),
     )
     return ImageClip(np.array(img), transparent=True)
+
+
+def _detect_vietnamese_in_file(subtitle_path: str) -> bool:
+    if not subtitle_path or not os.path.isfile(subtitle_path):
+        return False
+    try:
+        with open(subtitle_path, "r", encoding="utf-8") as f:
+            content = f.read(4096)
+        vietnamese_chars = re.compile(
+            r"[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợ"
+            r"ùúủũụưừứửữựỳýỷỹỵđÀÁẢÃẠĂẰẮẲẴẶÂẦẤẨẪẬÈÉẺẼẸÊỀẾỂỄỆÌÍỈĨỊ"
+            r"ÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢÙÚỦŨỤƯỪỨỬỮỰỲÝỶỸỴĐ]"
+        )
+        return bool(vietnamese_chars.search(content))
+    except Exception:
+        return False
+
 
 
 def generate_video(
@@ -596,6 +614,16 @@ def generate_video(
         font_path = os.path.join(utils.font_dir(), params.font_name)
         if os.name == "nt":
             font_path = font_path.replace("\\", "/")
+
+        if _detect_vietnamese_in_file(subtitle_path):
+            viet_font = os.path.join(utils.font_dir(), "UTM Kabel KT.ttf")
+            if os.path.exists(viet_font) and "UTM Kabel KT" not in params.font_name:
+                logger.info(
+                    f"  ⑥ Vietnamese detected, switching font to UTM Kabel KT.ttf "
+                    f"(was: {params.font_name})"
+                )
+                font_path = viet_font.replace("\\", "/") if os.name == "nt" else viet_font
+                params.font_name = "UTM Kabel KT.ttf"
 
         logger.info(f"  ⑤ font: {font_path}")
 
@@ -758,6 +786,18 @@ def generate_video(
         logger=None,
         fps=fps,
     )
+    # Detach audio from video before closing to avoid double-free of
+    # FFMPEG_AudioReader on Windows (OSError: [WinError 6] The handle is invalid).
+    video_clip = video_clip.with_audio(None)
+    try:
+        audio_clip.close()
+    except Exception:
+        pass
+    if bgm_file:
+        try:
+            bgm_clip.close()
+        except Exception:
+            pass
     video_clip.close()
     del video_clip
 

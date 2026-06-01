@@ -29,6 +29,7 @@ venv/
 
 # Debug and test files
 CLAUDE.md
+AGENTS.md
 debug/
 debug_*.py
 test_*.py
