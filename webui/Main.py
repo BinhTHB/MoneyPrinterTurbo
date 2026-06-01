@@ -1167,7 +1167,7 @@ with right_panel:
         with stroke_cols[1]:
             saved_stroke_width = config.ui.get("stroke_width", 1.5)
             params.stroke_width = st.slider(
-                tr("Stroke Width"), 0.0, 10.0, saved_stroke_width
+                tr("Stroke Width"), 0.0, 10.0, saved_stroke_width, step=0.5
             )
             config.ui["stroke_width"] = params.stroke_width
         saved_rounded_subtitle_background = config.ui.get(
