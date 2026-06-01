@@ -16,6 +16,33 @@ from app.services import llm
 
 
 class TestScriptPromptOptions(unittest.TestCase):
+    def test_normalize_text_response_removes_think_blocks(self):
+        """
+        reasoning 模型可能返回 `<think>...</think>`。脚本生成链路必须只保留
+        最终正文，避免思考过程进入字幕和配音。
+        """
+        result = llm._normalize_text_response(
+            "<think>\nI should reason here.\n</think>\n测试成功",
+            "minimax",
+        )
+
+        self.assertEqual(result, "测试成功")
+
+    def test_normalize_text_response_rejects_think_only_response(self):
+        """
+        如果模型只返回思考块而没有最终答案，应视为空内容，触发重试或明确错误。
+        """
+        with self.assertRaises(ValueError):
+            llm._normalize_text_response("<think>hidden reasoning</think>", "minimax")
+
+    def test_normalize_text_response_removes_unclosed_think_block(self):
+        """
+        某些网关可能因为截断只返回未闭合的 `<think>`。这种内容同样不能
+        进入最终脚本；如果清理后没有正文，就应该按空响应处理。
+        """
+        with self.assertRaises(ValueError):
+            llm._normalize_text_response("<think>hidden reasoning", "minimax")
+
     def test_build_script_prompt_appends_advanced_requirements(self):
         """
         高级文案要求只作为附加约束，不替换默认系统提示词。
@@ -180,6 +207,75 @@ class TestLiteLLMProvider(unittest.TestCase):
         self.assertIn("Error:", result)
         self.assertIn("api_key is not set", result)
         self.assertNotIn("litellm", result.lower())
+
+    def _use_qwen_provider(self):
+        config.app["llm_provider"] = "qwen"
+        config.app["qwen_api_key"] = "qwen-key"
+        config.app["qwen_model_name"] = "qwen-max"
+
+    def _patch_dashscope_generation(self, response):
+        class FakeGenerationResponse(dict):
+            pass
+
+        fake_response = FakeGenerationResponse(response)
+        fake_response.status_code = response.get("status_code", 200)
+        fake_dashscope = types.SimpleNamespace(
+            api_key="",
+            Generation=types.SimpleNamespace(call=lambda **kwargs: fake_response),
+        )
+        fake_dashscope_response = types.SimpleNamespace(
+            GenerationResponse=FakeGenerationResponse
+        )
+
+        return patch.dict(
+            sys.modules,
+            {
+                "dashscope": fake_dashscope,
+                "dashscope.api_entities": types.SimpleNamespace(),
+                "dashscope.api_entities.dashscope_response": fake_dashscope_response,
+            },
+        )
+
+    def test_qwen_provider_reads_chat_choices_content(self):
+        """
+        DashScope chat 模式会把文本放在 `output.choices[0].message.content`。
+        这里覆盖 issue #966 报告的 `output.text is None` 场景，避免再次触发
+        `'NoneType' object has no attribute 'replace'`。
+        """
+        self._use_qwen_provider()
+        response = {
+            "output": {
+                "text": None,
+                "choices": [{"message": {"content": "你好\n世界"}}],
+            }
+        }
+
+        with self._patch_dashscope_generation(response):
+            result = llm._generate_response("Say hello")
+
+        self.assertEqual(result, "你好世界")
+
+    def test_qwen_provider_falls_back_to_output_text(self):
+        """保留旧 DashScope completion 响应结构的兼容路径。"""
+        self._use_qwen_provider()
+        response = {"output": {"text": "旧格式\n响应"}}
+
+        with self._patch_dashscope_generation(response):
+            result = llm._generate_response("Say hello")
+
+        self.assertEqual(result, "旧格式响应")
+
+    def test_qwen_provider_reports_empty_text(self):
+        """Qwen 空响应应返回可诊断错误，而不是底层 AttributeError。"""
+        self._use_qwen_provider()
+        response = {"output": {"text": None, "choices": [{"message": {"content": None}}]}}
+
+        with self._patch_dashscope_generation(response):
+            result = llm._generate_response("Say hello")
+
+        self.assertIn("Error:", result)
+        self.assertIn("returned empty text content", result)
+        self.assertNotIn("NoneType", result)
 
     def test_aihubmix_provider_uses_openai_compatible_client(self):
         """

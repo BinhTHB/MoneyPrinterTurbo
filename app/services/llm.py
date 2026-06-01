@@ -17,6 +17,8 @@ MIN_SCRIPT_PARAGRAPH_NUMBER = 1
 MAX_SCRIPT_PARAGRAPH_NUMBER = 10
 MAX_SCRIPT_PROMPT_LENGTH = 2000
 MAX_SCRIPT_SYSTEM_PROMPT_LENGTH = 8000
+_THINK_BLOCK_RE = re.compile(r"<think\b[^>]*>.*?</think>", re.IGNORECASE | re.DOTALL)
+_UNCLOSED_THINK_BLOCK_RE = re.compile(r"<think\b[^>]*>.*$", re.IGNORECASE | re.DOTALL)
 
 DEFAULT_SCRIPT_SYSTEM_PROMPT = """
 # Role: Video Script Generator
@@ -49,7 +51,11 @@ def _normalize_text_response(content, llm_provider: str) -> str:
             f"[{llm_provider}] returned non-text content: {type(content).__name__}"
         )
 
-    content = content.strip()
+    # MiniMax M3、DeepSeek R1 这类 reasoning 模型可能会把内部推理包在
+    # `<think>...</think>` 中返回。视频脚本和关键词只需要最终可朗读文本，
+    # 如果不在服务层统一清理，WebUI、字幕和配音都会把思考过程当正文处理。
+    content = _THINK_BLOCK_RE.sub("", content)
+    content = _UNCLOSED_THINK_BLOCK_RE.sub("", content).strip()
     if not content:
         raise ValueError(f"[{llm_provider}] returned empty text content")
 
@@ -72,6 +78,39 @@ def _extract_chat_completion_text(response, llm_provider: str) -> str:
 
     content = getattr(message, "content", None)
     return _normalize_text_response(content, llm_provider)
+
+
+def _get_response_field(value, key: str):
+    """兼容 dict 和 SDK 响应对象的字段读取。"""
+    if isinstance(value, dict):
+        return value.get(key)
+
+    try:
+        return value[key]
+    except (KeyError, TypeError, AttributeError):
+        return getattr(value, key, None)
+
+
+def _extract_qwen_generation_text(response) -> str:
+    """
+    从 DashScope Generation 响应中提取文本。
+
+    Qwen 使用 `messages` 调用时返回的是 chat 结构：
+    `output.choices[0].message.content`；旧 completion 形态才会返回
+    `output.text`。这里两个路径都兼容，避免 `output.text` 为 None 时
+    继续 `.replace()` 触发不可诊断的 AttributeError。
+    """
+    output = _get_response_field(response, "output")
+    choices = _get_response_field(output, "choices") if output else None
+    if choices:
+        first_choice = choices[0]
+        message = _get_response_field(first_choice, "message")
+        content = _get_response_field(message, "content") if message else None
+        if content is not None:
+            return _normalize_text_response(content, "qwen")
+
+    text = _get_response_field(output, "text") if output else None
+    return _normalize_text_response(text, "qwen")
 
 
 def _generate_response(prompt: str) -> str:
@@ -290,8 +329,7 @@ def _generate_response(prompt: str) -> str:
                                 f'[{llm_provider}] returned an error response: "{response}"'
                             )
 
-                        content = response["output"]["text"]
-                        return content.replace("\n", "")
+                        return _extract_qwen_generation_text(response)
                     else:
                         raise Exception(
                             f'[{llm_provider}] returned an invalid response: "{response}"'
