@@ -101,11 +101,15 @@ if "video_script" not in st.session_state:
 if "video_terms" not in st.session_state:
     st.session_state["video_terms"] = ""
 if "video_script_prompt" not in st.session_state:
-    st.session_state["video_script_prompt"] = ""
+    st.session_state["video_script_prompt"] = config.ui.get("video_script_prompt", "")
 if "custom_system_prompt" not in st.session_state:
-    st.session_state["custom_system_prompt"] = llm.DEFAULT_SCRIPT_SYSTEM_PROMPT
+    st.session_state["custom_system_prompt"] = config.ui.get(
+        "custom_system_prompt", llm.DEFAULT_SCRIPT_SYSTEM_PROMPT
+    )
 if "use_custom_system_prompt" not in st.session_state:
-    st.session_state["use_custom_system_prompt"] = False
+    st.session_state["use_custom_system_prompt"] = config.ui.get(
+        "use_custom_system_prompt", False
+    )
 if "ui_language" not in st.session_state:
     st.session_state["ui_language"] = config.ui.get("language", system_locale)
 if "local_video_materials" not in st.session_state:
@@ -673,8 +677,12 @@ with left_panel:
                     key="custom_system_prompt",
                 ).strip()
                 params.custom_system_prompt = custom_system_prompt
+                config.ui["custom_system_prompt"] = custom_system_prompt
             else:
                 params.custom_system_prompt = ""
+
+            config.ui["video_script_prompt"] = st.session_state["video_script_prompt"]
+            config.ui["use_custom_system_prompt"] = use_custom_system_prompt
 
         if st.button(
             tr("Generate Video Script and Keywords"), key="auto_generate_script"
