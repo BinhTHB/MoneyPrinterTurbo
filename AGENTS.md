@@ -16,7 +16,6 @@ Rules:
 
 This is a personal fork. Follow these rules strictly:
 - Never create pull requests to the upstream (harry0703/MoneyPrinterTurbo) unless explicitly asked.
-- Always perform all code changes on the custome branch. Never commit directly to main.
 - main must always stay identical to upstream — no custom commits.
 - Upstream URL: https://github.com/harry0703/MoneyPrinterTurbo (remote name: upstream)
 - Fork URL: https://github.com/BinhTHB/MoneyPrinterTurbo (remote name: origin)
@@ -24,3 +23,17 @@ This is a personal fork. Follow these rules strictly:
 ## Language
 
 Always respond in Vietnamese (tiếng Việt) unless the user explicitly requests another language.
+
+
+## Update rule
+Lấy thay đổi từ upstream (repo gốc):
+git fetch upstream
+
+Chuyển về nhánh chính (main/master):
+git checkout main
+
+Merge thay đổi từ upstream/main vào local main:
+git merge upstream/main
+
+Push lên fork của bạn (origin):
+git push origin main

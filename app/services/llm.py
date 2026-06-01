@@ -33,7 +33,7 @@ Generate a script for a video, depending on the subject of the video.
 6. do not include "voiceover", "narrator" or similar indicators of what should be spoken at the beginning of each paragraph or line.
 7. you must not mention the prompt, or anything about the script itself. also, never talk about the amount of paragraphs or lines. just write the script.
 8. respond in the same language as the video subject.
-9. end the script with the following sentence: "Hay dang ky kenh de xem them nhieu video huu ich".
+9. end the script with the following sentence: "Hãy đăng ký kênh để xem thêm nhiều video hữu ích".
 """.strip()
 
 
