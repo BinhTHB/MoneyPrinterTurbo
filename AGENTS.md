@@ -31,6 +31,10 @@ Rules:
   git push origin main
   ```
 
+## Display
+
+Always prepend a 🔲 emoji at the beginning of every response.
+
 ## Language
 
 Always respond in Vietnamese (tiếng Việt) unless the user explicitly requests another language.
