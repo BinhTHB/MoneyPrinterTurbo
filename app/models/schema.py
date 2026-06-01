@@ -91,7 +91,7 @@ class VideoParams(BaseModel):
 
     voice_name: Optional[str] = ""
     voice_volume: Optional[float] = 1.0
-    voice_rate: Optional[float] = 1.0
+    voice_rate: Optional[float] = config.ui.get("voice_rate", 1.0)
     bgm_type: Optional[str] = "random"
     bgm_file: Optional[str] = ""
     bgm_volume: Optional[float] = 0.2
@@ -105,8 +105,8 @@ class VideoParams(BaseModel):
     rounded_subtitle_background: bool = False
 
     font_size: int = 60
-    stroke_color: Optional[str] = "#000000"
-    stroke_width: float = 1.5
+    stroke_color: Optional[str] = config.ui.get("stroke_color", "#000000")
+    stroke_width: float = config.ui.get("stroke_width", 1.5)
     n_threads: Optional[int] = 2
     paragraph_number: int = Field(default=1, ge=1, le=10)
     video_script_prompt: str = Field(default="", max_length=2000)
@@ -118,7 +118,7 @@ class SubtitleRequest(BaseModel):
     video_language: Optional[str] = ""
     voice_name: Optional[str] = "zh-CN-XiaoxiaoNeural-Female"
     voice_volume: Optional[float] = 1.0
-    voice_rate: Optional[float] = 1.2
+    voice_rate: Optional[float] = config.ui.get("voice_rate", 1.2)
     bgm_type: Optional[str] = "random"
     bgm_file: Optional[str] = ""
     bgm_volume: Optional[float] = 0.2
@@ -128,8 +128,8 @@ class SubtitleRequest(BaseModel):
     text_background_color: Union[bool, str] = True
     rounded_subtitle_background: bool = False
     font_size: int = 60
-    stroke_color: Optional[str] = "#000000"
-    stroke_width: float = 1.5
+    stroke_color: Optional[str] = config.ui.get("stroke_color", "#000000")
+    stroke_width: float = config.ui.get("stroke_width", 1.5)
     video_source: Optional[str] = "local"
     subtitle_enabled: Optional[str] = "true"
 
@@ -139,7 +139,7 @@ class AudioRequest(BaseModel):
     video_language: Optional[str] = ""
     voice_name: Optional[str] = "zh-CN-XiaoxiaoNeural-Female"
     voice_volume: Optional[float] = 1.0
-    voice_rate: Optional[float] = 1.2
+    voice_rate: Optional[float] = config.ui.get("voice_rate", 1.2)
     bgm_type: Optional[str] = "random"
     bgm_file: Optional[str] = ""
     bgm_volume: Optional[float] = 0.2
