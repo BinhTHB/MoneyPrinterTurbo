@@ -853,6 +853,7 @@ with middle_panel:
             ("gemini-tts", "Google Gemini TTS"),
             ("mimo-tts", "Xiaomi MiMo TTS"),
             ("elevenlabs-tts", "ElevenLabs TTS"),
+            ("fptai-tts", "FPT AI TTS"),
         ]
 
         # 获取保存的TTS服务器，默认为v1
@@ -888,6 +889,9 @@ with middle_panel:
         elif selected_tts_server == "elevenlabs-tts":
             # 获取 ElevenLabs TTS 的声音列表
             filtered_voices = voice.get_elevenlabs_voices()
+        elif selected_tts_server == "fptai-tts":
+            # 获取 FPT AI TTS 的声音列表
+            filtered_voices = voice.get_fptai_voices()
         else:
             # 获取Azure的声音列表
             all_voices = voice.get_all_azure_voices(filter_locals=None)

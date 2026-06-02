@@ -188,6 +188,26 @@ def get_elevenlabs_voices() -> list[str]:
     ]
 
 
+def get_fptai_voices() -> list[str]:
+    """
+    Get FPT AI TTS voice list.
+
+    Returns:
+        List of voices in format "fptai:voice-Gender"
+    """
+    voices_with_gender = [
+        ("banmai", "Female"),
+        ("lannhi", "Female"),
+        ("thuminh", "Female"),
+        ("ngoclam", "Female"),
+        ("giahuy", "Male"),
+        ("minhquang", "Male"),
+    ]
+    return [
+        f"fptai:{voice}-{gender}"
+        for voice, gender in voices_with_gender
+    ]
+
 _AZURE_VOICES_DATA_FILE = os.path.join(
     os.path.dirname(__file__), "data", "azure_voices.json"
 )
@@ -253,6 +273,10 @@ def is_elevenlabs_voice(voice_name: str):
     """检查是否是 ElevenLabs TTS 的声音"""
     return voice_name.startswith("elevenlabs:")
 
+def is_fptai_voice(voice_name: str):
+    """检查是否是 FPT AI TTS 的声音"""
+    return voice_name.startswith("fptai:")
+
 
 def tts(
     text: str,
@@ -313,6 +337,16 @@ def tts(
             return elevenlabs_tts(text, voice_id, voice_rate, voice_file, voice_volume)
         else:
             logger.error(f"Invalid elevenlabs voice name format: {voice_name}")
+            return None
+    elif is_fptai_voice(voice_name):
+        # Format: fptai:voice-Gender
+        parts = voice_name.split(":")
+        if len(parts) >= 2:
+            voice_with_gender = parts[1]
+            voice = voice_with_gender.split("-")[0]
+            return fptai_tts(text, voice, voice_rate, voice_file, voice_volume)
+        else:
+            logger.error(f"Invalid fptai voice name format: {voice_name}")
             return None
     return azure_tts_v1(text, voice_name, voice_rate, voice_file)
 
@@ -1179,6 +1213,105 @@ def elevenlabs_tts(
             return None
         except Exception as e:
             logger.error(f"elevenlabs tts failed: {str(e)}")
+
+    return None
+
+
+def fptai_tts(
+    text: str,
+    voice_name: str,
+    voice_rate: float,
+    voice_file: str,
+    voice_volume: float = 1.0,
+) -> Union[SubMaker, None]:
+    """
+    Use FPT AI TTS API to generate speech (Vietnamese TTS).
+
+    API endpoint: POST https://api.fpt.ai/hmi/tts/v5
+    Requires api-key in header. Body is plain text encoded as UTF-8.
+
+    Args:
+        text: Text to convert to speech (supports Vietnamese)
+        voice_name: Voice name (e.g. "banmai", "lannhi", "giahuy")
+        voice_rate: Speech rate multiplier (mapped to FPT speed parameter)
+        voice_file: Output audio file path (.mp3)
+        voice_volume: Audio volume (currently handled by provider defaults)
+
+    Returns:
+        SubMaker object or None on failure
+    """
+    from pydub import AudioSegment
+    _configure_pydub_ffmpeg(AudioSegment)
+
+    text = (text or "").strip()
+    if not text:
+        logger.error("FPT AI TTS text is empty")
+        return None
+
+    api_key = config.fptai.get("api_key", "")
+    if not api_key:
+        logger.error("FPT AI TTS API key is not set, configure [fptai] api_key in config.toml")
+        return None
+
+    url = "https://api.fpt.ai/hmi/tts/v5"
+
+    # Map voice_rate to FPT speed parameter.
+    # FPT speed: empty string = default (1.0), or values like "0.8", "1.2"
+    speed = ""
+    if voice_rate > 0:
+        speed = f"{voice_rate:.1f}"
+
+    headers = {
+        "api-key": api_key,
+        "speed": speed,
+        "voice": voice_name,
+    }
+
+    for i in range(3):
+        try:
+            logger.info(
+                f"start fptai tts, voice: {voice_name}, speed: {speed}, try: {i + 1}"
+            )
+            ensure_file_path_exists(voice_file)
+
+            response = requests.post(
+                url,
+                data=text.encode("utf-8"),
+                headers=headers,
+                stream=True,
+            )
+
+            if response.status_code == 200:
+                # Save audio file
+                with open(voice_file, "wb") as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+
+                # Get audio duration for subtitle generation
+                try:
+                    audio_segment = AudioSegment.from_file(voice_file)
+                    audio_duration = len(audio_segment) / 1000.0
+                except Exception as e:
+                    logger.warning(f"failed to get audio duration: {str(e)}")
+                    audio_duration = 0.0
+
+                sub_maker = ensure_legacy_submaker_fields(SubMaker())
+                logger.success(f"fptai tts succeeded: {voice_file}")
+                return populate_legacy_submaker_with_full_text(
+                    sub_maker=sub_maker,
+                    text=text,
+                    audio_duration_seconds=audio_duration,
+                )
+            else:
+                error_body = response.text
+                logger.error(
+                    f"fptai tts failed with status code {response.status_code}: {error_body}"
+                )
+        except Exception as e:
+            logger.error(f"fptai tts failed: {str(e)}")
+
+    return None
 
     return None
 

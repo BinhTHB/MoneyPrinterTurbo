@@ -311,7 +311,20 @@ api_key = \"\"
 default_voice_id = \"JBFqnCBsd6RMkjVDRZzb\"
 # Model ID: \"eleven_multilingual_v2\" (29 languages), \"eleven_flash_v2_5\" (low-latency),
 # \"eleven_turbo_v2_5\" (balanced), \"eleven_v3\" (dramatic delivery, 70+ languages)
+model_id = \"eleven_multilingual_v2\"[elevenlabs]
+# ElevenLabs API Key
+# Sign up at https://elevenlabs.io to get your API key.
+api_key = \"\"
+# Default voice ID. Browse voices at https://elevenlabs.io/voice-lab
+default_voice_id = \"JBFqnCBsd6RMkjVDRZzb\"
+# Model ID: \"eleven_multilingual_v2\" (29 languages), \"eleven_flash_v2_5\" (low-latency),
+# \"eleven_turbo_v2_5\" (balanced), \"eleven_v3\" (dramatic delivery, 70+ languages)
 model_id = \"eleven_multilingual_v2\"
+
+[fptai]
+# FPT AI TTS API Key
+# Register at https://fpt.ai to get your API key
+api_key = ""
 
 [ui]
 # UI related settings
