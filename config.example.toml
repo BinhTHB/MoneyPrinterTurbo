@@ -303,6 +303,16 @@ speech_region = ""
 # Get your API key at https://siliconflow.cn
 api_key = ""
 
+[elevenlabs]
+# ElevenLabs API Key
+# Sign up at https://elevenlabs.io to get your API key.
+api_key = \"\"
+# Default voice ID. Browse voices at https://elevenlabs.io/voice-lab
+default_voice_id = \"JBFqnCBsd6RMkjVDRZzb\"
+# Model ID: \"eleven_multilingual_v2\" (29 languages), \"eleven_flash_v2_5\" (low-latency),
+# \"eleven_turbo_v2_5\" (balanced), \"eleven_v3\" (dramatic delivery, 70+ languages)
+model_id = \"eleven_multilingual_v2\"
+
 [ui]
 # UI related settings
 # 是否隐藏日志信息

@@ -852,6 +852,7 @@ with middle_panel:
             ("siliconflow", "SiliconFlow TTS"),
             ("gemini-tts", "Google Gemini TTS"),
             ("mimo-tts", "Xiaomi MiMo TTS"),
+            ("elevenlabs-tts", "ElevenLabs TTS"),
         ]
 
         # 获取保存的TTS服务器，默认为v1
@@ -884,6 +885,9 @@ with middle_panel:
         elif selected_tts_server == "mimo-tts":
             # 获取 Xiaomi MiMo TTS 的预置音色列表
             filtered_voices = voice.get_mimo_voices()
+        elif selected_tts_server == "elevenlabs-tts":
+            # 获取 ElevenLabs TTS 的声音列表
+            filtered_voices = voice.get_elevenlabs_voices()
         else:
             # 获取Azure的声音列表
             all_voices = voice.get_all_azure_voices(filter_locals=None)
@@ -1052,6 +1056,34 @@ with middle_panel:
             )
 
             config.app["mimo_api_key"] = mimo_api_key
+
+        # ElevenLabs TTS settings
+        if selected_tts_server == "elevenlabs-tts" or (
+            voice_name and voice.is_elevenlabs_voice(voice_name)
+        ):
+            saved_elevenlabs_api_key = config.app.get("elevenlabs_api_key", "") or config.elevenlabs.get("api_key", "")
+
+            elevenlabs_api_key = st.text_input(
+                tr("ElevenLabs API Key"),
+                value=saved_elevenlabs_api_key,
+                type="password",
+                key="elevenlabs_api_key_input",
+            )
+
+            st.info(
+                tr("ElevenLabs TTS Settings")
+                + ":\n"
+                + "- "
+                + tr("Supports 29+ languages with multilingual model")
+                + "\n"
+                + "- "
+                + tr("Voice list is fetched from your ElevenLabs account, or uses predefined voices")
+                + "\n"
+                + "- "
+                + tr("Get API key at https://elevenlabs.io")
+            )
+
+            config.app["elevenlabs_api_key"] = elevenlabs_api_key
 
         params.voice_volume = st.selectbox(
             tr("Speech Volume"),
