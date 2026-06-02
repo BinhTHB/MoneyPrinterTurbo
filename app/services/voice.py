@@ -1248,9 +1248,9 @@ def fptai_tts(
         logger.error("FPT AI TTS text is empty")
         return None
 
-    api_key = config.fptai.get("api_key", "")
+    api_key = config.app.get("fptai_api_key", "") or config.fptai.get("api_key", "")
     if not api_key:
-        logger.error("FPT AI TTS API key is not set, configure [fptai] api_key in config.toml")
+        logger.error("FPT AI TTS API key is not set, configure fptai_api_key in [app] or api_key in [fptai] in config.toml")
         return None
 
     url = "https://api.fpt.ai/hmi/tts/v5"
