@@ -1255,17 +1255,31 @@ def fptai_tts(
 
     url = "https://api.fpt.ai/hmi/tts/v5"
 
-    # Map voice_rate to FPT speed parameter.
-    # FPT speed: empty string = default (1.0), or values like "0.8", "1.2"
-    speed = ""
-    if voice_rate > 0:
-        speed = f"{voice_rate:.1f}"
+    # Map voice_rate (multiplier, 1.0=normal) to FPT speed (-3..+3).
+    speed = "0"
+    if voice_rate < 0.6:
+        speed = "-3"
+    elif voice_rate < 0.8:
+        speed = "-2"
+    elif voice_rate < 0.95:
+        speed = "-1"
+    elif voice_rate < 1.05:
+        speed = "0"
+    elif voice_rate < 1.2:
+        speed = "+1"
+    elif voice_rate < 1.4:
+        speed = "+2"
+    else:
+        speed = "+3"
 
     headers = {
         "api-key": api_key,
         "speed": speed,
         "voice": voice_name,
+        "format": "mp3",
     }
+
+    import time
 
     for i in range(3):
         try:
@@ -1278,40 +1292,68 @@ def fptai_tts(
                 url,
                 data=text.encode("utf-8"),
                 headers=headers,
-                stream=True,
+                timeout=30,
             )
 
-            if response.status_code == 200:
-                # Save audio file
-                with open(voice_file, "wb") as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        if chunk:
-                            f.write(chunk)
-
-                # Get audio duration for subtitle generation
-                try:
-                    audio_segment = AudioSegment.from_file(voice_file)
-                    audio_duration = len(audio_segment) / 1000.0
-                except Exception as e:
-                    logger.warning(f"failed to get audio duration: {str(e)}")
-                    audio_duration = 0.0
-
-                sub_maker = ensure_legacy_submaker_fields(SubMaker())
-                logger.success(f"fptai tts succeeded: {voice_file}")
-                return populate_legacy_submaker_with_full_text(
-                    sub_maker=sub_maker,
-                    text=text,
-                    audio_duration_seconds=audio_duration,
-                )
-            else:
-                error_body = response.text
+            if response.status_code != 200:
                 logger.error(
-                    f"fptai tts failed with status code {response.status_code}: {error_body}"
+                    f"fptai tts failed with status {response.status_code}: {response.text}"
                 )
+                continue
+
+            # FPT AI TTS v5 returns JSON with async download link
+            resp_json = response.json()
+            if resp_json.get("error") != 0:
+                logger.error(
+                    f"fptai tts API error: {resp_json.get('message', 'unknown')}"
+                )
+                continue
+
+            async_url = resp_json.get("async", "")
+            if not async_url:
+                logger.error("fptai tts returned empty async link")
+                continue
+
+            logger.info(f"fptai tts async link: {async_url}, waiting...")
+
+            audio_downloaded = False
+            for wait_attempt in range(6):
+                time.sleep(5)
+                try:
+                    audio_resp = requests.get(async_url, timeout=30)
+                    if audio_resp.status_code == 200 and len(audio_resp.content) > 1000:
+                        with open(voice_file, "wb") as f:
+                            f.write(audio_resp.content)
+                        audio_downloaded = True
+                        break
+                    else:
+                        logger.info(
+                            f"fptai tts async not ready (attempt {wait_attempt + 1}), "
+                            f"status: {audio_resp.status_code}, size: {len(audio_resp.content)}"
+                        )
+                except requests.RequestException as e:
+                    logger.info(f"fptai tts async retry {wait_attempt + 1}: {str(e)}")
+
+            if not audio_downloaded:
+                logger.error("fptai tts async download failed after retries")
+                continue
+
+            try:
+                audio_segment = AudioSegment.from_file(voice_file)
+                audio_duration = len(audio_segment) / 1000.0
+            except Exception as e:
+                logger.warning(f"failed to get audio duration: {str(e)}")
+                audio_duration = 0.0
+
+            sub_maker = ensure_legacy_submaker_fields(SubMaker())
+            logger.success(f"fptai tts succeeded: {voice_file}")
+            return populate_legacy_submaker_with_full_text(
+                sub_maker=sub_maker,
+                text=text,
+                audio_duration_seconds=audio_duration,
+            )
         except Exception as e:
             logger.error(f"fptai tts failed: {str(e)}")
-
-    return None
 
     return None
 
