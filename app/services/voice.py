@@ -1314,11 +1314,11 @@ def fptai_tts(
                 logger.error("fptai tts returned empty async link")
                 continue
 
-            logger.info(f"fptai tts async link: {async_url}, waiting...")
+            logger.info(f"fptai tts async link: {async_url}, waiting for audio (up to 2 min)...")
 
             audio_downloaded = False
-            for wait_attempt in range(6):
-                time.sleep(5)
+            for wait_attempt in range(12):
+                time.sleep(10)
                 try:
                     audio_resp = requests.get(async_url, timeout=30)
                     if audio_resp.status_code == 200 and len(audio_resp.content) > 1000:
