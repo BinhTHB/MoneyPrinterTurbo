@@ -302,6 +302,7 @@ if not config.app.get("hide_config", False):
                 ("OneAPI", "oneapi"),
                 ("Cloudflare", "cloudflare"),
                 ("ERNIE", "ernie"),
+                ("MiniMax", "minimax"),
                 ("MiMo", "mimo"),
                 ("Pollinations", "pollinations"),
                 ("LiteLLM", "litellm"),
@@ -847,6 +848,7 @@ with middle_panel:
 
         # 添加TTS服务器选择下拉框
         tts_servers = [
+            (voice.NO_VOICE_NAME, tr("No Voice")),
             ("azure-tts-v1", "Azure TTS V1"),
             ("azure-tts-v2", "Azure TTS V2"),
             ("siliconflow", "SiliconFlow TTS"),
@@ -877,7 +879,11 @@ with middle_panel:
         # 根据选择的TTS服务器获取声音列表
         filtered_voices = []
 
-        if selected_tts_server == "siliconflow":
+        if selected_tts_server == voice.NO_VOICE_NAME:
+            # 无配音是显式模式，只提供一个稳定 sentinel。这样普通 TTS 的空配置
+            # 不会被误判为静音，后端也能继续通过同一条音频/字幕流程生成视频。
+            filtered_voices = [voice.NO_VOICE_NAME]
+        elif selected_tts_server == "siliconflow":
             # 获取硅基流动的声音列表
             filtered_voices = voice.get_siliconflow_voices()
         elif selected_tts_server == "gemini-tts":
@@ -907,12 +913,15 @@ with middle_panel:
                     if "V2" not in v:
                         filtered_voices.append(v)
 
-        friendly_names = {
-            v: v.replace("Female", tr("Female"))
-            .replace("Male", tr("Male"))
-            .replace("Neural", "")
-            for v in filtered_voices
-        }
+        if selected_tts_server == voice.NO_VOICE_NAME:
+            friendly_names = {voice.NO_VOICE_NAME: tr("No Voice")}
+        else:
+            friendly_names = {
+                v: v.replace("Female", tr("Female"))
+                .replace("Male", tr("Male"))
+                .replace("Neural", "")
+                for v in filtered_voices
+            }
 
         saved_voice_name = config.ui.get("voice_name", "")
         saved_voice_name_index = 0
@@ -956,8 +965,12 @@ with middle_panel:
             params.voice_name = ""
             config.ui["voice_name"] = ""
 
-        # 只有在有声音可选时才显示试听按钮
-        if friendly_names and st.button(tr("Play Voice")):
+        # 无配音模式会生成静音占位音频，不展示试听按钮，避免用户误以为需要测试声音。
+        if (
+            friendly_names
+            and selected_tts_server != voice.NO_VOICE_NAME
+            and st.button(tr("Play Voice"))
+        ):
             play_content = params.video_subject
             if not play_content:
                 play_content = params.video_script
@@ -1232,20 +1245,50 @@ with right_panel:
             )
             config.ui["stroke_color"] = params.stroke_color
         with stroke_cols[1]:
-            saved_stroke_width = config.ui.get("stroke_width", 1.5)
-            params.stroke_width = st.slider(
-                tr("Stroke Width"), 0.0, 10.0, saved_stroke_width, step=0.5
+            params.stroke_width = st.slider(tr("Stroke Width"), 0.0, 10.0, 1.5)
+
+        subtitle_bg_cols = st.columns([0.4, 0.6])
+        saved_subtitle_background_enabled = config.ui.get(
+            "subtitle_background_enabled", True
+        )
+        with subtitle_bg_cols[0]:
+            subtitle_background_enabled = st.checkbox(
+                tr("Enable Subtitle Background"),
+                value=saved_subtitle_background_enabled,
             )
-            config.ui["stroke_width"] = params.stroke_width
+        config.ui["subtitle_background_enabled"] = subtitle_background_enabled
+        if subtitle_background_enabled:
+            with subtitle_bg_cols[1]:
+                saved_subtitle_background_color = config.ui.get(
+                    "subtitle_background_color", "#000000"
+                )
+                params.text_background_color = st.color_picker(
+                    tr("Subtitle Background Color"),
+                    saved_subtitle_background_color,
+                )
+                config.ui["subtitle_background_color"] = params.text_background_color
+        else:
+            params.text_background_color = False
+
         saved_rounded_subtitle_background = config.ui.get(
             "rounded_subtitle_background", False
         )
+        # 背景关闭时，圆角背景没有可渲染的底色。这里禁用控件并保留原配置，
+        # 用户下次重新开启字幕背景后，可以继续使用之前保存的圆角偏好。
         params.rounded_subtitle_background = st.checkbox(
             tr("Rounded Subtitle Background"),
-            value=saved_rounded_subtitle_background,
+            value=(
+                saved_rounded_subtitle_background
+                if subtitle_background_enabled
+                else False
+            ),
             help=tr("Rounded Subtitle Background Help"),
+            disabled=not subtitle_background_enabled,
         )
-        config.ui["rounded_subtitle_background"] = params.rounded_subtitle_background
+        if subtitle_background_enabled:
+            config.ui["rounded_subtitle_background"] = (
+                params.rounded_subtitle_background
+            )
     with st.expander(tr("Click to show API Key management"), expanded=False):
         st.subheader(tr("Manage Pexels and Pixabay API Keys"))
 
