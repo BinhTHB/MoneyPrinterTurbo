@@ -266,6 +266,16 @@ def is_mimo_voice(voice_name: str):
     return voice_name.startswith("mimo:")
 
 
+def is_elevenlabs_voice(voice_name: str):
+    """检查是否是 ElevenLabs TTS 的声音"""
+    return voice_name.startswith("elevenlabs:")
+
+
+def is_fptai_voice(voice_name: str):
+    """检查是否是 FPT AI TTS 的声音"""
+    return voice_name.startswith("fptai:")
+
+
 def is_no_voice(voice_name: str | None) -> bool:
     """
     判断用户是否明确选择了“无配音”模式。

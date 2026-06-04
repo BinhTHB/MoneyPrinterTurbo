@@ -23,11 +23,12 @@ Fork URL: https://github.com/BinhTHB/MoneyPrinterTurbo (remote: origin)
 Rules:
 - Never create pull requests to the upstream unless explicitly asked.
 - When upstream has new changes, merge them into main, resolving
-  conflicts to keep our customizations:
+  conflicts to prioritize upstream changes. If personal customizations conflict with upstream
+  and cannot be adapted, remove them:
   ```
   git fetch upstream
   git merge upstream/main
-  # resolve conflicts, keeping our changes
+  # resolve conflicts, prioritizing upstream changes
   git push origin main
   ```
 
