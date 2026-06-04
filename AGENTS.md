@@ -31,6 +31,7 @@ Rules:
   # resolve conflicts, prioritizing upstream changes
   git push origin main
   ```
+- Do not add Co-authored-by lines to any commit messages.
 
 ## Display
 
