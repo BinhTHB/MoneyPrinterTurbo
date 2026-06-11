@@ -17,6 +17,12 @@
 Simply provide a <b>topic</b> or <b>keyword</b> for a video, and it will automatically generate the video copy, video
 materials, video subtitles, and video background music before synthesizing a high-definition short video.
 
+<p align="center">
+  <sub>
+    Thanks to <a href="https://aihubmix.com/?aff=CEve">AIHubMix</a> for sponsoring this project. AIHubMix deeply adapts to OpenAI, Claude, Gemini, DeepSeek, Zhipu, Qwen, and other leading models, providing one-stop access to GPT-5.5, deepseek-v4-flash, and 700+ models including free options with production-grade stability.
+  </sub>
+</p>
+
 ### WebUI
 
 ![](docs/webui-en.jpg)
@@ -26,12 +32,6 @@ materials, video subtitles, and video background music before synthesizing a hig
 ![](docs/api.jpg)
 
 </div>
-
-<p align="center">
-  <sub>
-    Thanks to <a href="https://aihubmix.com/?aff=CEve">AIHubMix</a> for sponsoring this project. AIHubMix deeply adapts to OpenAI, Claude, Gemini, DeepSeek, Zhipu, Qwen, and other leading models, providing one-stop access to GPT-5.5, deepseek-v4-flash, and 700+ models including free options with production-grade stability.
-  </sub>
-</p>
 
 ## Features 🎯
 
@@ -50,6 +50,7 @@ materials, video subtitles, and video background music before synthesizing a hig
       supports `subtitle outlining`
 - [x] Supports **background music**, either random or specified music files, with adjustable `background music volume`
 - [x] Video material sources are **high-definition** and **royalty-free**, and you can also use your own **local materials**
+- [x] Supports multiple stock video providers: **Pexels**, **Pixabay**, and **Coverr** (free HD/4K stock videos, subject to [Coverr license terms](https://coverr.co/license); mostly 16:9 landscape; register at [coverr.co/developers](https://coverr.co/developers?ctx=header_navigation), Demo tier 50 requests/hour)
 - [x] Supports integration with various models such as **OpenAI**, **AIHubMix**, **Moonshot**, **Azure**, **gpt4free**, **one-api**, **Qwen**, **Google Gemini**, **Ollama**, **DeepSeek**, **MiniMax**, **ERNIE**, **Pollinations**, **ModelScope** and more
 
 ## Video Demos 📺
@@ -237,6 +238,24 @@ If you have already activated the virtual environment manually, you can still ru
 
 ```shell
 python main.py
+```
+
+#### ④ Pure CLI Mode (No Browser) ⌨️
+
+If you cannot use a browser or port forwarding, you can generate videos directly from the command line:
+
+```shell
+uv run python cli.py --video-subject "The Role of Money"
+```
+
+You can also provide local materials and control the stop stage:
+
+```shell
+uv run python cli.py \
+  --video-subject "The Role of Money" \
+  --video-source local \
+  --video-materials "1.mp4,2.mp4" \
+  --stop-at video
 ```
 
 ## Special Thanks 🙏

@@ -47,6 +47,7 @@
 - [x] 支持 **字幕生成**，可以调整 `字体`、`位置`、`颜色`、`大小`，同时支持`字幕描边`设置
 - [x] 支持 **背景音乐**，随机或者指定音乐文件，可设置`背景音乐音量`
 - [x] 视频素材来源 **高清**，而且 **无版权**，也可以使用自己的 **本地素材**
+- [x] 支持多种素材源:**Pexels**、**Pixabay**、**Coverr**(免费高清/4K 素材库,使用须遵守 [Coverr 许可条款](https://coverr.co/license),以 16:9 横屏为主;在 [coverr.co/developers](https://coverr.co/developers?ctx=header_navigation) 注册即可,Demo 套餐 50 次/小时)
 - [x] 支持 **OpenAI**、**AIHubMix**、**Moonshot**、**Azure**、**gpt4free**、**one-api**、**通义千问**、**Google Gemini**、**Ollama**、**DeepSeek**、**MiniMax**、 **文心一言**, **Pollinations**、**ModelScope** 等多种模型接入
 
 ## 视频演示 📺
@@ -243,6 +244,24 @@ uv run python main.py
 
 ```shell
 python main.py
+```
+
+#### ④ 纯命令行方式（无浏览器）⌨️
+
+如果你无法使用浏览器或端口转发，可以直接在命令行生成视频：
+
+```shell
+uv run python cli.py --video-subject "金钱的作用"
+```
+
+也可以指定本地素材并仅运行到某个阶段：
+
+```shell
+uv run python cli.py \
+  --video-subject "金钱的作用" \
+  --video-source local \
+  --video-materials "1.mp4,2.mp4" \
+  --stop-at video
 ```
 
 ## 特别感谢 🙏
