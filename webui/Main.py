@@ -3,9 +3,9 @@ import sys
 import webbrowser
 from uuid import UUID, uuid4
 
-<<<<<<< HEAD
 import asyncio
 import warnings
+import requests
 
 # --- Suppress benign asyncio/Tornado WebSocket errors ---
 # These occur when Streamlit's internal Tornado server tries to write to a
@@ -38,11 +38,6 @@ except RuntimeError:
 
 warnings.filterwarnings("ignore", message="Task exception was never retrieved")
 # ---
-
-
-=======
-import requests
->>>>>>> upstream/main
 import streamlit as st
 from loguru import logger
 
@@ -113,6 +108,10 @@ if "custom_system_prompt" not in st.session_state:
 if "use_custom_system_prompt" not in st.session_state:
     st.session_state["use_custom_system_prompt"] = config.ui.get(
         "use_custom_system_prompt", False
+    )
+if "match_materials_to_script" not in st.session_state:
+    st.session_state["match_materials_to_script"] = bool(
+        config.app.get("match_materials_to_script", False)
     )
 if "ui_language" not in st.session_state:
     st.session_state["ui_language"] = config.ui.get("language", system_locale)
@@ -327,6 +326,7 @@ if not config.app.get("hide_config", False):
             llm_provider_options = [
                 ("OpenAI", "openai"),
                 (aihubmix_label, "aihubmix"),
+                ("AIML API", "aimlapi"),
                 ("Moonshot", "moonshot"),
                 ("Azure", "azure"),
                 ("Qwen", "qwen"),
@@ -422,6 +422,19 @@ if not config.app.get("hide_config", False):
                             - **稳定**: 无限并发，永远在线，集群部署于谷歌云，长期为众多知名应用提供高并发服务
                             - **能力完整**: 文本、图片生成、视频生成、TTS、STT、向量嵌入、Rerank，多模态场景全搞定
                             - **计费透明**: 按量付费，无会员无包月，免费模型可使用
+                            """
+
+            if llm_provider == "aimlapi":
+                if not llm_model_name:
+                    llm_model_name = "openai/gpt-4o-mini"
+                if not llm_base_url:
+                    llm_base_url = "https://api.aimlapi.com/v1"
+                with llm_helper:
+                    tips = """
+                            ##### AIML API Configuration
+                            - **API Key**: create one at https://aimlapi.com/app/keys
+                            - **Base Url**: https://api.aimlapi.com/v1
+                            - **Model Name**: for example `openai/gpt-4o-mini`, `openai/gpt-4o`, `anthropic/claude-sonnet-4.5`, or `google/gemini-3-flash-preview`
                             """
 
             if llm_provider == "moonshot":
@@ -711,6 +724,9 @@ middle_panel = panel[1]
 right_panel = panel[2]
 
 params = VideoParams(video_subject="")
+params.match_materials_to_script = bool(
+    st.session_state.get("match_materials_to_script", False)
+)
 uploaded_files = []
 uploaded_audio_file = None
 
@@ -788,7 +804,12 @@ with left_panel:
                     video_script_prompt=params.video_script_prompt,
                     custom_system_prompt=params.custom_system_prompt,
                 )
-                terms = llm.generate_terms(params.video_subject, script)
+                terms = llm.generate_terms(
+                    params.video_subject,
+                    script,
+                    amount=8 if params.match_materials_to_script else 5,
+                    match_script_order=params.match_materials_to_script,
+                )
                 if "Error: " in script:
                     st.error(tr(script))
                 elif "Error: " in terms:
@@ -805,7 +826,12 @@ with left_panel:
                 st.stop()
 
             with st.spinner(tr("Generating Video Keywords")):
-                terms = llm.generate_terms(params.video_subject, params.video_script)
+                terms = llm.generate_terms(
+                    params.video_subject,
+                    params.video_script,
+                    amount=8 if params.match_materials_to_script else 5,
+                    match_script_order=params.match_materials_to_script,
+                )
                 if "Error: " in terms:
                     st.error(tr(terms))
                 else:
@@ -924,6 +950,15 @@ with middle_panel:
         )
 
         with st.expander(tr("Advanced Video Settings"), expanded=False):
+            # 默认关闭，避免影响老用户的随机素材体验。开启后只改变关键词和素材
+            # 下载/拼接顺序，用于改善画面主题早于或晚于旁白的问题。
+            params.match_materials_to_script = st.checkbox(
+                tr("Match Materials to Script Order"),
+                help=tr("Match Materials to Script Order Help"),
+                key="match_materials_to_script",
+            )
+            config.app["match_materials_to_script"] = params.match_materials_to_script
+
             video_codec_options = [
                 ("libx264 (CPU)", "libx264"),
                 ("NVIDIA NVENC (h264_nvenc)", "h264_nvenc"),

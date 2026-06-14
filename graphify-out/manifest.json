@@ -1,0 +1,692 @@
+{
+  "E:\\projects_window\\MoneyPrinterTurbo\\main.py": {
+    "mtime": 1780145251.1838713,
+    "ast_hash": "2d3f0ab246dc7e55c7647d9b55642b33",
+    "semantic_hash": "2d3f0ab246dc7e55c7647d9b55642b33"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui.sh": {
+    "mtime": 1780145253.6276639,
+    "ast_hash": "e24ca68e7177f9a7c8b42dbf09653b63",
+    "semantic_hash": "e24ca68e7177f9a7c8b42dbf09653b63"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.opencode\\opencode.json": {
+    "mtime": 1780145652.8473063,
+    "ast_hash": "1efe24ecf938911d4f23e4b1c6ec91f7",
+    "semantic_hash": "1efe24ecf938911d4f23e4b1c6ec91f7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.opencode\\package.json": {
+    "mtime": 1780145660.4310122,
+    "ast_hash": "a20ea4dc284bd8c67458f0325b1fa68c",
+    "semantic_hash": "a20ea4dc284bd8c67458f0325b1fa68c"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.opencode\\plugins\\graphify.js": {
+    "mtime": 1780145560.166363,
+    "ast_hash": "32b67963417a30cb80544e0b2a56a98d",
+    "semantic_hash": "32b67963417a30cb80544e0b2a56a98d"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\asgi.py": {
+    "mtime": 1780145251.1265118,
+    "ast_hash": "669a7215d6556bc903d5a80f74a8695e",
+    "semantic_hash": "669a7215d6556bc903d5a80f74a8695e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\router.py": {
+    "mtime": 1780145251.138646,
+    "ast_hash": "6a565f0d9692748df43d6d78f9a894e9",
+    "semantic_hash": "6a565f0d9692748df43d6d78f9a894e9"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\__init__.py": {
+    "mtime": 1780145251.1255069,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\config\\config.py": {
+    "mtime": 1780145251.1285193,
+    "ast_hash": "79fcbf9fb1fcd2fbc0412ff568a7468a",
+    "semantic_hash": "79fcbf9fb1fcd2fbc0412ff568a7468a"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\config\\__init__.py": {
+    "mtime": 1780145251.1275117,
+    "ast_hash": "95c1f8165a557683f64ae26a6c3ac610",
+    "semantic_hash": "95c1f8165a557683f64ae26a6c3ac610"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\base.py": {
+    "mtime": 1780145251.1295228,
+    "ast_hash": "6886e0eca98fd7dc866a537d647662a3",
+    "semantic_hash": "6886e0eca98fd7dc866a537d647662a3"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\ping.py": {
+    "mtime": 1780145251.1325107,
+    "ast_hash": "0ad6da13c1b2ac9513aef9c09bf626d7",
+    "semantic_hash": "0ad6da13c1b2ac9513aef9c09bf626d7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\manager\\base_manager.py": {
+    "mtime": 1780145251.130511,
+    "ast_hash": "4d009fca90d4523cb4dc98c96c38d6ac",
+    "semantic_hash": "4d009fca90d4523cb4dc98c96c38d6ac"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\manager\\memory_manager.py": {
+    "mtime": 1780145251.1315107,
+    "ast_hash": "a287da5733779f0036ef682d40a9b119",
+    "semantic_hash": "a287da5733779f0036ef682d40a9b119"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\manager\\redis_manager.py": {
+    "mtime": 1780145251.1315107,
+    "ast_hash": "88086f2eb3e6bdd2c9bd30c65892d18b",
+    "semantic_hash": "88086f2eb3e6bdd2c9bd30c65892d18b"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\v1\\base.py": {
+    "mtime": 1780145251.1335192,
+    "ast_hash": "ff0738f703fe149fbfb82641ea96a54e",
+    "semantic_hash": "ff0738f703fe149fbfb82641ea96a54e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\v1\\llm.py": {
+    "mtime": 1780145251.134511,
+    "ast_hash": "0bd63e619933c1bb784aca00255b765e",
+    "semantic_hash": "0bd63e619933c1bb784aca00255b765e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\controllers\\v1\\video.py": {
+    "mtime": 1780145251.134511,
+    "ast_hash": "fbdab98593c1b52b9e915d3a4e18e523",
+    "semantic_hash": "fbdab98593c1b52b9e915d3a4e18e523"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\llm.py": {
+    "mtime": 1780145251.140913,
+    "ast_hash": "17f6966b5335fa038dd3ce39e0ab6033",
+    "semantic_hash": "17f6966b5335fa038dd3ce39e0ab6033"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\material.py": {
+    "mtime": 1780145251.1419127,
+    "ast_hash": "b307152b7296e7e671ecfe6af5535b3a",
+    "semantic_hash": "b307152b7296e7e671ecfe6af5535b3a"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\state.py": {
+    "mtime": 1780145251.1419127,
+    "ast_hash": "dd1f09334b1ce9f98d53787cd0c914c8",
+    "semantic_hash": "dd1f09334b1ce9f98d53787cd0c914c8"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\subtitle.py": {
+    "mtime": 1780145251.1429124,
+    "ast_hash": "c89568987d5a6c8f6cdedfe3272a2003",
+    "semantic_hash": "c89568987d5a6c8f6cdedfe3272a2003"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\task.py": {
+    "mtime": 1780145251.1439238,
+    "ast_hash": "72c076eb7eaf8638630e7c1e1ee785a1",
+    "semantic_hash": "72c076eb7eaf8638630e7c1e1ee785a1"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\upload_post.py": {
+    "mtime": 1780145251.1449232,
+    "ast_hash": "d2b464fe4628be9afe6945d8d93ecf10",
+    "semantic_hash": "d2b464fe4628be9afe6945d8d93ecf10"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\video.py": {
+    "mtime": 1780145251.1464312,
+    "ast_hash": "d88dfb564fd5992c625f390ab4362687",
+    "semantic_hash": "d88dfb564fd5992c625f390ab4362687"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\voice.py": {
+    "mtime": 1780145251.148429,
+    "ast_hash": "6292bfb94eb1cb908b67b11a735668e8",
+    "semantic_hash": "6292bfb94eb1cb908b67b11a735668e8"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\__init__.py": {
+    "mtime": 1780145251.1396465,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\services\\utils\\video_effects.py": {
+    "mtime": 1780145251.1459124,
+    "ast_hash": "e420c187ecfab8baab48a2e5b0496bd7",
+    "semantic_hash": "e420c187ecfab8baab48a2e5b0496bd7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\utils\\file_security.py": {
+    "mtime": 1780145251.1494284,
+    "ast_hash": "8f73c5142300c223416c848261da4f29",
+    "semantic_hash": "8f73c5142300c223416c848261da4f29"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\app\\utils\\utils.py": {
+    "mtime": 1780145251.1504278,
+    "ast_hash": "1aefd327b28f996cbbb453f4c4f7b77e",
+    "semantic_hash": "1aefd327b28f996cbbb453f4c4f7b77e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\__init__.py": {
+    "mtime": 1780145253.6074321,
+    "ast_hash": "51cba3f28f9758ff5843753f9c826327",
+    "semantic_hash": "51cba3f28f9758ff5843753f9c826327"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_llm.py": {
+    "mtime": 1780145253.619949,
+    "ast_hash": "8a61d46e0ceef8fc3ea591455ee684a7",
+    "semantic_hash": "8a61d46e0ceef8fc3ea591455ee684a7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_material.py": {
+    "mtime": 1780145253.619949,
+    "ast_hash": "bec910757cabf57958a8052fb89cf772",
+    "semantic_hash": "bec910757cabf57958a8052fb89cf772"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_state.py": {
+    "mtime": 1780145253.6209483,
+    "ast_hash": "b4e89a00e9458446657878485e1e688b",
+    "semantic_hash": "b4e89a00e9458446657878485e1e688b"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_task.py": {
+    "mtime": 1780145253.6221418,
+    "ast_hash": "5fdc33eef9e85b2d72b0512421eb1c62",
+    "semantic_hash": "5fdc33eef9e85b2d72b0512421eb1c62"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_video.py": {
+    "mtime": 1780145253.6221418,
+    "ast_hash": "d8701443dbf9b4019b9a7448e34adb8d",
+    "semantic_hash": "d8701443dbf9b4019b9a7448e34adb8d"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\test_voice.py": {
+    "mtime": 1780145253.6231396,
+    "ast_hash": "3958d1fdc12cd3d30a0cfa31efe6afce",
+    "semantic_hash": "3958d1fdc12cd3d30a0cfa31efe6afce"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\services\\__init__.py": {
+    "mtime": 1780145253.6189508,
+    "ast_hash": "316387912f1d6d2630779a39d4f8a02b",
+    "semantic_hash": "316387912f1d6d2630779a39d4f8a02b"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\Main.py": {
+    "mtime": 1780145253.6316657,
+    "ast_hash": "66ae8c148b59afaf7c8010f680b8d353",
+    "semantic_hash": "66ae8c148b59afaf7c8010f680b8d353"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\de.json": {
+    "mtime": 1780145253.6326647,
+    "ast_hash": "54bf84a963329978dbf7286aeb821cb2",
+    "semantic_hash": "54bf84a963329978dbf7286aeb821cb2"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\en.json": {
+    "mtime": 1780145253.6326647,
+    "ast_hash": "285f51002f56a29ef74247643683a457",
+    "semantic_hash": "285f51002f56a29ef74247643683a457"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\pt.json": {
+    "mtime": 1780145253.6336653,
+    "ast_hash": "da2b74a441e130feffd7460f0caba075",
+    "semantic_hash": "da2b74a441e130feffd7460f0caba075"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\ru.json": {
+    "mtime": 1780145253.634667,
+    "ast_hash": "5bbdb0eecdd24884babda6db14d26f60",
+    "semantic_hash": "5bbdb0eecdd24884babda6db14d26f60"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\tr.json": {
+    "mtime": 1780145253.634667,
+    "ast_hash": "45068e9f6070e627b493bbb3a8e200a3",
+    "semantic_hash": "45068e9f6070e627b493bbb3a8e200a3"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\vi.json": {
+    "mtime": 1780145253.6361735,
+    "ast_hash": "bc4383ffe39dca4fe87d221b6893fc44",
+    "semantic_hash": "bc4383ffe39dca4fe87d221b6893fc44"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\webui\\i18n\\zh.json": {
+    "mtime": 1780145253.6361735,
+    "ast_hash": "6faa5272c7340e994d137d10065fa470",
+    "semantic_hash": "6faa5272c7340e994d137d10065fa470"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\AGENTS.md": {
+    "mtime": 1780145560.166363,
+    "ast_hash": "752aa83aa64361ac32860f882dcff932",
+    "semantic_hash": "752aa83aa64361ac32860f882dcff932"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docker-compose.gpu.yml": {
+    "mtime": 1780145251.1514401,
+    "ast_hash": "c430d85aba980305da3eaf0910f7f7e1",
+    "semantic_hash": "c430d85aba980305da3eaf0910f7f7e1"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docker-compose.yml": {
+    "mtime": 1780145251.1514401,
+    "ast_hash": "996f14723bc7f05a6af1ded545a2cbcb",
+    "semantic_hash": "996f14723bc7f05a6af1ded545a2cbcb"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\README-en.md": {
+    "mtime": 1780145251.1239974,
+    "ast_hash": "32b9b36c4ab9b6b939b99195aeb487fc",
+    "semantic_hash": "32b9b36c4ab9b6b939b99195aeb487fc"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\README.md": {
+    "mtime": 1780145251.1239974,
+    "ast_hash": "a8418b6b994e1cfe0ff2a566b11f25cf",
+    "semantic_hash": "a8418b6b994e1cfe0ff2a566b11f25cf"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\requirements.txt": {
+    "mtime": 1780145251.1848733,
+    "ast_hash": "a1b48fb0c6f62bf5de52c7aeb790a83c",
+    "semantic_hash": "a1b48fb0c6f62bf5de52c7aeb790a83c"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.github\\SECURITY.md": {
+    "mtime": 1780145251.1195788,
+    "ast_hash": "c903819645cfb5b2d67f504444a4c404",
+    "semantic_hash": "c903819645cfb5b2d67f504444a4c404"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.github\\ISSUE_TEMPLATE\\bug_report.yml": {
+    "mtime": 1780145251.1175241,
+    "ast_hash": "748ede3b5df88b15072c66aeb24440bd",
+    "semantic_hash": "748ede3b5df88b15072c66aeb24440bd"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.github\\ISSUE_TEMPLATE\\config.yml": {
+    "mtime": 1780145251.1175241,
+    "ast_hash": "90d7947ae73b441dcad76b1db220b316",
+    "semantic_hash": "90d7947ae73b441dcad76b1db220b316"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\.github\\ISSUE_TEMPLATE\\feature_request.yml": {
+    "mtime": 1780145251.1185808,
+    "ast_hash": "053d8595553d849132bbc3c233e5c507",
+    "semantic_hash": "053d8595553d849132bbc3c233e5c507"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\GPU_DOCKER_DEPLOYMENT.md": {
+    "mtime": 1780145251.1524282,
+    "ast_hash": "99c4aa975e61d95fff935ac5d91376b7",
+    "semantic_hash": "99c4aa975e61d95fff935ac5d91376b7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\PR_MERGE_RECORD_2026-04-02.md": {
+    "mtime": 1780145251.1534343,
+    "ast_hash": "c4482ca5ab9bcc988c8f0a77b43fa779",
+    "semantic_hash": "c4482ca5ab9bcc988c8f0a77b43fa779"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\voice-list.txt": {
+    "mtime": 1780145251.1681914,
+    "ast_hash": "5612ad9d5c4fdc7c2636987111a9d349",
+    "semantic_hash": "5612ad9d5c4fdc7c2636987111a9d349"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\public\\index.html": {
+    "mtime": 1780145252.892973,
+    "ast_hash": "9de91c981b38895c2559416958140c63",
+    "semantic_hash": "9de91c981b38895c2559416958140c63"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\README.md": {
+    "mtime": 1780145253.6064286,
+    "ast_hash": "a883dfafb1fb83d4d171101bab3caa9b",
+    "semantic_hash": "a883dfafb1fb83d4d171101bab3caa9b"
+  },
+  "graphify-out\\transcripts\\output000.txt": {
+    "mtime": 1780147234.705923,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output001.txt": {
+    "mtime": 1780147241.8024805,
+    "ast_hash": "6785c947083711bff3d3a85348382c6a",
+    "semantic_hash": "6785c947083711bff3d3a85348382c6a"
+  },
+  "graphify-out\\transcripts\\output002.txt": {
+    "mtime": 1780147246.867132,
+    "ast_hash": "132cc3174410dd3bb5f1e055d16cf569",
+    "semantic_hash": "132cc3174410dd3bb5f1e055d16cf569"
+  },
+  "graphify-out\\transcripts\\output003.txt": {
+    "mtime": 1780147251.5333445,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output004.txt": {
+    "mtime": 1780147260.277259,
+    "ast_hash": "63d8d5149ce7fedf8c815aeed84524ce",
+    "semantic_hash": "63d8d5149ce7fedf8c815aeed84524ce"
+  },
+  "graphify-out\\transcripts\\output005.txt": {
+    "mtime": 1780147265.0362606,
+    "ast_hash": "5564e33ad3076841b8b5e0cdd9d3a7ba",
+    "semantic_hash": "5564e33ad3076841b8b5e0cdd9d3a7ba"
+  },
+  "graphify-out\\transcripts\\output006.txt": {
+    "mtime": 1780147270.0621161,
+    "ast_hash": "942eed9125d1f3e066783f37686f7edf",
+    "semantic_hash": "942eed9125d1f3e066783f37686f7edf"
+  },
+  "graphify-out\\transcripts\\output007.txt": {
+    "mtime": 1780147278.4303777,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output008.txt": {
+    "mtime": 1780147287.0726392,
+    "ast_hash": "4f2b9eaa6565c2cffe6d697b20741d2d",
+    "semantic_hash": "4f2b9eaa6565c2cffe6d697b20741d2d"
+  },
+  "graphify-out\\transcripts\\output009.txt": {
+    "mtime": 1780147292.8225756,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output010.txt": {
+    "mtime": 1780147298.1301925,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output011.txt": {
+    "mtime": 1780147308.683995,
+    "ast_hash": "9a6584b9096ca61ebc724bd88b2226e2",
+    "semantic_hash": "9a6584b9096ca61ebc724bd88b2226e2"
+  },
+  "graphify-out\\transcripts\\output012.txt": {
+    "mtime": 1780147321.0384824,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output013.txt": {
+    "mtime": 1780147327.1306987,
+    "ast_hash": "0ebad3722d9b2b9f44f3e14be9d8a1fb",
+    "semantic_hash": "0ebad3722d9b2b9f44f3e14be9d8a1fb"
+  },
+  "graphify-out\\transcripts\\output014.txt": {
+    "mtime": 1780147333.41927,
+    "ast_hash": "0ebad3722d9b2b9f44f3e14be9d8a1fb",
+    "semantic_hash": "0ebad3722d9b2b9f44f3e14be9d8a1fb"
+  },
+  "graphify-out\\transcripts\\output015.txt": {
+    "mtime": 1780147347.29183,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output016.txt": {
+    "mtime": 1780147366.9045856,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output017.txt": {
+    "mtime": 1780147381.5483694,
+    "ast_hash": "bf40356e9787d8bf9da240e0b703b7f9",
+    "semantic_hash": "bf40356e9787d8bf9da240e0b703b7f9"
+  },
+  "graphify-out\\transcripts\\output018.txt": {
+    "mtime": 1780147393.8889844,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output019.txt": {
+    "mtime": 1780147407.651995,
+    "ast_hash": "d20c919f98a38b39a39c6478b8f09efc",
+    "semantic_hash": "d20c919f98a38b39a39c6478b8f09efc"
+  },
+  "graphify-out\\transcripts\\output020.txt": {
+    "mtime": 1780147423.1194775,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output021.txt": {
+    "mtime": 1780147446.4128704,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output022.txt": {
+    "mtime": 1780147455.3811357,
+    "ast_hash": "132cc3174410dd3bb5f1e055d16cf569",
+    "semantic_hash": "132cc3174410dd3bb5f1e055d16cf569"
+  },
+  "graphify-out\\transcripts\\output023.txt": {
+    "mtime": 1780147471.2942543,
+    "ast_hash": "d20c919f98a38b39a39c6478b8f09efc",
+    "semantic_hash": "d20c919f98a38b39a39c6478b8f09efc"
+  },
+  "graphify-out\\transcripts\\output024.txt": {
+    "mtime": 1780147483.5109384,
+    "ast_hash": "7d12581195e49e429d94f01c7ce92ac7",
+    "semantic_hash": "7d12581195e49e429d94f01c7ce92ac7"
+  },
+  "graphify-out\\transcripts\\output025.txt": {
+    "mtime": 1780147495.2458427,
+    "ast_hash": "bf40356e9787d8bf9da240e0b703b7f9",
+    "semantic_hash": "bf40356e9787d8bf9da240e0b703b7f9"
+  },
+  "graphify-out\\transcripts\\output027.txt": {
+    "mtime": 1780147508.775014,
+    "ast_hash": "47dcbd834e669233d7eb8a51456ed217",
+    "semantic_hash": "47dcbd834e669233d7eb8a51456ed217"
+  },
+  "graphify-out\\transcripts\\output028.txt": {
+    "mtime": 1780147518.2678707,
+    "ast_hash": "9b0c3ebda6b1503fcf2dd09a37a83efa",
+    "semantic_hash": "9b0c3ebda6b1503fcf2dd09a37a83efa"
+  },
+  "graphify-out\\transcripts\\output029.txt": {
+    "mtime": 1780147525.8551621,
+    "ast_hash": "a8204332a47aac7fc262085c2d56dbbb",
+    "semantic_hash": "a8204332a47aac7fc262085c2d56dbbb"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\api.jpg": {
+    "mtime": 1780145251.1544366,
+    "ast_hash": "f673385ee3d852ceaf1d17f8ed4077c8",
+    "semantic_hash": "f673385ee3d852ceaf1d17f8ed4077c8"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\picwish.com.jpg": {
+    "mtime": 1780145251.158964,
+    "ast_hash": "a6e39ad40cff5423d3a21e49e3f5c96c",
+    "semantic_hash": "a6e39ad40cff5423d3a21e49e3f5c96c"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\picwish.jpg": {
+    "mtime": 1780145251.1619637,
+    "ast_hash": "4a4a638a66bc7aca813bf1995c67b3df",
+    "semantic_hash": "4a4a638a66bc7aca813bf1995c67b3df"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\reccloud.cn.jpg": {
+    "mtime": 1780145251.1658387,
+    "ast_hash": "6618095eaa3444cbd56056ffd06b357e",
+    "semantic_hash": "6618095eaa3444cbd56056ffd06b357e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\reccloud.com.jpg": {
+    "mtime": 1780145251.1681914,
+    "ast_hash": "998f3b3e46b56df6babe89a017ef4d15",
+    "semantic_hash": "998f3b3e46b56df6babe89a017ef4d15"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\webui-en.jpg": {
+    "mtime": 1780145251.174363,
+    "ast_hash": "c43b4bb9c633b16ad5c9d0c6ca55027c",
+    "semantic_hash": "c43b4bb9c633b16ad5c9d0c6ca55027c"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\docs\\webui.jpg": {
+    "mtime": 1780145251.182878,
+    "ast_hash": "44a2664d48866cc036029b1e1dada54f",
+    "semantic_hash": "44a2664d48866cc036029b1e1dada54f"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\1.png": {
+    "mtime": 1780145253.6074321,
+    "ast_hash": "0f6265fe8dc448b8f032f161db77c033",
+    "semantic_hash": "0f6265fe8dc448b8f032f161db77c033"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\2.png": {
+    "mtime": 1780145253.6094298,
+    "ast_hash": "ad4a0ee31129c05fc4ffaae6e0f02f4b",
+    "semantic_hash": "ad4a0ee31129c05fc4ffaae6e0f02f4b"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\3.png": {
+    "mtime": 1780145253.61143,
+    "ast_hash": "28a4fd850c0b4e345a3cf1a67e1cc0ca",
+    "semantic_hash": "28a4fd850c0b4e345a3cf1a67e1cc0ca"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\4.png": {
+    "mtime": 1780145253.6134303,
+    "ast_hash": "2c947bcaf6ca4b1c37f44f9cff180d01",
+    "semantic_hash": "2c947bcaf6ca4b1c37f44f9cff180d01"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\5.png": {
+    "mtime": 1780145253.614429,
+    "ast_hash": "57ebe1b4e937e3bcf5c4ea82346ce950",
+    "semantic_hash": "57ebe1b4e937e3bcf5c4ea82346ce950"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\6.png": {
+    "mtime": 1780145253.6159425,
+    "ast_hash": "2e36ca132a4d2c082bb882f6ab7f1eac",
+    "semantic_hash": "2e36ca132a4d2c082bb882f6ab7f1eac"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\7.png": {
+    "mtime": 1780145253.616953,
+    "ast_hash": "b362e8f550bf78fdc31d5be61e947d2c",
+    "semantic_hash": "b362e8f550bf78fdc31d5be61e947d2c"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\8.png": {
+    "mtime": 1780145253.616953,
+    "ast_hash": "46c7bb0dd85b73a4eec2a9faeba2e32d",
+    "semantic_hash": "46c7bb0dd85b73a4eec2a9faeba2e32d"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\9.png": {
+    "mtime": 1780145253.6179683,
+    "ast_hash": "5c9ee2ce76b7f2892d27a4c4ee203639",
+    "semantic_hash": "5c9ee2ce76b7f2892d27a4c4ee203639"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output000.mp3": {
+    "mtime": 1780145252.925046,
+    "ast_hash": "bd4ce777c0b333bbb5ac48e82b1cf253",
+    "semantic_hash": "bd4ce777c0b333bbb5ac48e82b1cf253"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output001.mp3": {
+    "mtime": 1780145252.9515655,
+    "ast_hash": "9d9df347b2093db615edf199e3c73795",
+    "semantic_hash": "9d9df347b2093db615edf199e3c73795"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output002.mp3": {
+    "mtime": 1780145252.9727714,
+    "ast_hash": "b1c38dbfae5b1a203078e0ece7f21950",
+    "semantic_hash": "b1c38dbfae5b1a203078e0ece7f21950"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output003.mp3": {
+    "mtime": 1780145253.0100856,
+    "ast_hash": "fce83cc15779d8d5ce9e04eb1fea4c2a",
+    "semantic_hash": "fce83cc15779d8d5ce9e04eb1fea4c2a"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output004.mp3": {
+    "mtime": 1780145253.048116,
+    "ast_hash": "7af53dc8627cd1c2879baff8784db51f",
+    "semantic_hash": "7af53dc8627cd1c2879baff8784db51f"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output005.mp3": {
+    "mtime": 1780145253.0661306,
+    "ast_hash": "062ae057a198107d3cb0d58bb91f3c76",
+    "semantic_hash": "062ae057a198107d3cb0d58bb91f3c76"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output006.mp3": {
+    "mtime": 1780145253.0856407,
+    "ast_hash": "6571b76da8d7e132b0fc23e10c5cb1b4",
+    "semantic_hash": "6571b76da8d7e132b0fc23e10c5cb1b4"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output007.mp3": {
+    "mtime": 1780145253.1032376,
+    "ast_hash": "d506cef4ebc30566bf897764a4d66025",
+    "semantic_hash": "d506cef4ebc30566bf897764a4d66025"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output008.mp3": {
+    "mtime": 1780145253.1201954,
+    "ast_hash": "9f5d5db375a347c89dc7fe3b1d0a31c8",
+    "semantic_hash": "9f5d5db375a347c89dc7fe3b1d0a31c8"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output009.mp3": {
+    "mtime": 1780145253.1416233,
+    "ast_hash": "b62afc7a3fb04c2574d382594a89d77d",
+    "semantic_hash": "b62afc7a3fb04c2574d382594a89d77d"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output010.mp3": {
+    "mtime": 1780145253.1681757,
+    "ast_hash": "21ed387f3e6551623d3026800000ec57",
+    "semantic_hash": "21ed387f3e6551623d3026800000ec57"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output011.mp3": {
+    "mtime": 1780145253.1922705,
+    "ast_hash": "875555755a304bdec48928f04e468da5",
+    "semantic_hash": "875555755a304bdec48928f04e468da5"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output012.mp3": {
+    "mtime": 1780145253.2132635,
+    "ast_hash": "60eba394a75f88c3246581678d25bbf7",
+    "semantic_hash": "60eba394a75f88c3246581678d25bbf7"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output013.mp3": {
+    "mtime": 1780145253.2264605,
+    "ast_hash": "9e2f67655ca076c4ecbae7ea97571ea6",
+    "semantic_hash": "9e2f67655ca076c4ecbae7ea97571ea6"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output014.mp3": {
+    "mtime": 1780145253.2479012,
+    "ast_hash": "39a285c20cf737707e04c38f337ca33e",
+    "semantic_hash": "39a285c20cf737707e04c38f337ca33e"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output015.mp3": {
+    "mtime": 1780145253.2697344,
+    "ast_hash": "30523f3abea8b68a1fc8a1d4685bebb6",
+    "semantic_hash": "30523f3abea8b68a1fc8a1d4685bebb6"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output016.mp3": {
+    "mtime": 1780145253.2927399,
+    "ast_hash": "3385115ce9ea6b87629a0dc744d69dea",
+    "semantic_hash": "3385115ce9ea6b87629a0dc744d69dea"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output017.mp3": {
+    "mtime": 1780145253.3167691,
+    "ast_hash": "93904109379e8bedf26b57c597443150",
+    "semantic_hash": "93904109379e8bedf26b57c597443150"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output018.mp3": {
+    "mtime": 1780145253.3389566,
+    "ast_hash": "397b5af9dbbab64530cb42cfb75aeb02",
+    "semantic_hash": "397b5af9dbbab64530cb42cfb75aeb02"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output019.mp3": {
+    "mtime": 1780145253.3659966,
+    "ast_hash": "aa876adb5d341bc95ddac8ad6bbe6058",
+    "semantic_hash": "aa876adb5d341bc95ddac8ad6bbe6058"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output020.mp3": {
+    "mtime": 1780145253.3914297,
+    "ast_hash": "5fda5092c0d7b2425bbf613dddb7b3b8",
+    "semantic_hash": "5fda5092c0d7b2425bbf613dddb7b3b8"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output021.mp3": {
+    "mtime": 1780145253.4155705,
+    "ast_hash": "1cf52cde673902872859649eab6a663b",
+    "semantic_hash": "1cf52cde673902872859649eab6a663b"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output022.mp3": {
+    "mtime": 1780145253.4412835,
+    "ast_hash": "81b1c0eda83d4114b8844a879ae62370",
+    "semantic_hash": "81b1c0eda83d4114b8844a879ae62370"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output023.mp3": {
+    "mtime": 1780145253.4633744,
+    "ast_hash": "cf60ab02cf414110802aa8dbdb6fca75",
+    "semantic_hash": "cf60ab02cf414110802aa8dbdb6fca75"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output024.mp3": {
+    "mtime": 1780145253.5022407,
+    "ast_hash": "c60a6e564dd6287d41d4fbe1a9732881",
+    "semantic_hash": "c60a6e564dd6287d41d4fbe1a9732881"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output025.mp3": {
+    "mtime": 1780145253.54431,
+    "ast_hash": "d1a578a242b0b84f7864bc1bcf84f8f5",
+    "semantic_hash": "d1a578a242b0b84f7864bc1bcf84f8f5"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output027.mp3": {
+    "mtime": 1780145253.5738976,
+    "ast_hash": "13ee089909bef075d6814cab3875fe83",
+    "semantic_hash": "13ee089909bef075d6814cab3875fe83"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output028.mp3": {
+    "mtime": 1780145253.5940514,
+    "ast_hash": "9f058f3c1d17d0b951f465385e519228",
+    "semantic_hash": "9f058f3c1d17d0b951f465385e519228"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\resource\\songs\\output029.mp3": {
+    "mtime": 1780145253.6059198,
+    "ast_hash": "4e4c08190de12ce1c5e6b6420d9c2bdf",
+    "semantic_hash": "4e4c08190de12ce1c5e6b6420d9c2bdf"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\1.png.mp4": {
+    "mtime": 1780145253.6094298,
+    "ast_hash": "bd1ce24fd788fe4ed255aef96776a916",
+    "semantic_hash": "bd1ce24fd788fe4ed255aef96776a916"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\2.png.mp4": {
+    "mtime": 1780145253.610429,
+    "ast_hash": "3656e639bc228e3b2c0e791e01a9d427",
+    "semantic_hash": "3656e639bc228e3b2c0e791e01a9d427"
+  },
+  "E:\\projects_window\\MoneyPrinterTurbo\\test\\resources\\3.png.mp4": {
+    "mtime": 1780145253.6124294,
+    "ast_hash": "4ade5a49601747079f0daf8f87f19c0f",
+    "semantic_hash": "4ade5a49601747079f0daf8f87f19c0f"
+  }
+}

@@ -99,6 +99,30 @@ class TestScriptPromptOptions(unittest.TestCase):
         self.assertIn("- number of paragraphs: 2", captured["prompt"])
         self.assertIn("开头更有悬念", captured["prompt"])
 
+    def test_generate_terms_can_request_script_ordered_keywords(self):
+        """
+        按文案顺序匹配素材依赖 LLM 返回有序关键词。这里不调用真实模型，
+        只验证服务层会把“按脚本叙事顺序输出”的约束写入 prompt，避免
+        后续素材下载虽然顺序化，但关键词仍然是全局无序主题词。
+        """
+        captured = {}
+
+        def fake_generate_response(prompt):
+            captured["prompt"] = prompt
+            return '["opening city", "middle office", "final sunset"]'
+
+        with patch.object(llm, "_generate_response", side_effect=fake_generate_response):
+            result = llm.generate_terms(
+                video_subject="startup story",
+                video_script="First city. Then office. Finally sunset.",
+                amount=3,
+                match_script_order=True,
+            )
+
+        self.assertEqual(result, ["opening city", "middle office", "final sunset"])
+        self.assertIn("chronological stock-video search terms", captured["prompt"])
+        self.assertIn("same order as the script narration", captured["prompt"])
+
     def test_video_script_request_rejects_invalid_advanced_options(self):
         """
         API 请求模型需要限制高级 prompt 参数，避免外部调用绕过 WebUI
@@ -330,6 +354,43 @@ class TestLiteLLMProvider(unittest.TestCase):
             },
         )
         self.assertEqual(result, "helloaihubmix")
+
+    def test_aimlapi_provider_uses_openai_compatible_client(self):
+        config.app["llm_provider"] = "aimlapi"
+        config.app["aimlapi_api_key"] = "aimlapi-key"
+        config.app["aimlapi_base_url"] = ""
+        config.app["aimlapi_model_name"] = ""
+
+        class FakeCompletions:
+            def create(self, **kwargs):
+                self.kwargs = kwargs
+                message = types.SimpleNamespace(content="hello\naimlapi")
+                choice = types.SimpleNamespace(message=message)
+                return types.SimpleNamespace(choices=[choice])
+
+        fake_completions = FakeCompletions()
+        fake_client = types.SimpleNamespace(
+            chat=types.SimpleNamespace(completions=fake_completions)
+        )
+
+        with (
+            patch.object(llm, "OpenAI", return_value=fake_client) as openai_client,
+            patch.object(llm, "ChatCompletion", types.SimpleNamespace),
+        ):
+            result = llm._generate_response("Say hello")
+
+        openai_client.assert_called_once_with(
+            api_key="aimlapi-key",
+            base_url="https://api.aimlapi.com/v1",
+        )
+        self.assertEqual(
+            fake_completions.kwargs,
+            {
+                "model": "openai/gpt-4o-mini",
+                "messages": [{"role": "user", "content": "Say hello"}],
+            },
+        )
+        self.assertEqual(result, "helloaimlapi")
 
     def test_grok_provider_still_uses_existing_path(self):
         config.app["llm_provider"] = "grok"
