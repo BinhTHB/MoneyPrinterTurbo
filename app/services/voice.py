@@ -27,6 +27,7 @@ from app.config import config
 from app.utils import utils
 
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
+_GEMINI_DEFAULT_TTS_MODEL = "gemini-2.5-flash-preview-tts"
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"
 NO_VOICE_NAME = "no-voice"
@@ -1053,10 +1054,11 @@ def gemini_tts(
             
         genai.configure(api_key=api_key)
         
-        logger.info(f"start, voice name: {voice_name}, try: 1")
+        model_name = config.app.get("gemini_tts_model_name", "") or _GEMINI_DEFAULT_TTS_MODEL
+        logger.info(f"start gemini tts, model: {model_name}, voice: {voice_name}, try: 1")
         
         # 使用Gemini TTS API
-        model = genai.GenerativeModel("gemini-2.5-flash-preview-tts")
+        model = genai.GenerativeModel(model_name)
         
         generation_config = {
             "response_modalities": ["AUDIO"],
