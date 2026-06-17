@@ -5,6 +5,7 @@ from typing import Sequence
 
 from loguru import logger
 
+from app.config import config
 from app.models.schema import MaterialInfo, VideoParams
 from app.services import task as tm
 from app.utils import utils
@@ -153,7 +154,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         action=argparse.BooleanOptionalAction,
         help="match generated/search materials to script order",
     )
-    parser.add_argument("--voice-name", default="", help="tts voice name")
+    parser.add_argument(
+        "--voice-name",
+        default=None,
+        help="tts voice name (default: ui.voice_name from config.toml)",
+    )
     parser.add_argument(
         "--voice-volume",
         type=_non_negative_float,
@@ -276,7 +281,7 @@ def build_video_params(args: argparse.Namespace) -> VideoParams:
         "video_materials": video_materials,
         "video_count": args.video_count,
         "video_aspect": args.video_aspect,
-        "voice_name": args.voice_name,
+        "voice_name": args.voice_name or config.ui.get("voice_name", ""),
         "subtitle_enabled": args.subtitle_enabled,
     }
 
