@@ -150,7 +150,7 @@ azure_api_version = "2024-02-15-preview"
 gemini_api_key = ""
 gemini_model_name = "gemini-2.5-flash"
 # Gemini TTS model used by Google Gemini TTS.
-gemini_tts_model_name = "gemini-3.1-flash-live-preview"
+gemini_tts_model_name = "gemini-2.5-flash-preview-tts"
 
 ########## Grok API Key
 grok_api_key = ""
