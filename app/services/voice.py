@@ -27,7 +27,7 @@ from app.config import config
 from app.utils import utils
 
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
-_GEMINI_DEFAULT_TTS_MODEL = "gemini-2.5-flash-preview-tts"
+_GEMINI_DEFAULT_TTS_MODEL = "gemini-3.1-flash-live-preview"
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"
 NO_VOICE_NAME = "no-voice"
