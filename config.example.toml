@@ -149,8 +149,12 @@ azure_api_version = "2024-02-15-preview"
 ########## Gemini API Key
 gemini_api_key = ""
 gemini_model_name = "gemini-2.5-flash"
-# Gemini TTS model used by Google Gemini TTS.
+# Gemini TTS model used by Google Gemini TTS generateContent.
 gemini_tts_model_name = "gemini-2.5-flash-preview-tts"
+# Use Gemini Live API for Gemini TTS instead of generateContent.
+gemini_live_tts_enabled = false
+# Gemini Live API native-audio model. KrillinAI-style TTS uses this path.
+gemini_live_tts_model_name = "gemini-3.1-flash-live-preview"
 
 ########## Grok API Key
 grok_api_key = ""

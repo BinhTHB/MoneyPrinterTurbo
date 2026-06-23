@@ -28,6 +28,7 @@ from app.utils import utils
 
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
 _GEMINI_DEFAULT_TTS_MODEL = "gemini-2.5-flash-preview-tts"
+_GEMINI_LIVE_DEFAULT_TTS_MODEL = "gemini-3.1-flash-live-preview"
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"
 NO_VOICE_NAME = "no-voice"
@@ -421,6 +422,8 @@ def tts(
             # 移除性别后缀，例如 "Zephyr-Female" -> "Zephyr"
             voice_with_gender = parts[1]
             voice = voice_with_gender.split("-")[0]
+            if config.app.get("gemini_live_tts_enabled", False):
+                return gemini_live_tts(text, voice, voice_rate, voice_file, voice_volume)
             return gemini_tts(text, voice, voice_rate, voice_file, voice_volume)
         else:
             logger.error(f"Invalid gemini voice name format: {voice_name}")
@@ -1137,6 +1140,156 @@ def gemini_tts(
         return None
     except Exception as e:
         logger.error(f"Gemini TTS failed, error: {str(e)}")
+        return None
+
+
+async def _gemini_live_tts_async(
+    text: str,
+    voice_name: str,
+    model_name: str,
+    api_key: str,
+) -> bytes:
+    from google import genai
+    from google.genai import types
+
+    client = genai.Client(api_key=api_key)
+    live_config = types.LiveConnectConfig(
+        responseModalities=[types.Modality.AUDIO],
+        speechConfig=types.SpeechConfig(
+            voiceConfig=types.VoiceConfig(
+                prebuiltVoiceConfig=types.PrebuiltVoiceConfig(voiceName=voice_name)
+            )
+        ),
+    )
+
+    audio_chunks: list[bytes] = []
+    async with client.aio.live.connect(model=model_name, config=live_config) as session:
+        await session.send(input=text, end_of_turn=True)
+        async for response in session.receive():
+            server_content = response.server_content
+            if server_content is None:
+                continue
+            model_turn = server_content.model_turn
+            if model_turn is not None:
+                for part in model_turn.parts:
+                    inline_data = getattr(part, "inline_data", None)
+                    if inline_data and inline_data.data:
+                        audio_chunks.append(inline_data.data)
+            if server_content.turn_complete:
+                break
+
+    return b"".join(audio_chunks)
+
+
+def _run_gemini_live_tts(
+    text: str,
+    voice_name: str,
+    model_name: str,
+    api_key: str,
+) -> bytes:
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        return asyncio.run(
+            _gemini_live_tts_async(
+                text=text,
+                voice_name=voice_name,
+                model_name=model_name,
+                api_key=api_key,
+            )
+        )
+
+    result: dict[str, bytes | BaseException] = {}
+
+    def runner() -> None:
+        try:
+            result["audio"] = asyncio.run(
+                _gemini_live_tts_async(
+                    text=text,
+                    voice_name=voice_name,
+                    model_name=model_name,
+                    api_key=api_key,
+                )
+            )
+        except BaseException as exc:
+            result["error"] = exc
+
+    thread = threading.Thread(target=runner, daemon=True)
+    thread.start()
+    thread.join()
+    if "error" in result:
+        raise result["error"]
+    return result.get("audio", b"")
+
+
+def gemini_live_tts(
+    text: str,
+    voice_name: str,
+    voice_rate: float,
+    voice_file: str,
+    voice_volume: float = 1.0,
+) -> Union[SubMaker, None]:
+    """Generate speech with Gemini Live API native audio models."""
+    from pydub import AudioSegment
+
+    _configure_pydub_ffmpeg(AudioSegment)
+
+    try:
+        api_key = config.app.get("gemini_api_key", "")
+        if not api_key:
+            logger.error("Gemini API key is not set")
+            return None
+
+        text = (text or "").strip()
+        if not text:
+            logger.error("Gemini Live TTS text is empty")
+            return None
+
+        model_name = (
+            config.app.get("gemini_live_tts_model_name", "")
+            or _GEMINI_LIVE_DEFAULT_TTS_MODEL
+        )
+        logger.info(
+            f"start gemini live tts, model: {model_name}, voice: {voice_name}, try: 1"
+        )
+
+        audio_bytes = _run_gemini_live_tts(
+            text=text,
+            voice_name=voice_name,
+            model_name=model_name,
+            api_key=api_key,
+        )
+        if not audio_bytes:
+            logger.error("No audio data received from Gemini Live TTS")
+            return None
+
+        audio_segment = AudioSegment.from_file(
+            io.BytesIO(audio_bytes),
+            format="raw",
+            frame_rate=24000,
+            channels=1,
+            sample_width=2,
+        )
+        ensure_file_path_exists(voice_file)
+        audio_segment.export(voice_file, format="mp3")
+
+        logger.info(f"completed gemini live tts, output file: {voice_file}")
+
+        sub_maker = ensure_legacy_submaker_fields(SubMaker())
+        audio_duration = len(audio_segment) / 1000.0
+        return populate_legacy_submaker_with_full_text(
+            sub_maker=sub_maker,
+            text=text,
+            audio_duration_seconds=audio_duration,
+        )
+    except ImportError as e:
+        logger.error(
+            f"Missing required package for Gemini Live TTS: {str(e)}. "
+            "Please install: pip install google-genai pydub"
+        )
+        return None
+    except Exception as e:
+        logger.error(f"Gemini Live TTS failed, error: {str(e)}")
         return None
 
 
