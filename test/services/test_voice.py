@@ -733,6 +733,91 @@ class TestVoiceService(unittest.TestCase):
         self.assertEqual(vs.convert_rate_to_percent(1.5), "+50%")
         self.assertEqual(vs.convert_rate_to_percent(0.8), "-20%")
 
+    def test_load_gemini_live_tts_system_instruction(self):
+        with patch.object(vs.config, "app", {"gemini_live_tts_system_instruction_path": "nonexistent_file.txt"}):
+            instruction = vs._load_gemini_live_tts_system_instruction()
+            self.assertIn("text-to-speech engine", instruction)
+
+        # test with custom file
+        with tempfile.NamedTemporaryFile(mode="w+", delete=False, suffix=".txt", encoding="utf-8") as tmp:
+            tmp.write("Custom Prompt Text")
+            tmp_path = tmp.name
+
+        try:
+            with patch.object(vs.config, "app", {"gemini_live_tts_system_instruction_path": tmp_path}):
+                instruction = vs._load_gemini_live_tts_system_instruction()
+                self.assertEqual(instruction, "Custom Prompt Text")
+        finally:
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
+
+    def test_gemini_live_tts_calls_sdk(self):
+        class _FakeResponse:
+            def __init__(self, data=b"RIFF-fake-pcm"):
+                class _ServerContent:
+                    def __init__(self):
+                        class _Part:
+                            def __init__(self):
+                                class _InlineData:
+                                    def __init__(self):
+                                        self.data = data
+                                self.inline_data = _InlineData()
+                        class _ModelTurn:
+                            def __init__(self):
+                                self.parts = [_Part()]
+                        self.model_turn = _ModelTurn()
+                        self.turn_complete = True
+                self.server_content = _ServerContent()
+
+        class _FakeSession:
+            async def __aenter__(self):
+                return self
+            async def __aexit__(self, exc_type, exc, tb):
+                pass
+            async def send(self, input, end_of_turn):
+                pass
+            async def receive(self):
+                yield _FakeResponse()
+
+        class _FakeLive:
+            def connect(self, model, config):
+                self.model = model
+                self.config = config
+                return _FakeSession()
+
+        class _FakeAio:
+            def __init__(self):
+                self.live = _FakeLive()
+
+        class _FakeClient:
+            def __init__(self, api_key):
+                self.api_key = api_key
+                self.aio = _FakeAio()
+
+        class _FakeAudioSegment:
+            def __len__(self):
+                return 2500
+            def export(self, out_file, format):
+                Path(out_file).write_bytes(b"mock_mp3_data")
+
+        # Mock AudioSegment.from_file
+        with patch("google.genai.Client", _FakeClient), \
+             patch("pydub.AudioSegment.from_file", return_value=_FakeAudioSegment()), \
+             patch.object(vs.config, "app", {"gemini_api_key": "test_api_key"}):
+            
+            out_file = f"{temp_dir}/test_live_tts_call.mp3"
+            sub_maker = vs.gemini_live_tts(
+                text="Test live tts voice output.",
+                voice_name="Puck",
+                voice_rate=1.0,
+                voice_file=out_file
+            )
+            self.assertIsNotNone(sub_maker)
+            self.assertEqual(len(sub_maker.subs), 1)
+            self.assertEqual(sub_maker.subs[0], "Test live tts voice output")
+            if os.path.exists(out_file):
+                os.remove(out_file)
+
 
 if __name__ == "__main__":
     # python -m unittest test.services.test_voice.TestVoiceService.test_azure_tts_v1

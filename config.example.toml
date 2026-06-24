@@ -155,6 +155,9 @@ gemini_tts_model_name = "gemini-2.5-flash-preview-tts"
 gemini_live_tts_enabled = false
 # Gemini Live API native-audio model. KrillinAI-style TTS uses this path.
 gemini_live_tts_model_name = "gemini-3.1-flash-live-preview"
+# Path to system instruction file for Gemini Live TTS. Relative paths resolve
+# from project root. Omit or leave empty for built-in default.
+gemini_live_tts_system_instruction_path = ""
 
 ########## Grok API Key
 grok_api_key = ""

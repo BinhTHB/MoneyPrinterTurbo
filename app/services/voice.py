@@ -1143,24 +1143,60 @@ def gemini_tts(
         return None
 
 
+def _load_gemini_live_tts_system_instruction() -> str:
+    default_path = os.path.join(
+        utils.root_dir(), "config", "gemini_live_tts_system_instruction.txt"
+    )
+    instruction_path = (
+        config.app.get("gemini_live_tts_system_instruction_path", "") or default_path
+    )
+    if not os.path.isabs(instruction_path):
+        instruction_path = os.path.join(utils.root_dir(), instruction_path)
+
+    try:
+        with open(instruction_path, "r", encoding="utf-8") as f:
+            instruction = f.read().strip()
+        if instruction:
+            return instruction
+        logger.warning(
+            f"Gemini Live TTS system instruction file is empty: {instruction_path}"
+        )
+    except OSError as e:
+        logger.warning(
+            f"Failed to read Gemini Live TTS system instruction file: {instruction_path}, error: {e}"
+        )
+
+    return (
+        "You are a text-to-speech engine. Read aloud the text provided by the "
+        "user verbatim. Do not respond, converse, answer questions, or add "
+        "commentary. Just read the input text exactly as given."
+    )
+
+
 async def _gemini_live_tts_async(
     text: str,
     voice_name: str,
     model_name: str,
     api_key: str,
+    system_instruction: str = "",
 ) -> bytes:
     from google import genai
     from google.genai import types
 
     client = genai.Client(api_key=api_key)
-    live_config = types.LiveConnectConfig(
-        responseModalities=[types.Modality.AUDIO],
-        speechConfig=types.SpeechConfig(
+
+    kwargs: dict = {
+        "responseModalities": [types.Modality.AUDIO],
+        "speechConfig": types.SpeechConfig(
             voiceConfig=types.VoiceConfig(
                 prebuiltVoiceConfig=types.PrebuiltVoiceConfig(voiceName=voice_name)
             )
         ),
-    )
+    }
+    if system_instruction:
+        kwargs["systemInstruction"] = system_instruction
+
+    live_config = types.LiveConnectConfig(**kwargs)
 
     audio_chunks: list[bytes] = []
     async with client.aio.live.connect(model=model_name, config=live_config) as session:
@@ -1186,6 +1222,7 @@ def _run_gemini_live_tts(
     voice_name: str,
     model_name: str,
     api_key: str,
+    system_instruction: str = "",
 ) -> bytes:
     try:
         asyncio.get_running_loop()
@@ -1196,6 +1233,7 @@ def _run_gemini_live_tts(
                 voice_name=voice_name,
                 model_name=model_name,
                 api_key=api_key,
+                system_instruction=system_instruction,
             )
         )
 
@@ -1209,6 +1247,7 @@ def _run_gemini_live_tts(
                     voice_name=voice_name,
                     model_name=model_name,
                     api_key=api_key,
+                    system_instruction=system_instruction,
                 )
             )
         except BaseException as exc:
@@ -1249,6 +1288,7 @@ def gemini_live_tts(
             config.app.get("gemini_live_tts_model_name", "")
             or _GEMINI_LIVE_DEFAULT_TTS_MODEL
         )
+        system_instruction = _load_gemini_live_tts_system_instruction()
         logger.info(
             f"start gemini live tts, model: {model_name}, voice: {voice_name}, try: 1"
         )
@@ -1258,6 +1298,7 @@ def gemini_live_tts(
             voice_name=voice_name,
             model_name=model_name,
             api_key=api_key,
+            system_instruction=system_instruction,
         )
         if not audio_bytes:
             logger.error("No audio data received from Gemini Live TTS")
