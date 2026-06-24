@@ -28,7 +28,7 @@ from app.services.api_key_pool import get_api_key_pool, is_rate_limit_error
 from app.utils import utils
 
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
-_GEMINI_DEFAULT_TTS_MODEL = "gemini-2.5-flash-preview-tts"
+_GEMINI_DEFAULT_TTS_MODEL = "gemini-3.1-flash-preview-tts"
 _GEMINI_LIVE_DEFAULT_TTS_MODEL = "gemini-3.1-flash-live-preview"
 _MIMO_DEFAULT_BASE_URL = "https://api.xiaomimimo.com/v1"
 _MIMO_DEFAULT_TTS_MODEL = "mimo-v2.5-tts"

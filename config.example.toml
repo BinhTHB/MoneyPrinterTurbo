@@ -155,7 +155,7 @@ gemini_api_keys = []
 api_key_cooldown_seconds = 300
 gemini_model_name = "gemini-2.5-flash"
 # Gemini TTS model used by Google Gemini TTS generateContent.
-gemini_tts_model_name = "gemini-2.5-flash-preview-tts"
+gemini_tts_model_name = "gemini-3.1-flash-preview-tts"
 # Use Gemini Live API for Gemini TTS instead of generateContent.
 gemini_live_tts_enabled = false
 # Gemini Live API native-audio model. KrillinAI-style TTS uses this path.
