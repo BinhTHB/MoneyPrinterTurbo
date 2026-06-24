@@ -24,6 +24,7 @@ from moviepy.audio.io.AudioFileClip import AudioFileClip
 from openai import OpenAI
 
 from app.config import config
+from app.services.api_key_pool import get_api_key_pool, is_rate_limit_error
 from app.utils import utils
 
 _DEFAULT_EDGE_TTS_TIMEOUT_SECONDS = 30.0
@@ -1049,17 +1050,20 @@ def gemini_tts(
     _configure_pydub_ffmpeg(AudioSegment)
     
     try:
-        # 配置Gemini API
-        api_key = config.app.get("gemini_api_key", "")
-        if not api_key:
+        key_pool = get_api_key_pool("gemini")
+        if key_pool is None:
             logger.error("Gemini API key is not set")
             return None
-            
-        genai.configure(api_key=api_key)
-        
+
+        api_key = key_pool.get()
+        if not api_key:
+            logger.error("No available Gemini API key")
+            return None
+
         model_name = config.app.get("gemini_tts_model_name", "") or _GEMINI_DEFAULT_TTS_MODEL
         logger.info(f"start gemini tts, model: {model_name}, voice: {voice_name}, try: 1")
-        
+        genai.configure(api_key=api_key)
+
         # 使用Gemini TTS API
         model = genai.GenerativeModel(model_name)
         
@@ -1074,34 +1078,61 @@ def gemini_tts(
             }
         }
         
-        response = model.generate_content(
-            contents=text,
-            generation_config=generation_config
-        )
-        
-        # 检查响应
-        if not response.candidates or not response.candidates[0].content:
-            logger.error("No audio content received from Gemini TTS")
-            return None
-            
-        # 获取音频数据
-        audio_data = None
-        for part in response.candidates[0].content.parts:
-            if hasattr(part, 'inline_data') and part.inline_data:
-                audio_data = part.inline_data.data
+        audio_bytes = None
+        for attempt in range(key_pool.max_attempts):
+            try:
+                if attempt > 0:
+                    api_key = key_pool.get()
+                    if not api_key:
+                        logger.error("No available Gemini API key")
+                        return None
+                    logger.warning(
+                        f"retry gemini tts with next api key, model: {model_name}, voice: {voice_name}, try: {attempt + 1}"
+                    )
+                    genai.configure(api_key=api_key)
+                    model = genai.GenerativeModel(model_name)
+
+                response = model.generate_content(
+                    contents=text,
+                    generation_config=generation_config
+                )
+
+                # 检查响应
+                if not response.candidates or not response.candidates[0].content:
+                    logger.error("No audio content received from Gemini TTS")
+                    return None
+
+                # 获取音频数据
+                audio_data = None
+                for part in response.candidates[0].content.parts:
+                    if hasattr(part, 'inline_data') and part.inline_data:
+                        audio_data = part.inline_data.data
+                        break
+
+                if not audio_data:
+                    logger.error("No audio data found in response")
+                    return None
+
+                # 音频数据已经是原始字节，不需要base64解码
+                if isinstance(audio_data, str):
+                    # 如果是字符串，则需要base64解码
+                    audio_bytes = base64.b64decode(audio_data)
+                else:
+                    # 如果已经是字节，直接使用
+                    audio_bytes = audio_data
                 break
-                
-        if not audio_data:
-            logger.error("No audio data found in response")
+            except Exception as e:
+                if is_rate_limit_error(e):
+                    key_pool.mark_rate_limited(api_key)
+                    logger.warning(
+                        f"Gemini TTS API key hit quota/rate limit, will try next key, error: {str(e)}"
+                    )
+                    continue
+                raise
+
+        if not audio_bytes:
+            logger.error("No Gemini TTS audio data received from any available API key")
             return None
-            
-        # 音频数据已经是原始字节，不需要base64解码
-        if isinstance(audio_data, str):
-            # 如果是字符串，则需要base64解码
-            audio_bytes = base64.b64decode(audio_data)
-        else:
-            # 如果已经是字节，直接使用
-            audio_bytes = audio_data
         
         # 尝试不同的音频格式 - Gemini可能返回不同的格式
         audio_segment = None
@@ -1261,6 +1292,45 @@ def _run_gemini_live_tts(
     return result.get("audio", b"")
 
 
+def _run_gemini_live_tts_with_retry(
+    text: str,
+    voice_name: str,
+    model_name: str,
+    initial_api_key: str,
+    system_instruction: str,
+    key_pool,
+) -> bytes:
+    api_key = initial_api_key
+    for attempt in range(key_pool.max_attempts):
+        try:
+            if attempt > 0:
+                api_key = key_pool.get()
+                if not api_key:
+                    logger.error("No available Gemini API key")
+                    return b""
+                logger.warning(
+                    f"retry gemini live tts with next api key, model: {model_name}, voice: {voice_name}, try: {attempt + 1}"
+                )
+
+            return _run_gemini_live_tts(
+                text=text,
+                voice_name=voice_name,
+                model_name=model_name,
+                api_key=api_key,
+                system_instruction=system_instruction,
+            )
+        except Exception as e:
+            if is_rate_limit_error(e):
+                key_pool.mark_rate_limited(api_key)
+                logger.warning(
+                    f"Gemini Live TTS API key hit quota/rate limit, will try next key, error: {str(e)}"
+                )
+                continue
+            raise
+
+    return b""
+
+
 def gemini_live_tts(
     text: str,
     voice_name: str,
@@ -1274,9 +1344,14 @@ def gemini_live_tts(
     _configure_pydub_ffmpeg(AudioSegment)
 
     try:
-        api_key = config.app.get("gemini_api_key", "")
-        if not api_key:
+        key_pool = get_api_key_pool("gemini")
+        if key_pool is None:
             logger.error("Gemini API key is not set")
+            return None
+
+        api_key = key_pool.get()
+        if not api_key:
+            logger.error("No available Gemini API key")
             return None
 
         text = (text or "").strip()
@@ -1293,12 +1368,13 @@ def gemini_live_tts(
             f"start gemini live tts, model: {model_name}, voice: {voice_name}, try: 1"
         )
 
-        audio_bytes = _run_gemini_live_tts(
+        audio_bytes = _run_gemini_live_tts_with_retry(
             text=text,
             voice_name=voice_name,
             model_name=model_name,
-            api_key=api_key,
+            initial_api_key=api_key,
             system_instruction=system_instruction,
+            key_pool=key_pool,
         )
         if not audio_bytes:
             logger.error("No audio data received from Gemini Live TTS")

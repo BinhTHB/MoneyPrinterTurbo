@@ -148,6 +148,11 @@ azure_api_version = "2024-02-15-preview"
 
 ########## Gemini API Key
 gemini_api_key = ""
+# Optional: multiple Gemini API keys for quota/rate-limit fallback.
+# Keep gemini_api_key for single-key backward compatibility, or use this list.
+gemini_api_keys = []
+# Cooldown seconds before a quota/rate-limited API key is reused.
+api_key_cooldown_seconds = 300
 gemini_model_name = "gemini-2.5-flash"
 # Gemini TTS model used by Google Gemini TTS generateContent.
 gemini_tts_model_name = "gemini-2.5-flash-preview-tts"
