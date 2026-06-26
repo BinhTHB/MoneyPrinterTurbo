@@ -27,10 +27,6 @@ permissions:
 
 env:
   PYTHONUNBUFFERED: "1"
-  # Add credential secrets per channel, matching youtube_client_env/youtube_token_env in config.
-  # Example GitHub Secrets:
-  # YOUTUBE_CLIENT_JSON_CHANNEL_1: OAuth client JSON from Google Cloud Console
-  # YOUTUBE_TOKEN_JSON_CHANNEL_1: Authorized user token JSON containing refresh_token
   YOUTUBE_CLIENT_JSON_CHANNEL_1: ${{ secrets.YOUTUBE_CLIENT_JSON_CHANNEL_1 }}
   YOUTUBE_TOKEN_JSON_CHANNEL_1: ${{ secrets.YOUTUBE_TOKEN_JSON_CHANNEL_1 }}
 
@@ -65,6 +61,16 @@ jobs:
         run: |
           uv sync
           uv pip install pytest
+
+      - name: Configure LLM for runner
+        run: |
+          echo "" >> config.toml
+          echo "[app]" >> config.toml
+          echo "llm_provider = \"${{ env.LLM_PROVIDER }}\"" >> config.toml
+          echo "${{ env.API_KEY_FIELD }} = \"${{ secrets.AUTOMATION_GEMINI_API_KEY }}\"" >> config.toml
+        env:
+          LLM_PROVIDER: gemini
+          API_KEY_FIELD: gemini_api_key
 
       - name: Validate automation modules
         run: |
