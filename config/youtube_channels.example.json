@@ -1,12 +1,12 @@
 {
   "channels": [
     {
-      "id": "cat_shorts",
-      "name": "Cat Shorts Channel",
+      "id": "channel_1",
+      "name": "YouTube Automation Channel 1",
       "enabled": true,
       "count": 1,
-      "topic_prompt": "Generate wholesome, visual, viral YouTube Shorts topics about cute cats. Avoid dangerous, sad, or medical themes. Prefer simple stories that can be shown with stock footage.",
-      "script_prompt": "Write a 35-55 second narration. Hook in the first 3 seconds. Keep sentences short, emotional, and visual. End with a gentle curiosity loop.",
+      "topic_prompt_env": "YOUTUBE_TOPIC_PROMPT_CHANNEL_1",
+      "script_prompt": "Write a concise 35-55 second YouTube Shorts narration. Hook in the first 3 seconds, keep sentences short and visual, and end with a soft curiosity loop.",
       "video_language": "en",
       "voice_name": "en-US-JennyNeural-Female",
       "video_source": "pexels",
@@ -15,8 +15,8 @@
       "category_id": "22",
       "made_for_kids": false,
       "shorts": true,
-      "youtube_client_env": "YOUTUBE_CLIENT_JSON_CAT_SHORTS",
-      "youtube_token_env": "YOUTUBE_TOKEN_JSON_CAT_SHORTS"
+      "youtube_client_env": "YOUTUBE_CLIENT_JSON_CHANNEL_1",
+      "youtube_token_env": "YOUTUBE_TOKEN_JSON_CHANNEL_1"
     }
   ]
 }
