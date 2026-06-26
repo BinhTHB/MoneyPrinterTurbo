@@ -56,7 +56,7 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
     mock_dependencies["upload_service"].return_value = mock_svc
 
     mock_dependencies["start_task"].return_value = {
-        "video_paths": ["/path/to/video.mp4"],
+        "videos": ["/path/to/video.mp4"],
         "video_script": "cat story",
         "video_title": "Cat Title",
     }

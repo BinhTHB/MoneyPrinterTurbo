@@ -176,7 +176,7 @@ def _run_single_video(
                     "error": "video generation failed",
                 }
 
-            video_paths = task_result.get("video_paths", [])
+            video_paths = task_result.get("videos", [])
             if not video_paths:
                 return {
                     "topic": topic,
