@@ -142,50 +142,29 @@ def get_mimo_voices() -> list[str]:
     return [f"mimo:{voice}-{gender}" for voice, gender in voices_with_gender]
 
 
-def get_elevenlabs_voices() -> list[str]:
-    """
-    Lay danh sach giong ElevenLabs TTS.
-    Neu co API key, se fetch tu API. Neu khong, tra ve danh sach cac giong pho bien.
-
-    Returns:
-        Danh sach giong, format "elevenlabs:voice_id-VoiceName-Gender"
-    """
-    api_key = config.app.get("elevenlabs_api_key", "")
-    if api_key:
-        try:
-            from elevenlabs.client import ElevenLabs
-            client = ElevenLabs(api_key=api_key)
-            response = client.voices.search()
-            voices = []
-            for v in response.voices:
-                gender = getattr(v, "gender", "Unknown") or "Unknown"
-                voices.append(f"elevenlabs:{v.voice_id}-{v.name}-{gender}")
-            if voices:
-                return sorted(voices)
-        except Exception as e:
-            logger.warning(f"Failed to fetch ElevenLabs voices: {str(e)}")
-
-    # Fallback: danh sach cac giong pho bien
-    common_voices = [
-        ("JBFqnCBsd6RMkjVDRZzb", "Rachel", "Female"),
-        ("21m00Tcm4TlvDq8ikWAM", "Adam", "Male"),
-        ("ODq5zmih8GrVes37Dizd", "Patrick", "Male"),
-        ("EXAVITQu4vr2nSDke1cM", "Elli", "Female"),
-        ("XrExE9yKIg1WjnnlV5kG", "Aria", "Female"),
-        ("N2lVS1w4EtoT3dr4rgOW", "Domi", "Female"),
-        ("IKne3meq5aSn9XLyUdCD", "Oliver", "Male"),
-        ("onwK4e9ZLuTAKqWW03F9", "Daniel", "Male"),
-        ("pMsXgVXv3BLzUg7XRGFv", "Bella", "Female"),
-        ("LcfcDJNUP1GQjkzn1xUU", "Emily", "Female"),
-        ("Yj8o4eOVY0jDn2AdSW1J", "Chris", "Male"),
-        ("z9fAnlkpzviPz146aGWa", "Brian", "Male"),
-        ("5Q0t7uMcjvn0Fv1VArQX", "Antoni", "Male"),
-        ("ThT5KcBeYPX3keUQqHPh", "Dorothy", "Female"),
-    ]
-    return [
-        f"elevenlabs:{voice_id}-{name}-{gender}"
-        for voice_id, name, gender in common_voices
-    ]
+def get_elevenlabs_voices(api_key: str) -> list[str]:
+    if not api_key:
+        return []
+    try:
+        url = "https://api.elevenlabs.io/v2/voices"
+        params = {"is_favorite": "true", "page_size": 100}
+        headers = {"xi-api-key": api_key}
+        response = requests.get(url, params=params, headers=headers, timeout=10)
+        if response.status_code != 200:
+            logger.warning(
+                f"ElevenLabs voices fetch failed with status {response.status_code}: {response.text}"
+            )
+            return []
+        data = response.json()
+        voices = data.get("voices", [])
+        return [
+            f"elevenlabs:{v['voice_id']}:{v['name']}"
+            for v in voices
+            if v.get("voice_id") and v.get("name") and v.get("status") != "disabled"
+        ]
+    except Exception as e:
+        logger.warning(f"ElevenLabs voices fetch failed: {str(e)}")
+        return []
 
 
 def get_fptai_voices() -> list[str]:
@@ -207,6 +186,7 @@ def get_fptai_voices() -> list[str]:
         f"fptai:{voice}-{gender}"
         for voice, gender in voices_with_gender
     ]
+
 
 _AZURE_VOICES_DATA_FILE = os.path.join(
     os.path.dirname(__file__), "data", "azure_voices.json"
@@ -269,14 +249,14 @@ def is_mimo_voice(voice_name: str):
     return voice_name.startswith("mimo:")
 
 
-def is_elevenlabs_voice(voice_name: str):
-    """检查是否是 ElevenLabs TTS 的声音"""
-    return voice_name.startswith("elevenlabs:")
+def is_elevenlabs_voice(voice_name: str) -> bool:
+    return (voice_name or "").startswith("elevenlabs:")
 
 
 def is_fptai_voice(voice_name: str):
     """检查是否是 FPT AI TTS 的声音"""
     return voice_name.startswith("fptai:")
+
 
 
 def is_no_voice(voice_name: str | None) -> bool:
@@ -442,12 +422,12 @@ def tts(
             logger.error(f"Invalid mimo voice name format: {voice_name}")
             return None
     elif is_elevenlabs_voice(voice_name):
-        # Format: elevenlabs:voice_id hoặc elevenlabs:voice_id-VoiceName-Gender
+        # 格式: elevenlabs:{voice_id}:{name}
+        # Hoặc elevenlabs:{voice_id}
         parts = voice_name.split(":")
         if len(parts) >= 2:
-            voice_with_gender = parts[1]
-            voice_id = voice_with_gender.split("-")[0]
-            return elevenlabs_tts(text, voice_id, voice_rate, voice_file, voice_volume)
+            voice_id = parts[1]
+            return elevenlabs_tts(text, voice_id, voice_file, voice_rate, voice_volume)
         else:
             logger.error(f"Invalid elevenlabs voice name format: {voice_name}")
             return None
@@ -1513,73 +1493,79 @@ def mimo_tts(
 def elevenlabs_tts(
     text: str,
     voice_id: str,
-    voice_rate: float,
     voice_file: str,
+    voice_rate: float = 1.0,
     voice_volume: float = 1.0,
+    model_id: str = "",
 ) -> Union[SubMaker, None]:
-    """
-    Use ElevenLabs TTS API to generate speech.
-
-    Uses the official elevenlabs Python SDK.
-    Falls back to populate_legacy_submaker_with_full_text() for subtitle
-    timestamps since the basic convert() does not return word-level boundaries.
-
-    Args:
-        text: Text to convert to speech
-        voice_id: ElevenLabs voice ID
-        voice_rate: Speech rate (ElevenLabs range ~0.7-1.2)
-        voice_file: Output audio file path (.mp3)
-        voice_volume: Audio volume (currently handled by provider defaults)
-
-    Returns:
-        SubMaker object or None on failure
-    """
-    from elevenlabs.client import ElevenLabs
-    from pydub import AudioSegment
-    _configure_pydub_ffmpeg(AudioSegment)
-
     text = (text or "").strip()
     if not text:
         logger.error("ElevenLabs TTS text is empty")
         return None
 
-    api_key = config.app.get("elevenlabs_api_key", "") or config.elevenlabs.get("api_key", "")
+    api_key = config.elevenlabs.get("api_key", "")
     if not api_key:
-        logger.error("ElevenLabs API key is not set, configure [elevenlabs] api_key in config.toml")
+        logger.error("ElevenLabs API key is not set")
         return None
 
-    model_id = config.elevenlabs.get("model_id", "eleven_multilingual_v2")
-    if not voice_id:
-        voice_id = config.elevenlabs.get("default_voice_id", "JBFqnCBsd6RMkjVDRZzb")
+    if not model_id:
+        model_id = config.elevenlabs.get("model_id", "eleven_multilingual_v2")
+
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+    headers = {
+        "xi-api-key": api_key,
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "text": text,
+        "model_id": model_id,
+        "voice_settings": {
+            "stability": 0.5,
+            "similarity_boost": 0.75,
+            "style": 0.0,
+            "use_speaker_boost": True,
+        },
+    }
+
+    # Errors where retrying will never help (auth/access/validation failures).
+    _NON_RETRYABLE_CODES = {401, 403, 422}
+    _NON_RETRYABLE_STATUSES = {"voice_disabled", "voice_access_denied", "unauthorized"}
 
     for i in range(3):
         try:
-            logger.info(
-                f"start elevenlabs tts, voice: {voice_id}, model: {model_id}, try: {i + 1}"
-            )
+            logger.info(f"start elevenlabs tts, voice_id: {voice_id}, try: {i + 1}")
             ensure_file_path_exists(voice_file)
 
-            client = ElevenLabs(api_key=api_key)
-            audio = client.text_to_speech.convert(
-                text=text,
-                voice_id=voice_id,
-                model_id=model_id,
-                output_format="mp3_44100_128",
-            )
+            response = requests.post(url, json=payload, headers=headers, timeout=60)
+            if response.status_code != 200:
+                error_status = ""
+                try:
+                    detail = response.json().get("detail", {})
+                    if isinstance(detail, dict):
+                        error_status = detail.get("status", "")
+                except Exception:
+                    pass
 
-            audio_bytes = b"".join(audio) if hasattr(audio, "__iter__") else audio
-            if isinstance(audio_bytes, str):
-                audio_bytes = audio_bytes.encode()
+                if response.status_code in _NON_RETRYABLE_CODES or error_status in _NON_RETRYABLE_STATUSES:
+                    logger.error(
+                        f"ElevenLabs TTS failed (non-retryable) — voice_id: {voice_id}, "
+                        f"status: {response.status_code}, error: {error_status or response.text[:200]}. "
+                        "Please select a different ElevenLabs voice."
+                    )
+                    return None
+
+                logger.error(
+                    f"elevenlabs tts failed with status {response.status_code}: {response.text[:200]}"
+                )
+                continue
 
             with open(voice_file, "wb") as f:
-                f.write(audio_bytes)
+                f.write(response.content)
 
-            try:
-                audio_segment = AudioSegment.from_mp3(voice_file)
-                audio_duration = len(audio_segment) / 1000.0
-            except Exception as e:
-                logger.warning(f"failed to get audio duration: {str(e)}")
-                audio_duration = 0.0
+            audio_clip = AudioFileClip(voice_file)
+            audio_duration = audio_clip.duration
+            audio_clip.close()
+
 
             sub_maker = ensure_legacy_submaker_fields(SubMaker())
             logger.success(f"elevenlabs tts succeeded: {voice_file}")
@@ -1588,9 +1574,9 @@ def elevenlabs_tts(
                 text=text,
                 audio_duration_seconds=audio_duration,
             )
-        except ImportError as e:
-            logger.error(f"Missing package for ElevenLabs TTS: {str(e)}")
-            return None
+        except Exception as e:
+            logger.error(f"elevenlabs tts failed: {str(e)}")
+
         except Exception as e:
             logger.error(f"elevenlabs tts failed: {str(e)}")
 

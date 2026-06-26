@@ -371,21 +371,11 @@ api_key = ""
 
 [elevenlabs]
 # ElevenLabs API Key
-# Sign up at https://elevenlabs.io to get your API key.
-api_key = \"\"
-# Default voice ID. Browse voices at https://elevenlabs.io/voice-lab
-default_voice_id = \"JBFqnCBsd6RMkjVDRZzb\"
-# Model ID: \"eleven_multilingual_v2\" (29 languages), \"eleven_flash_v2_5\" (low-latency),
-# \"eleven_turbo_v2_5\" (balanced), \"eleven_v3\" (dramatic delivery, 70+ languages)
-model_id = \"eleven_multilingual_v2\"[elevenlabs]
-# ElevenLabs API Key
-# Sign up at https://elevenlabs.io to get your API key.
-api_key = \"\"
-# Default voice ID. Browse voices at https://elevenlabs.io/voice-lab
-default_voice_id = \"JBFqnCBsd6RMkjVDRZzb\"
-# Model ID: \"eleven_multilingual_v2\" (29 languages), \"eleven_flash_v2_5\" (low-latency),
-# \"eleven_turbo_v2_5\" (balanced), \"eleven_v3\" (dramatic delivery, 70+ languages)
-model_id = \"eleven_multilingual_v2\"
+# Get your API key at https://elevenlabs.io/app/settings/api-keys
+# Mark voices as favorites in the ElevenLabs voice library to make them appear here.
+api_key = ""
+# Model: eleven_multilingual_v2 | eleven_flash_v2_5 | eleven_v3
+model_id = "eleven_multilingual_v2"
 
 [fptai]
 # FPT AI TTS API Key
