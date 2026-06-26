@@ -68,6 +68,8 @@ jobs:
           echo "[app]" >> config.toml
           echo "llm_provider = \"${{ env.LLM_PROVIDER }}\"" >> config.toml
           echo "${{ env.API_KEY_FIELD }} = \"${{ secrets.AUTOMATION_GEMINI_API_KEY }}\"" >> config.toml
+          echo "pexels_api_keys = [\"${{ secrets.PEXELS_API_KEY }}\"]" >> config.toml
+          echo "pixabay_api_keys = [\"${{ secrets.PIXABAY_API_KEY }}\"]" >> config.toml
         env:
           LLM_PROVIDER: gemini
           API_KEY_FIELD: gemini_api_key
