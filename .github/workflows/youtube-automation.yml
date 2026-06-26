@@ -1,0 +1,109 @@
+name: YouTube Automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      channels_file:
+        description: "Path to YouTube channels config JSON"
+        required: true
+        default: "config/youtube_channels.example.json"
+      counts:
+        description: "Count overrides, e.g. cat_shorts=1,tech_shorts=2,all=1"
+        required: false
+        default: "all=1"
+      dry_run:
+        description: "Skip video generation and upload"
+        required: true
+        type: boolean
+        default: true
+      commit_history:
+        description: "Commit automation-history back to the repo"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+env:
+  PYTHONUNBUFFERED: "1"
+  # Add one pair per channel, matching youtube_client_env/youtube_token_env in channels config.
+  # Example GitHub Secrets:
+  # YOUTUBE_CLIENT_JSON_CAT_SHORTS: OAuth client JSON from Google Cloud Console
+  # YOUTUBE_TOKEN_JSON_CAT_SHORTS: Authorized user token JSON containing refresh_token
+  YOUTUBE_CLIENT_JSON_CAT_SHORTS: ${{ secrets.YOUTUBE_CLIENT_JSON_CAT_SHORTS }}
+  YOUTUBE_TOKEN_JSON_CAT_SHORTS: ${{ secrets.YOUTUBE_TOKEN_JSON_CAT_SHORTS }}
+
+jobs:
+  auto-youtube:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Restore topic history cache
+        uses: actions/cache/restore@v4
+        with:
+          path: automation-history
+          key: youtube-automation-history-${{ github.run_id }}
+          restore-keys: |
+            youtube-automation-history-
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Validate automation modules
+        run: |
+          uv run python -m pytest test/automation test/services/test_youtube_upload.py test/services/test_cli.py -q
+
+      - name: Run YouTube automation
+        run: |
+          uv run python cli.py auto-youtube \
+            --channels-file "${{ inputs.channels_file }}" \
+            --history-dir automation-history \
+            --counts "${{ inputs.counts }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }} \
+            --output-file automation-results.json
+
+      - name: Upload automation results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: youtube-automation-results
+          path: |
+            automation-results.json
+            automation-history
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Save topic history cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: automation-history
+          key: youtube-automation-history-${{ github.run_id }}
+
+      - name: Commit topic history
+        if: ${{ inputs.commit_history && !inputs.dry_run }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add automation-history
+          if git diff --cached --quiet; then
+            echo "No history changes to commit"
+          else
+            git commit -m "Update YouTube automation history"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
