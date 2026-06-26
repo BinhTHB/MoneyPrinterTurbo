@@ -417,3 +417,40 @@ upload_post_auto_upload = false
 
 # YouTube Shorts privacy status (options: "public", "unlisted", "private")
 upload_post_youtube_privacy_status = "public"
+
+[youtube]
+########## YouTube Direct Upload (via OAuth 2.0)
+# Upload directly to YouTube using YouTube Data API v3.
+# No third-party service required. Requires OAuth 2.0 credentials.
+
+# Enable/disable YouTube direct upload
+enabled = false
+
+# Automatically upload videos after generation
+auto_upload = false
+
+# Privacy status (options: "public", "unlisted", "private")
+privacy = "private"
+
+# YouTube category ID (22 = Entertainment, see https://developers.google.com/youtube/v3/docs/videoCategories/list)
+category_id = "22"
+
+# Mark videos as made for kids
+made_for_kids = false
+
+# Auto-add #Shorts metadata for short vertical videos
+shorts = true
+
+# OAuth 2.0 credentials (get from Google Cloud Console)
+# Option 1: Use nested config
+# [youtube.oauth_client]
+# installed = { client_id = "...", client_secret = "...", project_id = "..." }
+
+# Option 2: Use flat fields (easier to manage)
+client_id = ""
+client_secret = ""
+project_id = ""
+
+# Token file path (will be created after first OAuth login)
+# Add this file to .gitignore to avoid committing credentials
+token_file = "youtube_token.json"

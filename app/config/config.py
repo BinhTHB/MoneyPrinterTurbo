@@ -154,6 +154,7 @@ def save_config():
         _cfg["siliconflow"] = siliconflow
         _cfg["elevenlabs"] = elevenlabs
         _cfg["fptai"] = fptai
+        _cfg["youtube"] = youtube
         _cfg["ui"] = ui
         f.write(toml.dumps(_cfg))
 
@@ -166,6 +167,7 @@ azure = _cfg.get("azure", {})
 siliconflow = _cfg.get("siliconflow", {})
 elevenlabs = _cfg.get("elevenlabs", {})
 fptai = _cfg.get("fptai", {})
+youtube = _cfg.get("youtube", {})
 ui = _cfg.get(
     "ui",
     {

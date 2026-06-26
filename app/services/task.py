@@ -8,7 +8,7 @@ from loguru import logger
 from app.config import config
 from app.models import const
 from app.models.schema import VideoConcatMode, VideoParams
-from app.services import llm, material, subtitle, video, voice, upload_post
+from app.services import llm, material, subtitle, video, voice, upload_post, youtube_upload
 from app.services import state as sm
 from app.utils import file_security, utils
 
@@ -453,6 +453,30 @@ def start(task_id, params: VideoParams, stop_at: str = "video"):
             else:
                 logger.warning(f"⚠️ Failed to cross-post: {video_path} - {result.get('error', 'Unknown error')}")
 
+    # 8. Direct YouTube upload (if enabled)
+    youtube_upload_results = []
+    youtube_service = youtube_upload.YouTubeUploadService(config.youtube)
+    if youtube_service.is_configured() and youtube_service.auto_upload:
+        logger.info("\n\n## uploading videos directly to YouTube")
+        metadata = llm.generate_social_metadata(
+            video_subject=params.video_subject,
+            video_script=video_script,
+            language=params.video_language or "",
+            platform="youtube_shorts",
+        )
+        for video_path in final_video_paths:
+            result = youtube_service.upload_video(
+                video_path=video_path,
+                title=metadata.get("title", params.video_subject or "Check out this video!"),
+                description=metadata.get("caption", ""),
+                tags=metadata.get("hashtags", []),
+            )
+            youtube_upload_results.append(result)
+            if result.get("success"):
+                logger.info(f"✅ YouTube upload: {result.get('url')}")
+            else:
+                logger.warning(f"⚠️ Failed to upload to YouTube: {result.get('error', 'Unknown error')}")
+
     kwargs = {
         "videos": final_video_paths,
         "combined_videos": combined_video_paths,
@@ -463,6 +487,7 @@ def start(task_id, params: VideoParams, stop_at: str = "video"):
         "subtitle_path": subtitle_path,
         "materials": downloaded_videos,
         "cross_post_results": cross_post_results if cross_post_results else None,
+        "youtube_upload_results": youtube_upload_results if youtube_upload_results else None,
     }
     sm.state.update_task(
         task_id, state=const.TASK_STATE_COMPLETE, progress=100, **kwargs

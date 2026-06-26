@@ -31,6 +31,11 @@ dependencies = [
     "socksio==1.0.0",
     "pydub==0.25.1",
     "litellm==1.86.2",
+    "google-genai>=2.9.0",
+    # YouTube upload support
+    "google-auth>=2.0.0",
+    "google-auth-oauthlib>=1.0.0",
+    "google-api-python-client>=2.0.0",
 ]
 
 [project.optional-dependencies]
