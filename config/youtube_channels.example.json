@@ -5,7 +5,7 @@
       "name": "YouTube Automation Channel 1",
       "enabled": true,
       "count": 1,
-      "topic_prompt_env": "YOUTUBE_TOPIC_PROMPT_CHANNEL_1",
+      "topic_prompt": "Generate wholesome, visual, viral YouTube Shorts topics. Avoid dangerous, sad, or medical themes. Prefer simple stories that can be shown with stock footage.",
       "script_prompt": "Write a concise 35-55 second YouTube Shorts narration. Hook in the first 3 seconds, keep sentences short and visual, and end with a soft curiosity loop.",
       "video_language": "en",
       "voice_name": "en-US-JennyNeural-Female",

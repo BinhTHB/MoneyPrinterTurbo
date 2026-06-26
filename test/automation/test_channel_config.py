@@ -13,8 +13,6 @@ from app.automation.channel_config import (
 
 
 def test_load_channels_config_reads_enabled_channels(tmp_path: Path):
-    import os
-    from unittest.mock import patch
     config_path = tmp_path / "channels.json"
     config_path.write_text(
         json.dumps(
@@ -23,7 +21,7 @@ def test_load_channels_config_reads_enabled_channels(tmp_path: Path):
                     {
                         "id": "cat_shorts",
                         "name": "Cat Shorts",
-                        "topic_prompt_env": "CAT_PROMPT_ENV_VAR",
+                        "topic_prompt": "Generate cat topics",
                         "script_prompt": "Write concise scripts",
                         "youtube_client_env": "YOUTUBE_CLIENT_JSON_CAT",
                         "youtube_token_env": "YOUTUBE_TOKEN_JSON_CAT",
@@ -41,12 +39,11 @@ def test_load_channels_config_reads_enabled_channels(tmp_path: Path):
         encoding="utf-8",
     )
 
-    with patch.dict(os.environ, {"CAT_PROMPT_ENV_VAR": "Resolved prompt from env"}):
-        channels = load_channels_config(str(config_path))
+    channels = load_channels_config(str(config_path))
 
     assert [channel.id for channel in channels] == ["cat_shorts"]
     assert channels[0].name == "Cat Shorts"
-    assert channels[0].topic_prompt == "Resolved prompt from env"
+    assert channels[0].topic_prompt == "Generate cat topics"
     assert channels[0].count == 1
     assert channels[0].video_language == "en"
     assert channels[0].privacy == "private"

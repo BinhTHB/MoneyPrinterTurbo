@@ -27,12 +27,10 @@ permissions:
 
 env:
   PYTHONUNBUFFERED: "1"
-  # Add secrets per channel, matching *_env values in channels config.
+  # Add credential secrets per channel, matching youtube_client_env/youtube_token_env in config.
   # Example GitHub Secrets:
-  # YOUTUBE_TOPIC_PROMPT_CHANNEL_1: Topic generation prompt
   # YOUTUBE_CLIENT_JSON_CHANNEL_1: OAuth client JSON from Google Cloud Console
   # YOUTUBE_TOKEN_JSON_CHANNEL_1: Authorized user token JSON containing refresh_token
-  YOUTUBE_TOPIC_PROMPT_CHANNEL_1: ${{ secrets.YOUTUBE_TOPIC_PROMPT_CHANNEL_1 }}
   YOUTUBE_CLIENT_JSON_CHANNEL_1: ${{ secrets.YOUTUBE_CLIENT_JSON_CHANNEL_1 }}
   YOUTUBE_TOKEN_JSON_CHANNEL_1: ${{ secrets.YOUTUBE_TOKEN_JSON_CHANNEL_1 }}
 

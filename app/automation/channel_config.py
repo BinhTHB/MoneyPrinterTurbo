@@ -21,8 +21,7 @@ class ChannelConfig(BaseModel):
     enabled: bool = True
     count: int = 1
     count_range: Optional[str] = None
-    topic_prompt: str = ""
-    topic_prompt_env: str = ""
+    topic_prompt: str
     script_prompt: str = ""
     video_language: str = "en"
     voice_name: str = ""
@@ -62,12 +61,6 @@ def load_channels_config(path: str) -> list[ChannelConfig]:
     channels: list[ChannelConfig] = []
 
     for item in channels_data:
-        # Resolve topic_prompt from env if topic_prompt_env is set
-        if item.get("topic_prompt_env"):
-            import os
-            env_val = os.getenv(item["topic_prompt_env"], "")
-            if env_val:
-                item["topic_prompt"] = env_val
         channel = ChannelConfig(**item)
         if channel.id in seen_ids:
             raise ValueError(f"Duplicate channel id: {channel.id}")
