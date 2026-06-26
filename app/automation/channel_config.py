@@ -28,6 +28,8 @@ class ChannelConfig(BaseModel):
     video_source: str = "pexels"
     video_aspect: str = "9:16"
     privacy: str = "private"
+    category_id: str = "22"
+    made_for_kids: bool = False
     shorts: bool = True
     youtube_client_env: str
     youtube_token_env: str
