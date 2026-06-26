@@ -65,6 +65,43 @@ class TestCli(unittest.TestCase):
         params = cli.build_video_params(args)
         self.assertFalse(params.subtitle_enabled)
 
+    def test_auto_youtube_command_dispatch(self):
+        """Test that run_cli dispatches to run_auto_youtube when auto-youtube is first arg."""
+        import tempfile
+        import json
+        from unittest.mock import patch, MagicMock
+
+        with tempfile.TemporaryDirectory() as tmp:
+            channels_file = Path(tmp) / "channels.json"
+            channels_file.write_text(json.dumps({
+                "channels": [{
+                    "id": "test",
+                    "topic_prompt": "test",
+                    "youtube_client_env": "CLIENT",
+                    "youtube_token_env": "TOKEN",
+                }]
+            }), encoding="utf-8")
+
+            mock_result = [{"channel_id": "test", "videos": []}]
+            with patch("app.automation.github_runner.run_automation", return_value=mock_result):
+                exit_code = cli.run_auto_youtube([
+                    "auto-youtube",
+                    "--channels-file", str(channels_file),
+                    "--dry-run",
+                ])
+            self.assertEqual(exit_code, 0)
+
+    def test_run_cli_auto_youtube_dispatch(self):
+        """Test run_cli routes to run_auto_youtube."""
+        from unittest.mock import patch
+
+        with patch("cli.run_auto_youtube") as mock_auto:
+            mock_auto.return_value = 0
+            exit_code = cli.run_cli(["auto-youtube", "--channels-file", "test.json", "--dry-run"])
+            self.assertEqual(exit_code, 0)
+            mock_auto.assert_called_once()
+
+
     def test_coverr_video_source_accepted(self):
         args = cli.parse_args(["--video-subject", "test", "--video-source", "coverr"])
         params = cli.build_video_params(args)

@@ -1,6 +1,7 @@
 import argparse
 import json
 import re
+from pathlib import Path
 from typing import Sequence
 
 from loguru import logger
@@ -81,6 +82,9 @@ def _bgm_type(value: str) -> str:
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    if argv and len(argv) > 0 and argv[0] == "auto-youtube":
+        return parse_auto_youtube_args(argv)
+
     parser = argparse.ArgumentParser(
         description="MoneyPrinterTurbo command line video generation"
     )
@@ -258,6 +262,51 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     return args
 
 
+def parse_auto_youtube_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="MoneyPrinterTurbo YouTube automation CLI"
+    )
+    parser.add_argument("auto-youtube", help="Run YouTube automation pipeline")
+    parser.add_argument("--channels-file", required=True, help="Path to channels config JSON")
+    parser.add_argument(
+        "--history-dir",
+        default="automation-history",
+        help="Directory for topic history files",
+    )
+    parser.add_argument(
+        "--counts",
+        default="",
+        help="Count overrides: cat_shorts=2,tech=1-3,all=1",
+    )
+    parser.add_argument("--dry-run", action="store_true", help="Skip video generation and upload")
+    parser.add_argument("--output-file", default="", help="Write JSON results to file")
+    return parser.parse_args(argv)
+
+
+def run_auto_youtube(argv: Sequence[str] | None = None) -> int:
+    from app.automation.github_runner import run_automation
+
+    args = parse_auto_youtube_args(argv)
+    logger.info(f"Running YouTube automation: channels_file={args.channels_file}")
+
+    results = run_automation(
+        channels_file=args.channels_file,
+        history_dir=args.history_dir,
+        count_overrides=args.counts,
+        dry_run=args.dry_run,
+    )
+
+    if args.output_file:
+        Path(args.output_file).write_text(
+            json.dumps(results, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        logger.info(f"Results written to {args.output_file}")
+
+    print(json.dumps(results, ensure_ascii=False, indent=2))
+    return 0
+
+
 def build_video_params(args: argparse.Namespace) -> VideoParams:
     video_terms = args.video_terms
     if video_terms:
@@ -325,6 +374,11 @@ def build_video_params(args: argparse.Namespace) -> VideoParams:
 
 
 def run_cli(argv: Sequence[str] | None = None) -> int:
+    import sys
+    args_list = argv if argv is not None else sys.argv[1:]
+    if args_list and args_list[0] == "auto-youtube":
+        return run_auto_youtube(args_list)
+
     args = parse_args(argv)
     params = build_video_params(args)
     task_id = args.task_id or utils.get_uuid()
