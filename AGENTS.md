@@ -100,6 +100,22 @@ Rules:
 - `.github/workflows/youtube-automation.yml`
 - `cli.py` (auto-youtube command)
 
+### Auto-Fix for `cli.py` Conflicts
+If upstream modifies `cli.py` and causes merge conflicts, re-apply the `auto-youtube` subcommand automatically:
+
+```bash
+# After git merge upstream/main (with or without conflicts)
+python scripts/fix_cli_after_merge.py
+# Verify
+python -c "from cli import run_auto_youtube, parse_auto_youtube_args; print('OK')"
+```
+
+The script in `scripts/fix_cli_after_merge.py` checks and restores:
+1. `parse_args()` dispatch: routes `argv[0] == "auto-youtube"` to `parse_auto_youtube_args()`
+2. `parse_auto_youtube_args()` function with `--channels-file`, `--history-dir`, `--counts`, `--dry-run`, `--commit-history`
+3. `run_auto_youtube()` function calling `run_automation()` from `github_runner`
+4. `run_cli()` dispatch: routes `"auto-youtube"` first argument
+
 ### Post-Merge Verification
 - Run full test suite locally.
 - Trigger real workflow (`dry_run=false`) for 1 video to confirm end-to-end.
