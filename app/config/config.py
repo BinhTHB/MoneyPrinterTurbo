@@ -155,6 +155,7 @@ def save_config():
         _cfg["elevenlabs"] = elevenlabs
         _cfg["fptai"] = fptai
         _cfg["youtube"] = youtube
+        _cfg["chatterbox"] = chatterbox
         _cfg["ui"] = ui
         f.write(toml.dumps(_cfg))
 
@@ -168,6 +169,7 @@ siliconflow = _cfg.get("siliconflow", {})
 elevenlabs = _cfg.get("elevenlabs", {})
 fptai = _cfg.get("fptai", {})
 youtube = _cfg.get("youtube", {})
+chatterbox = _cfg.get("chatterbox", {})
 ui = _cfg.get(
     "ui",
     {
