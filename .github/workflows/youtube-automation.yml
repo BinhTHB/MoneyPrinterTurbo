@@ -21,9 +21,6 @@ on:
         required: true
         type: boolean
         default: false
-  schedule:
-    - cron: '0 17 * * *' # 12:00 PM EST (17:00 UTC) daily
-
 permissions:
   contents: write
 
@@ -96,26 +93,11 @@ jobs:
 
       - name: Run YouTube automation
         run: |
-          # Detect trigger — schedule has no inputs, use defaults
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            CHANNELS_FILE="config/youtube_channels.channel_1.json"
-            COUNTS="all=1"
-            DRY_RUN="false"
-          else
-            CHANNELS_FILE="${{ inputs.channels_file }}"
-            COUNTS="${{ inputs.counts }}"
-            DRY_RUN="${{ inputs.dry_run }}"
-          fi
-          # Append --dry-run only when flag is true
-          DRY_RUN_FLAG=""
-          if [ "$DRY_RUN" = "true" ]; then
-            DRY_RUN_FLAG="--dry-run"
-          fi
           uv run python cli.py auto-youtube \
-            --channels-file "$CHANNELS_FILE" \
+            --channels-file "${{ inputs.channels_file }}" \
             --history-dir automation-history \
-            --counts "$COUNTS" \
-            $DRY_RUN_FLAG \
+            --counts "${{ inputs.counts }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }} \
             --output-file automation-results.json
 
       - name: Upload automation results
@@ -137,8 +119,7 @@ jobs:
           key: youtube-automation-history-${{ github.run_id }}
 
       - name: Commit topic history
-        # schedule: always commit. manual: only when both flags are set.
-        if: ${{ github.event_name == 'schedule' || (inputs.commit_history && !inputs.dry_run) }}
+        if: ${{ inputs.commit_history && !inputs.dry_run }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
