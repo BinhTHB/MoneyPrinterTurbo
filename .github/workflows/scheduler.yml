@@ -1,6 +1,7 @@
 name: Daily Scheduler
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 17 * * *' # 12:00 PM EST (17:00 UTC) daily — best time for Shorts
 
