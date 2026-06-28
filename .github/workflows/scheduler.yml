@@ -16,6 +16,7 @@ jobs:
       - name: Trigger YouTube Automation on working-branch
         run: |
           gh workflow run "YouTube Automation" \
+            --repo BinhTHB/MoneyPrinterTurbo \
             --ref working-branch \
             -f dry_run=false \
             -f commit_history=true \
