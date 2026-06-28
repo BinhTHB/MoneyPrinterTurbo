@@ -413,6 +413,47 @@ api_key = ""
 # Whether to hide logs in the UI
 hide_log = false
 
+# TTS provider used for voice generation
+tts_server = "edge-tts"
+
+# Default voice name (format: "provider:voice-Gender")
+# Gemini: "gemini:Zephyr-Male", "gemini:Aoede-Female", "gemini:Orus-Male", etc.
+# Edge TTS: "en-US-JennyNeural-Female", "en-US-ChristopherNeural-Male", etc.
+voice_name = "en-US-JennyNeural-Female"
+
+# Speech rate multiplier (1.0 = normal)
+voice_rate = 1.0
+
+# Subtitle font file name (must exist in resource/fonts/)
+font_name = "STHeitiMedium.ttc"
+
+# Subtitle position: "top", "center", "bottom", "custom"
+subtitle_position = "bottom"
+
+# Custom subtitle position as percentage from top, 0-100 (only when subtitle_position = "custom")
+custom_position = 70.0
+
+# Subtitle text color in #RRGGBB format
+text_fore_color = "#FFFFFF"
+
+# Subtitle font size
+font_size = 60
+
+# Subtitle outline color
+stroke_color = "#000000"
+
+# Subtitle outline width
+stroke_width = 1.5
+
+# Enable subtitle background
+subtitle_background_enabled = false
+
+# Subtitle background color
+subtitle_background_color = "#000000"
+
+# Enable rounded translucent subtitle background
+rounded_subtitle_background = false
+
 # 字幕位置设置 (Subtitle position settings)
 # 可选值 (Available values): "top", "center", "bottom", "custom"
 # subtitle_position = "custom"
