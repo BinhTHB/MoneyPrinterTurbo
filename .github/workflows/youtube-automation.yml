@@ -6,7 +6,7 @@ on:
       channels_file:
         description: "Path to YouTube channels config JSON"
         required: true
-        default: "config/youtube_channels.example.json"
+        default: "config/youtube_channels.channel_1.json"
       counts:
         description: "Count overrides, e.g. cat_shorts=1,tech_shorts=2,all=1"
         required: false
