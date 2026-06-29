@@ -21,6 +21,7 @@ on:
         required: true
         type: boolean
         default: false
+
 permissions:
   contents: write
 
@@ -122,15 +123,3 @@ jobs:
         with:
           path: automation-history
           key: youtube-automation-history-${{ github.run_id }}
-
-      - name: Commit topic history
-        if: ${{ inputs.commit_history && !inputs.dry_run }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add automation-history
-          if git diff --cached --quiet; then
-            echo "No history changes to commit"
-          else
-            git commit -m "Update YouTube automation history"
-            git push origin HEAD:${{ github.ref_name }}
