@@ -12,26 +12,16 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Determine target branch
-        id: branch
-        run: |
-          # Cron run: use secret TARGET_BRANCH or fallback to main
-          TARGET="${{ secrets.TARGET_BRANCH }}"
-          if [[ -z "$TARGET" ]]; then
-            TARGET="main"
-          fi
-          echo "Cron run: using target branch = $TARGET"
-          echo "target_branch=$TARGET" >> $GITHUB_OUTPUT
-      - name: Trigger YouTube Automation on target branch
+      - name: Trigger YouTube Automation on working-branch
         run: |
           # Trigger all 3 channels in sequence (not parallel, to avoid rate limits)
           for ch in "config/youtube_channels.channel_1.json" \
                     "config/youtube_channels.channel_2.json" \
                     "config/youtube_channels.channel_3.json"; do
-            echo "Triggering workflow for $ch on branch ${{ steps.branch.outputs.target_branch }}..."
+            echo "Triggering workflow for $ch on branch working-branch..."
             gh workflow run "YouTube Automation" \
               --repo BinhTHB/MoneyPrinterTurbo \
-              --ref "${{ steps.branch.outputs.target_branch }}" \
+              --ref working-branch \
               -f dry_run=false \
               -f commit_history=false \
               -f channels_file="$ch" \
