@@ -24,7 +24,7 @@ jobs:
               --repo BinhTHB/MoneyPrinterTurbo \
               --ref main \
               -f dry_run=false \
-              -f commit_history=true \
+              -f commit_history=false \
               -f channels_file="$ch" \
               -f counts="all=1"
             sleep 10  # small delay between triggers
