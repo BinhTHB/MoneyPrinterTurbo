@@ -5,11 +5,49 @@ Generates fresh, unique video topics using LLM while avoiding history.
 """
 
 import json
+import time
 from loguru import logger
 
 from app.automation.channel_config import ChannelConfig
 from app.automation.topic_history import is_duplicate
 from app.services.llm import _generate_response, _strip_code_fence
+
+
+def _parse_topics_from_response(response: str) -> list[str]:
+    """
+    Parse topics from LLM response with robust error handling.
+    
+    Args:
+        response: Raw LLM response string
+        
+    Returns:
+        List of topic strings, empty list if parsing fails
+    """
+    cleaned = _strip_code_fence(response)
+    if not cleaned or not cleaned.strip():
+        logger.warning("topic_planner: LLM returned empty response")
+        return []
+    
+    try:
+        data = json.loads(cleaned)
+    except json.JSONDecodeError as e:
+        logger.error(f"topic_planner: failed to parse LLM response as JSON: {e}")
+        logger.debug(f"topic_planner: raw response was: {response[:500]}")
+        return []
+    
+    topics = data.get("topics", [])
+    if not isinstance(topics, list):
+        logger.warning(f"topic_planner: 'topics' is not a list, got {type(topics)}")
+        return []
+    
+    # Convert all to strings and filter empty
+    result = []
+    for topic in topics:
+        topic_str = str(topic).strip()
+        if topic_str:
+            result.append(topic_str)
+    
+    return result
 
 
 def generate_topics(
@@ -62,43 +100,52 @@ We need at least {count} completely unique topics after filtering.
 """.strip()
 
     logger.info(f"generating topics for channel {channel.id}: request_count={count}")
-    response = _generate_response(prompt)
-    if not response:
-        raise ValueError("LLM returned empty response for topic generation")
 
-    cleaned = _strip_code_fence(response)
-    try:
-        data = json.loads(cleaned)
-    except json.JSONDecodeError as e:
-        logger.error(f"failed to parse LLM topic response: {response}")
-        raise ValueError(f"Invalid JSON from topic planner LLM: {e}") from e
+    # Retry logic for topic generation
+    max_attempts = 3
+    for attempt in range(max_attempts):
+        response = _generate_response(prompt)
+        if not response:
+            logger.warning(f"topic_planner: LLM returned empty response (attempt {attempt + 1}/{max_attempts})")
+            if attempt < max_attempts - 1:
+                time.sleep(2 ** attempt)  # 1s, 2s
+                continue
+            raise ValueError("LLM returned empty response for topic generation")
 
-    topics = data.get("topics", [])
-    if not isinstance(topics, list):
-        raise ValueError(f"Invalid response format: 'topics' must be a list, got {type(topics)}")
+        topics = _parse_topics_from_response(response)
+        
+        if not topics:
+            logger.warning(f"topic_planner: no valid topics parsed (attempt {attempt + 1}/{max_attempts})")
+            if attempt < max_attempts - 1:
+                time.sleep(2 ** attempt)
+                continue
+            raise ValueError("Failed to parse valid topics from LLM after retries")
 
-    # Filter out duplicates
-    unique_topics: list[str] = []
-    for topic in topics:
-        topic_str = str(topic).strip()
-        if not topic_str:
-            continue
-        # Check duplicate against history and current batch
-        if is_duplicate(topic_str, previous_topics) or is_duplicate(topic_str, unique_topics):
-            logger.debug(f"skipped duplicate topic: {topic_str}")
-            continue
-        unique_topics.append(topic_str)
+        # Filter out duplicates
+        unique_topics: list[str] = []
+        for topic in topics:
+            # Check duplicate against history and current batch
+            if is_duplicate(topic, previous_topics) or is_duplicate(topic, unique_topics):
+                logger.debug(f"skipped duplicate topic: {topic}")
+                continue
+            unique_topics.append(topic)
 
-    if len(unique_topics) < count:
-        logger.error(
-            f"Generated {len(unique_topics)} unique topics, but {count} was requested. "
-            f"Raw: {topics}"
-        )
-        raise ValueError(
-            f"Not enough fresh topics generated (got {len(unique_topics)}, requested {count})"
-        )
+        if len(unique_topics) >= count:
+            # Return exactly the requested count
+            selected = unique_topics[:count]
+            logger.success(f"generated unique topics: {selected}")
+            return selected
+        else:
+            logger.warning(
+                f"Generated {len(unique_topics)} unique topics, but {count} was requested. "
+                f"Raw topics: {topics} (attempt {attempt + 1}/{max_attempts})"
+            )
+            if attempt < max_attempts - 1:
+                time.sleep(2 ** attempt)
+                continue
+            raise ValueError(
+                f"Not enough fresh topics generated (got {len(unique_topics)}, requested {count})"
+            )
 
-    # Return exactly the requested count
-    selected = unique_topics[:count]
-    logger.success(f"generated unique topics: {selected}")
-    return selected
+    # Should not reach here, but just in case
+    raise ValueError("Topic generation failed after all retries")

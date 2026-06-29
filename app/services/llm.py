@@ -11,7 +11,7 @@ from openai.types.chat import ChatCompletion
 from app.config import config
 
 _max_retries = 5
-_DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
+_DEFAULT_GEMINI_MODEL = "gemini-3.1-flash-lite"
 _DEPRECATED_GEMINI_MODELS = {"gemini-pro", "gemini-1.0-pro"}
 MIN_SCRIPT_PARAGRAPH_NUMBER = 1
 MAX_SCRIPT_PARAGRAPH_NUMBER = 10
@@ -385,58 +385,72 @@ def _generate_response(prompt: str) -> str:
                     raise Exception(f"[{llm_provider}] returned an empty response")
 
             if llm_provider == "gemini":
-                import google.generativeai as genai
+                            import google.generativeai as genai
 
-                if not base_url:
-                    genai.configure(api_key=api_key, transport="rest")
-                else:
-                    genai.configure(api_key=api_key, transport="rest", client_options={'api_endpoint': base_url})
+                            if not base_url:
+                                genai.configure(api_key=api_key, transport="rest")
+                            else:
+                                genai.configure(api_key=api_key, transport="rest", client_options={'api_endpoint': base_url})
 
-                generation_config = {
-                    "temperature": 0.5,
-                    "top_p": 1,
-                    "top_k": 1,
-                    "max_output_tokens": 2048,
-                }
+                            generation_config = {
+                                "temperature": 0.5,
+                                "top_p": 1,
+                                "top_k": 1,
+                                "max_output_tokens": 2048,
+                            }
 
-                safety_settings = [
-                    {
-                        "category": "HARM_CATEGORY_HARASSMENT",
-                        "threshold": "BLOCK_ONLY_HIGH",
-                    },
-                    {
-                        "category": "HARM_CATEGORY_HATE_SPEECH",
-                        "threshold": "BLOCK_ONLY_HIGH",
-                    },
-                    {
-                        "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                        "threshold": "BLOCK_ONLY_HIGH",
-                    },
-                    {
-                        "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-                        "threshold": "BLOCK_ONLY_HIGH",
-                    },
-                ]
+                            safety_settings = [
+                                {
+                                    "category": "HARM_CATEGORY_HARASSMENT",
+                                    "threshold": "BLOCK_ONLY_HIGH",
+                                },
+                                {
+                                    "category": "HARM_CATEGORY_HATE_SPEECH",
+                                    "threshold": "BLOCK_ONLY_HIGH",
+                                },
+                                {
+                                    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                                    "threshold": "BLOCK_ONLY_HIGH",
+                                },
+                                {
+                                    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+                                    "threshold": "BLOCK_ONLY_HIGH",
+                                },
+                            ]
 
-                model = genai.GenerativeModel(
-                    model_name=model_name,
-                    generation_config=generation_config,
-                    safety_settings=safety_settings,
-                )
+                            model = genai.GenerativeModel(
+                                model_name=model_name,
+                                generation_config=generation_config,
+                                safety_settings=safety_settings,
+                            )
 
-                try:
-                    response = model.generate_content(prompt)
-                    candidates = response.candidates
-                    generated_text = candidates[0].content.parts[0].text
-                except (AttributeError, IndexError) as e:
-                    logger.warning(
-                        f"gemini returned invalid response content: {str(e)}"
-                    )
-                    raise ValueError(
-                        f"[{llm_provider}] returned invalid response content"
-                    )
-
-                return _normalize_text_response(generated_text, llm_provider)
+                            # Retry logic for rate limit / quota exceeded (429)
+                            import time
+                            for attempt in range(_max_retries):
+                                try:
+                                    response = model.generate_content(prompt)
+                                    candidates = response.candidates
+                                    generated_text = candidates[0].content.parts[0].text
+                                    return _normalize_text_response(generated_text, llm_provider)
+                                except Exception as e:
+                                    error_str = str(e)
+                                    # Check for rate limit / quota exceeded
+                                    if "429" in error_str or "quota" in error_str.lower() or "rate limit" in error_str.lower():
+                                        if attempt < _max_retries - 1:
+                                            wait_time = 2 ** attempt * 5  # exponential backoff: 5s, 10s, 20s, 40s, 80s
+                                            logger.warning(
+                                                f"gemini rate limit/quota exceeded (attempt {attempt + 1}/{_max_retries}), "
+                                                f"waiting {wait_time}s before retry: {error_str}"
+                                            )
+                                            time.sleep(wait_time)
+                                            continue
+                                    # Re-raise if not a retryable error or max retries reached
+                                    logger.warning(
+                                        f"gemini returned invalid response content: {str(e)}"
+                                    )
+                                    raise ValueError(
+                                        f"[{llm_provider}] returned invalid response content: {error_str}"
+                                    ) from e
 
             if llm_provider == "cloudflare":
                 response = requests.post(
