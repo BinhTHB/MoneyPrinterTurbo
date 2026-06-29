@@ -1,13 +1,6 @@
 name: Daily Scheduler
 
 on:
-  workflow_dispatch:
-    inputs:
-      target_branch:
-        description: 'Target branch to trigger YouTube Automation on'
-        required: false
-        type: string
-        default: ''
   schedule:
     - cron: '0 17 * * *' # 12:00 PM EST (17:00 UTC) daily — best time for Shorts
 
@@ -22,21 +15,12 @@ jobs:
       - name: Determine target branch
         id: branch
         run: |
-          if [[ "${{ github.event_name }}" == "schedule" ]]; then
-            # Cron run: use secret TARGET_BRANCH or fallback to main
-            TARGET="${{ secrets.TARGET_BRANCH }}"
-            if [[ -z "$TARGET" ]]; then
-              TARGET="main"
-            fi
-            echo "Cron run: using target branch = $TARGET"
-          else
-            # Manual run: use input or current branch
-            TARGET="${{ github.event.inputs.target_branch }}"
-            if [[ -z "$TARGET" ]]; then
-              TARGET="${{ github.ref_name }}"
-            fi
-            echo "Manual run: using target branch = $TARGET"
+          # Cron run: use secret TARGET_BRANCH or fallback to main
+          TARGET="${{ secrets.TARGET_BRANCH }}"
+          if [[ -z "$TARGET" ]]; then
+            TARGET="main"
           fi
+          echo "Cron run: using target branch = $TARGET"
           echo "target_branch=$TARGET" >> $GITHUB_OUTPUT
       - name: Trigger YouTube Automation on target branch
         run: |
