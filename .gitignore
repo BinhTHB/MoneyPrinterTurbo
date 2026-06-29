@@ -3,6 +3,7 @@
 /storage/
 /.idea/
 /youtube_token.json
+/client_secret.json
 /app/services/__pycache__
 /app/__pycache__/
 /app/config/__pycache__/
