@@ -2,15 +2,21 @@
   "channels": [
     {
       "id": "channel_1",
-      "name": "Channel 1",
+      "name": "@Bnh-v2r",
       "config_file": "config/youtube_channels.channel_1.json",
       "description": "Primary YouTube channel"
     },
     {
       "id": "channel_2",
-      "name": "Channel 2",
+      "name": "@bhn2-x2s",
       "config_file": "config/youtube_channels.channel_2.json",
       "description": "Secondary YouTube channel"
+    },
+    {
+      "id": "channel_3",
+      "name": "Channel 3",
+      "config_file": "config/youtube_channels.channel_3.json",
+      "description": "Third YouTube channel"
     }
   ]
 }
