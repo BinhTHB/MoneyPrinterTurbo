@@ -13,14 +13,21 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger YouTube Automation on working-branch
+      - name: Trigger YouTube Automation on main branch
         run: |
-          gh workflow run "YouTube Automation" \
-            --repo BinhTHB/MoneyPrinterTurbo \
-            --ref working-branch \
-            -f dry_run=false \
-            -f commit_history=true \
-            -f channels_file="config/youtube_channels.channel_1.json" \
-            -f counts="all=1"
+          # Trigger all 3 channels in sequence (not parallel, to avoid rate limits)
+          for ch in "config/youtube_channels.channel_1.json" \
+                    "config/youtube_channels.channel_2.json" \
+                    "config/youtube_channels.channel_3.json"; do
+            echo "Triggering workflow for $ch..."
+            gh workflow run "YouTube Automation" \
+              --repo BinhTHB/MoneyPrinterTurbo \
+              --ref main \
+              -f dry_run=false \
+              -f commit_history=true \
+              -f channels_file="$ch" \
+              -f counts="all=1"
+            sleep 10  # small delay between triggers
+          done
         env:
           GH_TOKEN: ${{ github.token }}
