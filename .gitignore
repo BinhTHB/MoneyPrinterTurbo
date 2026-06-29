@@ -2,7 +2,7 @@
 /config.toml
 /storage/
 /.idea/
-/youtube_token.json
+/youtube_token.txt
 /client_secret.json
 /app/services/__pycache__
 /app/__pycache__/
