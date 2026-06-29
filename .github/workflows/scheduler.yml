@@ -2,6 +2,12 @@ name: Daily Scheduler
 
 on:
   workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Target branch to trigger YouTube Automation on'
+        required: false
+        type: string
+        default: ''
   schedule:
     - cron: '0 17 * * *' # 12:00 PM EST (17:00 UTC) daily — best time for Shorts
 
@@ -13,16 +19,35 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger YouTube Automation on current branch
+      - name: Determine target branch
+        id: branch
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            # Cron run: use secret TARGET_BRANCH or fallback to main
+            TARGET="${{ secrets.TARGET_BRANCH }}"
+            if [[ -z "$TARGET" ]]; then
+              TARGET="main"
+            fi
+            echo "Cron run: using target branch = $TARGET"
+          else
+            # Manual run: use input or current branch
+            TARGET="${{ github.event.inputs.target_branch }}"
+            if [[ -z "$TARGET" ]]; then
+              TARGET="${{ github.ref_name }}"
+            fi
+            echo "Manual run: using target branch = $TARGET"
+          fi
+          echo "target_branch=$TARGET" >> $GITHUB_OUTPUT
+      - name: Trigger YouTube Automation on target branch
         run: |
           # Trigger all 3 channels in sequence (not parallel, to avoid rate limits)
           for ch in "config/youtube_channels.channel_1.json" \
                     "config/youtube_channels.channel_2.json" \
                     "config/youtube_channels.channel_3.json"; do
-            echo "Triggering workflow for $ch on branch ${GITHUB_REF_NAME}..."
+            echo "Triggering workflow for $ch on branch ${{ steps.branch.outputs.target_branch }}..."
             gh workflow run "YouTube Automation" \
               --repo BinhTHB/MoneyPrinterTurbo \
-              --ref "${GITHUB_REF_NAME}" \
+              --ref "${{ steps.branch.outputs.target_branch }}" \
               -f dry_run=false \
               -f commit_history=false \
               -f channels_file="$ch" \
@@ -31,4 +56,3 @@ jobs:
           done
         env:
           GH_TOKEN: ${{ github.token }}
-          GITHUB_REF_NAME: ${{ github.ref_name }}
