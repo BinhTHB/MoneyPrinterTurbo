@@ -1,0 +1,16 @@
+{
+  "channels": [
+    {
+      "id": "channel_1",
+      "name": "Channel 1",
+      "config_file": "config/youtube_channels.channel_1.json",
+      "description": "Primary YouTube channel"
+    },
+    {
+      "id": "channel_2",
+      "name": "Channel 2",
+      "config_file": "config/youtube_channels.channel_2.json",
+      "description": "Secondary YouTube channel"
+    }
+  ]
+}
