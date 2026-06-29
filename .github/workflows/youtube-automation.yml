@@ -21,6 +21,7 @@ on:
         required: true
         type: boolean
         default: false
+
 permissions:
   contents: write
 
@@ -125,6 +126,7 @@ jobs:
 
       - name: Commit topic history
         if: ${{ inputs.commit_history && !inputs.dry_run }}
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -134,3 +136,4 @@ jobs:
           else
             git commit -m "Update YouTube automation history"
             git push origin HEAD:${{ github.ref_name }}
+          fi
