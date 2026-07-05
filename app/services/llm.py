@@ -954,6 +954,12 @@ def _clamp_text(text, max_length: int) -> str:
     return value
 
 
+def _coerce_metadata_text(value, key: str):
+    if isinstance(value, dict):
+        return value.get(key) or value.get("text") or ""
+    return value
+
+
 def _normalize_hashtags(raw, count: int) -> List[str]:
     """
     将 LLM 返回的 hashtag 统一整理成 `#tag` 格式。
@@ -1047,8 +1053,12 @@ def _parse_social_metadata(response: str, platform: str) -> dict:
     if not isinstance(data, dict):
         raise ValueError("social metadata response is not a JSON object")
 
-    title = _clamp_text(data.get("title", ""), spec["title_max"])
-    caption = _clamp_text(data.get("caption", ""), spec["caption_max"])
+    title = _clamp_text(
+        _coerce_metadata_text(data.get("title", ""), "title"), spec["title_max"]
+    )
+    caption = _clamp_text(
+        _coerce_metadata_text(data.get("caption", ""), "caption"), spec["caption_max"]
+    )
     hashtags = _normalize_hashtags(data.get("hashtags", []), spec["hashtag_count"])
 
     if not title and not caption:

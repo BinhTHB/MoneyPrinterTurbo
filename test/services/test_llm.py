@@ -888,6 +888,17 @@ class TestSocialMetadata(unittest.TestCase):
         self.assertEqual(result["caption"], "C")
         self.assertEqual(result["hashtags"], ["#x"])
 
+    def test_parse_social_metadata_extracts_nested_title_text(self):
+        raw = (
+            '{"title":{"title":"Why do you feel guilty?",'
+            '"psychological_effect":"The Productivity Trap"},'
+            '"caption":"Save this for later.","hashtags":["#psychology"]}'
+        )
+        result = llm._parse_social_metadata(raw, "youtube_shorts")
+
+        self.assertEqual(result["title"], "Why do you feel guilty?")
+        self.assertNotIn("psychological_effect", result["title"])
+
     def test_parse_social_metadata_requires_title_or_caption(self):
         with self.assertRaises(ValueError):
             llm._parse_social_metadata('{"hashtags":["#x"]}', "tiktok")

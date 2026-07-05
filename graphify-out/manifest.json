@@ -145,8 +145,8 @@
     "semantic_hash": "a8204332a47aac7fc262085c2d56dbbb"
   },
   "E:\\projects\\MoneyPrinterTurbo\\cli.py": {
-    "mtime": 1781715007.73805,
-    "ast_hash": "d1f08686221d834d61c963952b6778a6",
+    "mtime": 1782491700.2269442,
+    "ast_hash": "d402d602ca503f8f05c720a6a7fd836c",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\main.py": {
@@ -245,8 +245,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\config\\config.py": {
-    "mtime": 1781188505.2186954,
-    "ast_hash": "d1cba078c69f2647e7c10462294d4278",
+    "mtime": 1782619287.8687887,
+    "ast_hash": "f3dddba5a10a9ee790e87d9e8364e2f3",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\config\\__init__.py": {
@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\controllers\\v1\\llm.py": {
-    "mtime": 1780568805.8054175,
-    "ast_hash": "f19507e1b2714cf2233a9d8a2dd2bcc7",
+    "mtime": 1782230396.8090913,
+    "ast_hash": "d383b6b19636e6001d501ceed2f45905",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\controllers\\v1\\video.py": {
@@ -295,8 +295,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\llm.py": {
-    "mtime": 1781713257.2129095,
-    "ast_hash": "05a317a521f4a40f8464eb921be9f491",
+    "mtime": 1783263366.5748203,
+    "ast_hash": "36133cb27006ccec53b8dfc4992f98b8",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\material.py": {
@@ -315,23 +315,23 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\task.py": {
-    "mtime": 1781713257.2139096,
-    "ast_hash": "4579413e00217910825a78664ff646fe",
+    "mtime": 1782619287.8687887,
+    "ast_hash": "56aff47e6ff74476f1653c5334a41b43",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\upload_post.py": {
-    "mtime": 1780328450.4140444,
-    "ast_hash": "1af9ce3b86a6a2cc223fa78cf5aa3ae3",
+    "mtime": 1782479054.9703085,
+    "ast_hash": "3f8308ca7c64dd39143fe8f1bcfd3b94",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\video.py": {
-    "mtime": 1781713287.420738,
-    "ast_hash": "2c39adaa8f23fe14349ea54306803e9d",
+    "mtime": 1782230396.8150198,
+    "ast_hash": "015ff30cb1401220a917932f0fda1205",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\voice.py": {
-    "mtime": 1781713647.5783267,
-    "ast_hash": "e2541533be25a075e347e1b040c329a0",
+    "mtime": 1782619287.8697908,
+    "ast_hash": "2734d6c1ca9ceb169f66f78a129eb417",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\__init__.py": {
@@ -365,13 +365,13 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_cli.py": {
-    "mtime": 1781713257.21945,
-    "ast_hash": "728d77332eeac184c15b9e3167341630",
+    "mtime": 1782491800.7418091,
+    "ast_hash": "a37f3f63572269ac61abe67b09cadc6c",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_llm.py": {
-    "mtime": 1781713257.2204401,
-    "ast_hash": "7d43f47875a900bd1c71cf060f42b3c9",
+    "mtime": 1783263381.6405776,
+    "ast_hash": "af78151470ebd65b959191666d2a1c7a",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_material.py": {
@@ -400,13 +400,13 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_video.py": {
-    "mtime": 1781713257.2224448,
-    "ast_hash": "dd51789dcdc0784512ea4803a486351b",
+    "mtime": 1782230396.8208778,
+    "ast_hash": "9c9a780e0a9db0d14a05c35fbab40979",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_voice.py": {
-    "mtime": 1781713257.223437,
-    "ast_hash": "6cfe3894947262abf06336b7ebfefe0f",
+    "mtime": 1782619287.8719654,
+    "ast_hash": "1d7499be9d99b2f2222d1b56d3265324",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_webui_i18n.py": {
@@ -420,43 +420,43 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\Main.py": {
-    "mtime": 1781431587.5617976,
-    "ast_hash": "04dced654a6581770428484f54c04534",
+    "mtime": 1782619287.8744726,
+    "ast_hash": "b84dcc83362a07a0ae4c895998928b64",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\de.json": {
-    "mtime": 1781188505.2280447,
-    "ast_hash": "885d2239df59833bcd69bd59f6ec5aff",
+    "mtime": 1782479054.9763627,
+    "ast_hash": "3ae9aa108f786e6c46cdccefabad27d2",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\en.json": {
-    "mtime": 1781431180.8684344,
-    "ast_hash": "ae760d06cbc7cee4817fa3f48a794dc7",
+    "mtime": 1782619287.8744726,
+    "ast_hash": "61145b20549ed2fe9d584684ede3eb58",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\pt.json": {
-    "mtime": 1781188505.2280447,
-    "ast_hash": "7834cd5c67dd942137d7eb621ae69a2e",
+    "mtime": 1782479054.9785552,
+    "ast_hash": "ce91788185c83afe268caba016e156f9",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\ru.json": {
-    "mtime": 1781713257.2254417,
-    "ast_hash": "1b7013f598450c882b193b14d1636155",
+    "mtime": 1782619287.8754728,
+    "ast_hash": "df15fd1fef12a4156696c6379028034b",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\tr.json": {
-    "mtime": 1781188505.2289262,
-    "ast_hash": "ce74c03399f0a3dfd36aeda65cacd257",
+    "mtime": 1782479054.9785552,
+    "ast_hash": "4b68fecdaa95bbe6fadb56057a346885",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\vi.json": {
-    "mtime": 1781188505.2289262,
-    "ast_hash": "891f530a96fdcb76d4da7a9c34822ebf",
+    "mtime": 1782479054.9796698,
+    "ast_hash": "75476ae7e6a995c4c84b1c6b4f53f661",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\zh.json": {
-    "mtime": 1781431180.8684344,
-    "ast_hash": "6da962833a5ade7a7922fd9417444145",
+    "mtime": 1782479054.9796698,
+    "ast_hash": "e333d79379b26e23d30373f7fa5bc715",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\docker-compose.gpu.yml": {
@@ -475,18 +475,18 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\README-en.md": {
-    "mtime": 1781713257.20991,
-    "ast_hash": "6b2c06e339ddce51fab21d08b0faec1b",
+    "mtime": 1782619287.867789,
+    "ast_hash": "ea6877437e55dee58d3552f70993c5ce",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\README.md": {
-    "mtime": 1781713257.2109091,
-    "ast_hash": "929195048c525c01188b9831c999395e",
+    "mtime": 1782619287.867789,
+    "ast_hash": "d07ba2a9689c8a57795f812b84ef4728",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\requirements.txt": {
-    "mtime": 1780568805.809375,
-    "ast_hash": "f5e06d1303b6c725646d33c47f3e9b9f",
+    "mtime": 1782482270.1600082,
+    "ast_hash": "2c8ad8e2eaee87059f56dc285bcc48a1",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\.github\\SECURITY.md": {
@@ -820,8 +820,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\es.json": {
-    "mtime": 1781713257.2244375,
-    "ast_hash": "e67570b27ceb86d10a963c96c9682532",
+    "mtime": 1782479054.9777715,
+    "ast_hash": "ed9ed4376d992d2aabbd901ab96fc0f2",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\docker-compose.release.yml": {
@@ -842,6 +842,291 @@
   "E:\\projects\\MoneyPrinterTurbo\\docs\\sponsors\\ccsub-logo.png": {
     "mtime": 1781713257.2184305,
     "ast_hash": "138d3fd37bc3e5d1953d8f229d15ae68",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\channel_config.py": {
+    "mtime": 1782493837.0197985,
+    "ast_hash": "50b3904c213fbdc56c9f59a21d26a2c6",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\github_runner.py": {
+    "mtime": 1782496149.441351,
+    "ast_hash": "0148ae8b10644ed008cb143ecdf9254f",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\topic_history.py": {
+    "mtime": 1782489453.971269,
+    "ast_hash": "d988f5b1f3dedd2eb312b23af1468895",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\topic_planner.py": {
+    "mtime": 1782715929.4970474,
+    "ast_hash": "ebbaf292df4523ed5bae4cd4d8ae167e",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\__init__.py": {
+    "mtime": 1782489164.6337967,
+    "ast_hash": "b27412d9f6e3b8cd4e2420b4353e77ac",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\services\\api_key_pool.py": {
+    "mtime": 1782304133.294174,
+    "ast_hash": "560670da2d68cf44494690247ad27120",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\services\\twelvelabs.py": {
+    "mtime": 1782619287.8687887,
+    "ast_hash": "2fa02c5c06313e32948f6c507a2efac8",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\app\\services\\youtube_upload.py": {
+    "mtime": 1782482171.0293162,
+    "ast_hash": "b45f60f589dc39d52978f4b2df55d37d",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\automation-history\\channel_1.json": {
+    "mtime": 1782716941.7398067,
+    "ast_hash": "552669f18e44225336859c345d36fb14",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_1.json": {
+    "mtime": 1782634985.8816926,
+    "ast_hash": "da9c027ac0fec34c718dbf3017801104",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_2.json": {
+    "mtime": 1782715929.4865146,
+    "ast_hash": "86ab0b9551fb6902cc132d2e492d1d2e",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_3.json": {
+    "mtime": 1782715929.4865146,
+    "ast_hash": "b19940ad9cf79daeb09157ec1e86d6e1",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.index.json": {
+    "mtime": 1782715929.4770012,
+    "ast_hash": "60e9e5c969a002f9eaf58a63f69cac4a",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\scripts\\fix_cli_after_merge.py": {
+    "mtime": 1782619281.6481006,
+    "ast_hash": "1bc94100efc902e8328031e48973edf0",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_channel_config.py": {
+    "mtime": 1782493854.3827834,
+    "ast_hash": "301385a5ca84f875ba84f532505dea3c",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_github_runner.py": {
+    "mtime": 1782496234.4151483,
+    "ast_hash": "5da075cbc188a608d0bf659bd476dc7d",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_topic_history.py": {
+    "mtime": 1782489582.6421568,
+    "ast_hash": "eadbcd31820cbdca81466e60ea13744f",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_topic_planner.py": {
+    "mtime": 1782490915.0446968,
+    "ast_hash": "8dc502e593b3ad1109912d4e92bea862",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_api_key_pool.py": {
+    "mtime": 1782304199.157019,
+    "ast_hash": "b85703b03f959a369681d2fe9059c7f9",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_twelvelabs.py": {
+    "mtime": 1782619287.8707883,
+    "ast_hash": "19f8764f53146adc506bfd7f436d5af8",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_upload_post.py": {
+    "mtime": 1782230396.8198857,
+    "ast_hash": "3225fd018ac18c46241e0f400753b541",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_youtube_upload.py": {
+    "mtime": 1782481945.492293,
+    "ast_hash": "44eb1bc6c6ea34ec3527e32d71cc8d6f",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\webui\\i18n\\id.json": {
+    "mtime": 1782479054.9777715,
+    "ast_hash": "fa87af0367bce0cfc16894f744e067ae",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\.github\\workflows\\scheduler.yml": {
+    "mtime": 1782718031.1389222,
+    "ast_hash": "4fb2551668b3644d770b8c0262c39d17",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\.github\\workflows\\youtube-automation.yml": {
+    "mtime": 1782716968.287145,
+    "ast_hash": "cf7f0c607b09dc04bf6efde2cd3902ec",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\.hermes\\plans\\2026-06-26_222954-github-actions-multi-channel-youtube-automation.md": {
+    "mtime": 1782488980.3255694,
+    "ast_hash": "79ee6a37b4750c5fe2a5aff95de51172",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\config\\gemini_live_tts_system_instruction.txt": {
+    "mtime": 1782301657.7795556,
+    "ast_hash": "85a74e709f4bfa3ccbfa90c6bd2109b7",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\docs\\sponsors\\compshare-logo.png": {
+    "mtime": 1782479054.972812,
+    "ast_hash": "437c3c1914197056212918f3d2cb53c1",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output000.mp3": {
+    "mtime": 1781188549.734827,
+    "ast_hash": "bd4ce777c0b333bbb5ac48e82b1cf253",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output001.mp3": {
+    "mtime": 1781188549.7493625,
+    "ast_hash": "9d9df347b2093db615edf199e3c73795",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output002.mp3": {
+    "mtime": 1781188549.7623293,
+    "ast_hash": "b1c38dbfae5b1a203078e0ece7f21950",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output003.mp3": {
+    "mtime": 1781188549.7782664,
+    "ast_hash": "fce83cc15779d8d5ce9e04eb1fea4c2a",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output004.mp3": {
+    "mtime": 1781188549.7934818,
+    "ast_hash": "7af53dc8627cd1c2879baff8784db51f",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output005.mp3": {
+    "mtime": 1781188549.81047,
+    "ast_hash": "062ae057a198107d3cb0d58bb91f3c76",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output006.mp3": {
+    "mtime": 1781188549.82368,
+    "ast_hash": "6571b76da8d7e132b0fc23e10c5cb1b4",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output007.mp3": {
+    "mtime": 1781188549.8394454,
+    "ast_hash": "d506cef4ebc30566bf897764a4d66025",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output008.mp3": {
+    "mtime": 1781188549.8550637,
+    "ast_hash": "9f5d5db375a347c89dc7fe3b1d0a31c8",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output009.mp3": {
+    "mtime": 1781188549.8704374,
+    "ast_hash": "b62afc7a3fb04c2574d382594a89d77d",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output010.mp3": {
+    "mtime": 1781188549.8854651,
+    "ast_hash": "21ed387f3e6551623d3026800000ec57",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output011.mp3": {
+    "mtime": 1781188549.9026594,
+    "ast_hash": "875555755a304bdec48928f04e468da5",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output012.mp3": {
+    "mtime": 1781188549.9203925,
+    "ast_hash": "60eba394a75f88c3246581678d25bbf7",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output013.mp3": {
+    "mtime": 1781188549.9365258,
+    "ast_hash": "9e2f67655ca076c4ecbae7ea97571ea6",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output014.mp3": {
+    "mtime": 1781188549.9559746,
+    "ast_hash": "39a285c20cf737707e04c38f337ca33e",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output015.mp3": {
+    "mtime": 1781188549.9754272,
+    "ast_hash": "30523f3abea8b68a1fc8a1d4685bebb6",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output016.mp3": {
+    "mtime": 1781188549.9938774,
+    "ast_hash": "3385115ce9ea6b87629a0dc744d69dea",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output017.mp3": {
+    "mtime": 1781188550.0096533,
+    "ast_hash": "93904109379e8bedf26b57c597443150",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output018.mp3": {
+    "mtime": 1781188550.0242896,
+    "ast_hash": "397b5af9dbbab64530cb42cfb75aeb02",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output019.mp3": {
+    "mtime": 1781188550.0403736,
+    "ast_hash": "aa876adb5d341bc95ddac8ad6bbe6058",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output020.mp3": {
+    "mtime": 1781188550.056029,
+    "ast_hash": "5fda5092c0d7b2425bbf613dddb7b3b8",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output021.mp3": {
+    "mtime": 1781188550.0745273,
+    "ast_hash": "1cf52cde673902872859649eab6a663b",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output022.mp3": {
+    "mtime": 1781188550.091009,
+    "ast_hash": "81b1c0eda83d4114b8844a879ae62370",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output023.mp3": {
+    "mtime": 1781188550.1068754,
+    "ast_hash": "cf60ab02cf414110802aa8dbdb6fca75",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output024.mp3": {
+    "mtime": 1781188550.122337,
+    "ast_hash": "c60a6e564dd6287d41d4fbe1a9732881",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output025.mp3": {
+    "mtime": 1781188550.1396928,
+    "ast_hash": "d1a578a242b0b84f7864bc1bcf84f8f5",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output027.mp3": {
+    "mtime": 1781188550.1573753,
+    "ast_hash": "13ee089909bef075d6814cab3875fe83",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output028.mp3": {
+    "mtime": 1781188550.1723256,
+    "ast_hash": "9f058f3c1d17d0b951f465385e519228",
+    "semantic_hash": ""
+  },
+  "E:\\projects\\MoneyPrinterTurbo\\resource\\songs\\output029.mp3": {
+    "mtime": 1781188550.1832535,
+    "ast_hash": "4e4c08190de12ce1c5e6b6420d9c2bdf",
     "semantic_hash": ""
   }
 }
