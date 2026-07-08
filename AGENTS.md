@@ -38,9 +38,9 @@ Rules:
 - `main` is the development branch. Channel configs under
   `config/youtube_channels.channel_*.json` must keep `"privacy": "private"` on
   this branch so test uploads do not become public.
-- `working-branch` is the production branch. Channel configs under
-  `config/youtube_channels.channel_*.json` must keep `"privacy": "public"` on
-  this branch for real publishing.
+- `working-branch` is the production branch, acting as a production snapshot of
+  `main`. Channel configs under `config/youtube_channels.channel_*.json` must
+  keep `"privacy": "public"` on this branch for real publishing.
 - When syncing stable changes from `main` into `working-branch`, never blindly
   copy development-only config values. Re-apply production values manually after
   the merge, especially `"privacy": "public"` for all channel configs.
