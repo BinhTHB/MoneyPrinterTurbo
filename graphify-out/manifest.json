@@ -295,8 +295,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\llm.py": {
-    "mtime": 1783263366.5748203,
-    "ast_hash": "36133cb27006ccec53b8dfc4992f98b8",
+    "mtime": 1783487161.0607817,
+    "ast_hash": "d06212fab4dc43dbd834cd2fe7e2caf2",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\services\\material.py": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_llm.py": {
-    "mtime": 1783263381.6405776,
-    "ast_hash": "af78151470ebd65b959191666d2a1c7a",
+    "mtime": 1783487390.1279373,
+    "ast_hash": "a03663489de37a132aac697becbea358",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\services\\test_material.py": {
@@ -850,13 +850,13 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\github_runner.py": {
-    "mtime": 1782496149.441351,
-    "ast_hash": "0148ae8b10644ed008cb143ecdf9254f",
+    "mtime": 1783486991.924793,
+    "ast_hash": "b9e2c04fb2a6a3dd8f602c464d131a16",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\topic_history.py": {
-    "mtime": 1782489453.971269,
-    "ast_hash": "d988f5b1f3dedd2eb312b23af1468895",
+    "mtime": 1783487232.049023,
+    "ast_hash": "21a37c415bad3483bb63090aba99290f",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\app\\automation\\topic_planner.py": {
@@ -885,23 +885,23 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\automation-history\\channel_1.json": {
-    "mtime": 1782716941.7398067,
-    "ast_hash": "552669f18e44225336859c345d36fb14",
+    "mtime": 1783263689.431565,
+    "ast_hash": "93f68aeb472114db4dc989666a9fb27a",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_1.json": {
-    "mtime": 1782634985.8816926,
-    "ast_hash": "da9c027ac0fec34c718dbf3017801104",
+    "mtime": 1783263845.2756784,
+    "ast_hash": "f65ae855609650a8f81237657e89e4e9",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_2.json": {
-    "mtime": 1782715929.4865146,
-    "ast_hash": "86ab0b9551fb6902cc132d2e492d1d2e",
+    "mtime": 1783263845.2756784,
+    "ast_hash": "9fd5c73c5064902e6ebfde1d9687afcb",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.channel_3.json": {
-    "mtime": 1782715929.4865146,
-    "ast_hash": "b19940ad9cf79daeb09157ec1e86d6e1",
+    "mtime": 1783263845.2766843,
+    "ast_hash": "35c61ad443463a5a7e9bfba31c3ded07",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\config\\youtube_channels.index.json": {
@@ -920,8 +920,8 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_github_runner.py": {
-    "mtime": 1782496234.4151483,
-    "ast_hash": "5da075cbc188a608d0bf659bd476dc7d",
+    "mtime": 1783487323.9326305,
+    "ast_hash": "b926c331beac041931db7f0f263e8a17",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\test\\automation\\test_topic_history.py": {
@@ -960,13 +960,13 @@
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\.github\\workflows\\scheduler.yml": {
-    "mtime": 1782718031.1389222,
-    "ast_hash": "4fb2551668b3644d770b8c0262c39d17",
+    "mtime": 1783263759.701429,
+    "ast_hash": "b8f437c76a5c378fff99a287b731ddb2",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\.github\\workflows\\youtube-automation.yml": {
-    "mtime": 1782716968.287145,
-    "ast_hash": "cf7f0c607b09dc04bf6efde2cd3902ec",
+    "mtime": 1783263759.701429,
+    "ast_hash": "0d5a7798b95619716ea835aed42ecaef",
     "semantic_hash": ""
   },
   "E:\\projects\\MoneyPrinterTurbo\\.hermes\\plans\\2026-06-26_222954-github-actions-multi-channel-youtube-automation.md": {

@@ -93,6 +93,15 @@ def _run_channel(
     previous_topics = load_history(str(history_file))
 
     topics = generate_topics(channel, count=count, previous_topics=previous_topics)
+    for topic in topics:
+        append_history(
+            str(history_file),
+            {
+                "topic": topic,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "status": "generated",
+            },
+        )
 
     videos: list[dict[str, Any]] = []
 
@@ -108,13 +117,33 @@ def _run_channel(
             if video_result.get("status") == "success" and video_result.get("video_id"):
                 record = {
                     "topic": topic,
-                    "created_at": datetime.now(timezone.utc).isoformat(),
+                    "updated_at": datetime.now(timezone.utc).isoformat(),
+                    "status": "success",
                     "video_id": video_result.get("video_id"),
                     "url": video_result.get("url"),
                 }
                 append_history(str(history_file), record)
+            elif video_result.get("status"):
+                append_history(
+                    str(history_file),
+                    {
+                        "topic": topic,
+                        "updated_at": datetime.now(timezone.utc).isoformat(),
+                        "status": video_result.get("status"),
+                        "error": video_result.get("error", ""),
+                    },
+                )
         except Exception as e:
             logger.error(f"Video generation for topic '{topic}' failed: {e}")
+            append_history(
+                str(history_file),
+                {
+                    "topic": topic,
+                    "updated_at": datetime.now(timezone.utc).isoformat(),
+                    "status": "error",
+                    "error": str(e),
+                },
+            )
             videos.append(
                 {
                     "topic": topic,

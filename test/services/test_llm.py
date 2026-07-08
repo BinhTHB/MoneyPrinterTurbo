@@ -899,6 +899,21 @@ class TestSocialMetadata(unittest.TestCase):
         self.assertEqual(result["title"], "Why do you feel guilty?")
         self.assertNotIn("psychological_effect", result["title"])
 
+    def test_parse_social_metadata_extracts_stringified_title_dict(self):
+        raw = (
+            "{\"title\":\"{'title': \\\"Why do you 'doom-scroll' your ex's "
+            "social media even when it hurts?\\\", 'psychological_effect': "
+            "\\\"The Dopamine Loop\\\"}\","
+            '"caption":"Save this for later.","hashtags":["#psychology"]}'
+        )
+        result = llm._parse_social_metadata(raw, "youtube_shorts")
+
+        self.assertEqual(
+            result["title"],
+            "Why do you 'doom-scroll' your ex's social media even when it hurts?",
+        )
+        self.assertNotIn("psychological_effect", result["title"])
+
     def test_parse_social_metadata_requires_title_or_caption(self):
         with self.assertRaises(ValueError):
             llm._parse_social_metadata('{"hashtags":["#x"]}', "tiktok")

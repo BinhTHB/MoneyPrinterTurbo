@@ -75,7 +75,7 @@ def load_history(path: str) -> list[str]:
 
 def append_history(path: str, record: dict[str, Any]) -> None:
     """
-    Append a record to the topic history file.
+    Append or update a record in the topic history file.
 
     Creates the file and parent directories if they do not exist.
 
@@ -93,7 +93,13 @@ def append_history(path: str, record: dict[str, Any]) -> None:
         data = {"channel_id": "", "topics": []}
 
     topics = data.get("topics", [])
-    topics.append(record)
+    normalized_topic = normalize_topic(str(record.get("topic", "")))
+    for index, item in enumerate(topics):
+        if normalize_topic(str(item.get("topic", ""))) == normalized_topic:
+            topics[index] = {**item, **record}
+            break
+    else:
+        topics.append(record)
     data["topics"] = topics
 
     file_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")

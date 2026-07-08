@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+import ast
 import requests
 from typing import List
 
@@ -957,7 +958,51 @@ def _clamp_text(text, max_length: int) -> str:
 def _coerce_metadata_text(value, key: str):
     if isinstance(value, dict):
         return value.get(key) or value.get("text") or ""
+    if isinstance(value, str):
+        candidate = value.strip()
+        if (
+            len(candidate) >= 2
+            and candidate[0] == candidate[-1]
+            and candidate[0] in {"'", '"'}
+            and "{" in candidate
+        ):
+            candidate = candidate[1:-1].strip()
+
+        if candidate.startswith("{"):
+            parsed = _parse_metadata_object(candidate)
+            if isinstance(parsed, dict):
+                return _coerce_metadata_text(parsed, key)
+
+        match = re.search(r"\\?['\"]title\\?['\"]\s*:\s*\\?(['\"])(.*?)\\?\1", candidate)
+        if match:
+            return match.group(2)
+
+        match = re.search(r"\\?['\"]title\\?['\"]\s*:\s*\\?(['\"])(.*)", candidate)
+        if match:
+            title = re.split(r",\s*\\?['\"][a-zA-Z_]+\\?['\"]\s*:", match.group(2))[0]
+            return title.rstrip(",}'\"\\ ")
     return value
+
+def _parse_metadata_object(response: str):
+    text = _strip_code_fence(response)
+    parsers = (json.loads, ast.literal_eval)
+    for parser in parsers:
+        try:
+            return parser(text)
+        except Exception:
+            pass
+
+    match = re.search(r"\{.*\}", text or "", re.DOTALL)
+    if not match:
+        return None
+
+    payload = match.group()
+    for parser in parsers:
+        try:
+            return parser(payload)
+        except Exception:
+            pass
+    return None
 
 
 def _normalize_hashtags(raw, count: int) -> List[str]:
@@ -1040,15 +1085,7 @@ Write engaging publishing metadata for a short video that will be posted on {lab
 def _parse_social_metadata(response: str, platform: str) -> dict:
     spec = SOCIAL_PLATFORMS[_resolve_social_platform(platform)]
 
-    data = None
-    try:
-        data = json.loads(_strip_code_fence(response))
-    except Exception:
-        # 部分模型会在 JSON 外层包一段说明文字或 markdown fence。
-        # API 调用方只需要稳定结构，所以这里尝试提取第一个 JSON object。
-        match = re.search(r"\{.*\}", response or "", re.DOTALL)
-        if match:
-            data = json.loads(match.group())
+    data = _parse_metadata_object(response)
 
     if not isinstance(data, dict):
         raise ValueError("social metadata response is not a JSON object")

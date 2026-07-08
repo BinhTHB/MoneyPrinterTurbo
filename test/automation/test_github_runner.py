@@ -83,4 +83,11 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
             channel, count=1, previous_topics=["old topic"]
         )
         mock_dependencies["start_task"].assert_called_once()
-        mock_dependencies["append_history"].assert_called_once()
+        assert mock_dependencies["append_history"].call_count == 2
+        first_record = mock_dependencies["append_history"].call_args_list[0].args[1]
+        second_record = mock_dependencies["append_history"].call_args_list[1].args[1]
+        assert first_record["topic"] == "new topic"
+        assert first_record["status"] == "generated"
+        assert second_record["topic"] == "new topic"
+        assert second_record["status"] == "success"
+        assert second_record["video_id"] == "vid123"
