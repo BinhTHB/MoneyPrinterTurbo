@@ -1,16 +1,16 @@
 # Graph Report - MoneyPrinterTurbo  (2026-07-08)
 
 ## Corpus Check
-- 94 files · ~150,650 words
+- 94 files · ~150,667 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3012 nodes · 3750 edges · 189 communities (144 shown, 45 thin omitted)
+- 3015 nodes · 3755 edges · 205 communities (141 shown, 64 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.63)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `89f4456e`
+- Built from commit: `4a8fbb92`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -136,6 +136,7 @@
 - [[_COMMUNITY_Community 163|Community 163]]
 - [[_COMMUNITY_Community 164|Community 164]]
 - [[_COMMUNITY_Community 165|Community 165]]
+- [[_COMMUNITY_Community 166|Community 166]]
 - [[_COMMUNITY_Community 167|Community 167]]
 - [[_COMMUNITY_Community 168|Community 168]]
 - [[_COMMUNITY_Community 169|Community 169]]
@@ -156,6 +157,22 @@
 - [[_COMMUNITY_Community 185|Community 185]]
 - [[_COMMUNITY_Community 186|Community 186]]
 - [[_COMMUNITY_Community 187|Community 187]]
+- [[_COMMUNITY_Community 188|Community 188]]
+- [[_COMMUNITY_Community 189|Community 189]]
+- [[_COMMUNITY_Community 190|Community 190]]
+- [[_COMMUNITY_Community 191|Community 191]]
+- [[_COMMUNITY_Community 192|Community 192]]
+- [[_COMMUNITY_Community 193|Community 193]]
+- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
+- [[_COMMUNITY_Community 196|Community 196]]
+- [[_COMMUNITY_Community 197|Community 197]]
+- [[_COMMUNITY_Community 198|Community 198]]
+- [[_COMMUNITY_Community 199|Community 199]]
+- [[_COMMUNITY_Community 200|Community 200]]
+- [[_COMMUNITY_Community 201|Community 201]]
+- [[_COMMUNITY_Community 203|Community 203]]
+- [[_COMMUNITY_Community 204|Community 204]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Translation` - 169 edges
@@ -172,14 +189,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `MiniMax LLM Provider` --implements--> `MoneyPrinterTurbo`  [INFERRED]
   app/llm/providers/minimax.py → README.md
+- `test_siliconflow()` --calls--> `_do()`  [INFERRED]
+  test/services/test_voice.py → app/services/voice.py
+- `test_azure_tts_v2()` --calls--> `_do()`  [INFERRED]
+  test/services/test_voice.py → app/services/voice.py
 - `Video Service` --references--> `Background Music`  [EXTRACTED]
   app/services/video.py → README.md
 - `video_transition_mode=null bug` --references--> `Video Service`  [EXTRACTED]
   docs/PR_MERGE_RECORD_2026-04-02.md → app/services/video.py
-- `Subtitle Provider` --references--> `faster-whisper`  [INFERRED]
-  app/services/subtitle.py → README.md
-- `PR #850: subtitle position from config` --references--> `Subtitle Provider`  [EXTRACTED]
-  docs/PR_MERGE_RECORD_2026-04-02.md → app/services/subtitle.py
 
 ## Hyperedges (group relationships)
 - **Video Generation Flow** — VideoGenerationPipeline, VideoService, VoiceService, SubtitleProvider, background_music [EXTRACTED 1.00]
@@ -188,7 +205,7 @@
 - **PR Merge Batch 2026-04-02** — gemini_fix_PR_837, GPU_faster_whisper_PR_848, upload_post_PR_843, subtitle_position_PR_850, minimax_PR_838 [EXTRACTED 1.00]
 - **Successful Smoke Test (Task 2)** — VideoService, SubtitleProvider, VoiceService [EXTRACTED 1.00]
 
-## Communities (189 total, 45 thin omitted)
+## Communities (205 total, 64 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.01
@@ -219,12 +236,12 @@ Cohesion: 0.01
 Nodes (169): Translation, Account ID, Add Coverr API Key, Add Pexels API Key, Add Pixabay API Key, Advanced Script Settings, Advanced Video Settings, API Key (+161 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.16
-Nodes (9): Any, int, int, str, Any, int, int, str (+1 more)
+Cohesion: 0.06
+Nodes (43): Any, int, int, str, int, Request, str, AudioRequest (+35 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.08
-Nodes (40): chatterbox_tts(), _configure_pydub_ffmpeg(), elevenlabs_tts(), ensure_file_path_exists(), ensure_legacy_submaker_fields(), fptai_tts(), gemini_live_tts(), gemini_tts() (+32 more)
+Cohesion: 0.09
+Nodes (33): chatterbox_tts(), _configure_pydub_ffmpeg(), elevenlabs_tts(), ensure_legacy_submaker_fields(), fptai_tts(), gemini_tts(), get_audio_duration(), _get_audio_duration_from_mp3() (+25 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.06
@@ -235,8 +252,8 @@ Cohesion: 0.13
 Nodes (3): 自定义 OpenAI-compatible base_url 可能包含代理网关的 user:pass。         SDK 抛错时常会把 URL 带回异常, EvoLink exposes OpenAI-compatible Chat Completions at direct.evolink.ai., TestLiteLLMProvider
 
 ### Community 11 - "Community 11"
-Cohesion: 0.08
-Nodes (29): exception_handler(), get_application(), Request, Application implementation - ASGI., Initialize FastAPI application.      Returns:        FastAPI: Application obj, shutdown_event(), startup_event(), validation_exception_handler() (+21 more)
+Cohesion: 0.07
+Nodes (31): exception_handler(), get_application(), Request, Application implementation - ASGI., Initialize FastAPI application.      Returns:        FastAPI: Application obj, shutdown_event(), startup_event(), validation_exception_handler() (+23 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.12
@@ -259,7 +276,7 @@ Cohesion: 0.25
 Nodes (18): bool, float, int, MaterialInfo, str, VideoAspect, VideoConcatMode, download_videos() (+10 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.14
+Cohesion: 0.12
 Nodes (3): Success path: POST /audio/speech, write audio, return legacy SubMaker., A non-200 response is retried up to 3 times, then fails to None., TestVoiceService
 
 ### Community 18 - "Community 18"
@@ -295,8 +312,8 @@ Cohesion: 0.40
 Nodes (3): webui.sh script, webui.sh script, PYTHONPATH
 
 ### Community 73 - "Community 73"
-Cohesion: 0.04
-Nodes (27): local 素材路径来自 API 参数，不能允许任意绝对路径进入 MoviePy。         这里验证非 local_videos 白名单目录内的路径会, BGM 列表接口现在只暴露文件名；生成视频时应能把文件名安全解析回         resource/songs 白名单目录，保持正常使用路径可用。, 用户在 WebUI 中可能直接填写 ./resource/songs/xxx.mp3。该路径虽然是         项目根目录相对路径，但实际文件仍在 res, 用户传入的 bgm_file 不能直接作为本地路径打开，否则可能读取系统文件。         即使外部文件存在，也必须因为不在 songs 目录内被拒绝。, 配置中显式指定 ffmpeg 时，应优先使用该路径。, Windows 便携包里系统 PATH 可能没有 ffmpeg，但 moviepy 依赖的         imageio-ffmpeg 通常会提供可执行文件, 用户选择的硬件编码器必须先经过 FFmpeg encoder 列表检测。检测不到         时直接回退 libx264，避免生成任务在写文件阶段才失败。, Windows 上用户配置的 ffmpeg 可能因为路径损坏、权限或杀软拦截而无法         正常执行。encoder 探测失败时必须返回 False， (+19 more)
+Cohesion: 0.22
+Nodes (3): BGM 列表接口现在只暴露文件名；生成视频时应能把文件名安全解析回         resource/songs 白名单目录，保持正常使用路径可用。, MoviePy 2.1.x 的 FFMPEG_VideoReader 会直接向 stdout 打印 metadata         和 ffmpeg 命令。, TestVideoService
 
 ### Community 75 - "Community 75"
 Cohesion: 0.13
@@ -312,7 +329,7 @@ Nodes (14): ① إنشاء بيئة Python افتراضية, ③ تشغيل وا
 
 ### Community 78 - "Community 78"
 Cohesion: 0.14
-Nodes (9): 按文案顺序匹配素材依赖 LLM 返回有序关键词。这里不调用真实模型，         只验证服务层会把“按脚本叙事顺序输出”的约束写入 prompt，避免, 按文案顺序匹配素材依赖 LLM 返回有序关键词。这里不调用真实模型，         只验证服务层会把“按脚本叙事顺序输出”的约束写入 prompt，避免, API 请求模型需要限制高级 prompt 参数，避免外部调用绕过 WebUI         传入异常段落数或超长提示词，导致模型成本和结果不可控。, API 请求模型需要限制高级 prompt 参数，避免外部调用绕过 WebUI         传入异常段落数或超长提示词，导致模型成本和结果不可控。, reasoning 模型可能返回 `<think>...</think>`。脚本生成链路必须只保留         最终正文，避免思考过程进入字幕和配音。, reasoning 模型可能返回 `<think>...</think>`。脚本生成链路必须只保留         最终正文，避免思考过程进入字幕和配音。, 高级文案要求只作为附加约束，不替换默认系统提示词。         这样普通用户不配置时仍然走稳定默认规则，高级用户也能细化风格。, 高级文案要求只作为附加约束，不替换默认系统提示词。         这样普通用户不配置时仍然走稳定默认规则，高级用户也能细化风格。 (+1 more)
+Nodes (9): 按文案顺序匹配素材依赖 LLM 返回有序关键词。这里不调用真实模型，         只验证服务层会把“按脚本叙事顺序输出”的约束写入 prompt，避免, 按文案顺序匹配素材依赖 LLM 返回有序关键词。这里不调用真实模型，         只验证服务层会把“按脚本叙事顺序输出”的约束写入 prompt，避免, reasoning 模型可能返回 `<think>...</think>`。脚本生成链路必须只保留         最终正文，避免思考过程进入字幕和配音。, reasoning 模型可能返回 `<think>...</think>`。脚本生成链路必须只保留         最终正文，避免思考过程进入字幕和配音。, 如果模型只返回思考块而没有最终答案，应视为空内容，触发重试或明确错误。, 如果模型只返回思考块而没有最终答案，应视为空内容，触发重试或明确错误。, 某些网关可能因为截断只返回未闭合的 `<think>`。这种内容同样不能         进入最终脚本；如果清理后没有正文，就应该按空响应处理。, 某些网关可能因为截断只返回未闭合的 `<think>`。这种内容同样不能         进入最终脚本；如果清理后没有正文，就应该按空响应处理。 (+1 more)
 
 ### Community 79 - "Community 79"
 Cohesion: 0.01
@@ -455,8 +472,8 @@ Cohesion: 0.19
 Nodes (19): int, str, load_channels_config(), parse_count_overrides(), _parse_count_value(), Channel configuration models for YouTube automation.  Parse and validate multi-c, Resolve the number of videos to generate for a channel.      Priority:     1. Ch, Parse a count value, which can be an exact integer or a range.      Args: (+11 more)
 
 ### Community 135 - "Community 135"
-Cohesion: 0.24
-Nodes (19): int, Request, str, HttpException, TaskQueryRequest, UploadFile, delete_video(), download_video() (+11 more)
+Cohesion: 0.17
+Nodes (12): ensure_file_path_exists(), generate_silent_audio(), 将已经聚合好的字幕段写入到 SRT 文件，并做一次基本可读性验证。      返回值：     - `True`：字幕文件成功落盘且可被 moviepy, 将已经聚合好的字幕段写入到 SRT 文件，并做一次基本可读性验证。      返回值：     - `True`：字幕文件成功落盘且可被 moviepy, 将已经聚合好的字幕段写入到 SRT 文件，并做一次基本可读性验证。      返回值：     - `True`：字幕文件成功落盘且可被 moviepy, 生成 MP3 静音音频，作为“无配音”模式的时间轴占位。      使用 FFmpeg 的 anullsrc 直接生成静音，比先构造临时 WAV 再转码更少, 生成 MP3 静音音频，作为“无配音”模式的时间轴占位。      使用 FFmpeg 的 anullsrc 直接生成静音，比先构造临时 WAV 再转码更少, 生成 MP3 静音音频，作为“无配音”模式的时间轴占位。      使用 FFmpeg 的 anullsrc 直接生成静音，比先构造临时 WAV 再转码更少 (+4 more)
 
 ### Community 136 - "Community 136"
 Cohesion: 0.29
@@ -507,48 +524,40 @@ Cohesion: 0.12
 Nodes (17): int, _build_subtitle_items_from_edge_cues(), _match_script_line(), _normalize_arabic(), 统一阿拉伯语常见字母变体，提升字幕 cue 与脚本行的匹配容错率。      edge-tts 对阿拉伯语可能返回与原脚本不同的字母形态，例如把 أ/إ/آ, 统一阿拉伯语常见字母变体，提升字幕 cue 与脚本行的匹配容错率。      edge-tts 对阿拉伯语可能返回与原脚本不同的字母形态，例如把 أ/إ/آ, 尝试把当前累计的字幕文本，与脚本中的某一条标准断句匹配起来。      这里复用了项目原有的“按标点拆脚本，再逐段比对”的思路：     1. 优先精确匹, 尝试把当前累计的字幕文本，与脚本中的某一条标准断句匹配起来。      这里复用了项目原有的“按标点拆脚本，再逐段比对”的思路：     1. 优先精确匹 (+9 more)
 
 ### Community 158 - "Community 158"
-Cohesion: 0.14
-Nodes (19): Edge TTS, bytes, azure_tts_v2(), _gemini_live_tts_async(), get_all_azure_voices(), get_chatterbox_voices(), get_elevenlabs_voices(), get_fptai_voices() (+11 more)
+Cohesion: 0.18
+Nodes (15): Edge TTS, bytes, gemini_live_tts(), _gemini_live_tts_async(), get_all_azure_voices(), get_chatterbox_voices(), get_elevenlabs_voices(), _load_azure_voices() (+7 more)
 
 ### Community 159 - "Community 159"
-Cohesion: 0.13
-Nodes (19): float, azure_tts_v1(), convert_rate_to_percent(), get_edge_tts_timeout_seconds(), mktimestamp(), 将 edge_tts 使用的 100 纳秒时间单位转换为字幕时间戳。      edge_tts 7.x 不再导出旧版本里的 `mktimestamp`，但, 将 edge_tts 使用的 100 纳秒时间单位转换为字幕时间戳。      edge_tts 7.x 不再导出旧版本里的 `mktimestamp`，但, 将 edge_tts 使用的 100 纳秒时间单位转换为字幕时间戳。      edge_tts 7.x 不再导出旧版本里的 `mktimestamp`，但 (+11 more)
+Cohesion: 0.10
+Nodes (24): float, Communicate, azure_tts_v1(), convert_rate_to_percent(), create_edge_tts_communicate(), get_edge_tts_timeout_seconds(), mktimestamp(), 将 edge_tts 使用的 100 纳秒时间单位转换为字幕时间戳。      edge_tts 7.x 不再导出旧版本里的 `mktimestamp`，但 (+16 more)
 
 ### Community 160 - "Community 160"
-Cohesion: 0.12
-Nodes (25): bool, str, estimate_no_voice_duration(), generate_silent_audio(), is_chatterbox_voice(), is_elevenlabs_voice(), is_fptai_voice(), is_gemini_voice() (+17 more)
+Cohesion: 0.14
+Nodes (24): bool, str, azure_tts_v2(), estimate_no_voice_duration(), is_azure_v2_voice(), is_chatterbox_voice(), is_elevenlabs_voice(), is_fptai_voice() (+16 more)
 
 ### Community 161 - "Community 161"
 Cohesion: 0.21
 Nodes (16): bool, float, int, str, analyze_clip(), _client(), _cosine(), embed_text() (+8 more)
 
 ### Community 162 - "Community 162"
-Cohesion: 0.09
-Nodes (23): test_azure_tts_v2(), test_siliconflow(), _build_subtitle_formatter(), _build_subtitle_items_from_legacy_submaker(), create_subtitle(), _do(), _format_text(), 清理字幕对齐前的脚本文本。      这里不能只在 LLM 生成阶段处理，因为用户也可能手动粘贴脚本，或通过     API 直接传入包含 Markdow (+15 more)
+Cohesion: 0.13
+Nodes (17): _build_subtitle_formatter(), _build_subtitle_items_from_legacy_submaker(), create_subtitle(), _do(), _format_text(), 清理字幕对齐前的脚本文本。      这里不能只在 LLM 生成阶段处理，因为用户也可能手动粘贴脚本，或通过     API 直接传入包含 Markdow, 清理字幕对齐前的脚本文本。      这里不能只在 LLM 生成阶段处理，因为用户也可能手动粘贴脚本，或通过     API 直接传入包含 Markdow, 返回统一的 SRT 行格式化函数。      这里单独拆成一个小工具，是为了让 edge_tts 7.x 的 cues 路径     和项目原有的 leg (+9 more)
 
 ### Community 163 - "Community 163"
-Cohesion: 0.23
-Nodes (14): ChannelConfig, int, str, ChannelConfig, Configuration for a single YouTube automation channel., test_generate_topics_extracts_json_and_dedupes(), test_generate_topics_handles_code_fence(), test_generate_topics_raises_if_not_enough_fresh() (+6 more)
+Cohesion: 0.18
+Nodes (15): ChannelConfig, int, str, ChannelConfig, Configuration for a single YouTube automation channel., test_run_automation_orchestrates_correctly(), test_generate_topics_extracts_json_and_dedupes(), test_generate_topics_handles_code_fence() (+7 more)
 
 ### Community 164 - "Community 164"
-Cohesion: 0.21
-Nodes (13): Any, bool, ChannelConfig, str, GitHub Actions automation runner for YouTube video generation.  Orchestrates mul, Generate a single video and upload to YouTube., Generate a single video and upload to YouTube., Run the YouTube automation pipeline for all configured channels.      Args: (+5 more)
-
-### Community 165 - "Community 165"
-Cohesion: 0.17
-Nodes (10): AudioRequest, BackgroundTasks, TaskQueueFullError, RedisTaskManager, SubtitleRequest, TaskVideoRequest, create_audio(), create_subtitle() (+2 more)
+Cohesion: 0.20
+Nodes (15): Any, bool, ChannelConfig, str, GitHub Actions automation runner for YouTube video generation.  Orchestrates m, Generate a single video and upload to YouTube., Generate a single video and upload to YouTube., Generate a single video and upload to YouTube. (+7 more)
 
 ### Community 167 - "Community 167"
-Cohesion: 0.14
-Nodes (5): InMemoryTaskManager, _FakeRequest, endpoint 未显式配置时，任务查询接口不能使用 Host 派生绝对 URL，         也不能把展示 URL 回写到任务状态里，否则不同 Host, 并发数用尽后，等待队列必须有硬上限。这里用 max_concurrent_tasks=0         强制任务进入队列，验证超过 max_queued_t, TestSecurityControls
+Cohesion: 0.50
+Nodes (4): get_fptai_voices(), Get FPT AI TTS voice list.      Returns:         List of voices in format "fp, Get FPT AI TTS voice list.      Returns:         List of voices in format "fp, Get FPT AI TTS voice list.      Returns:         List of voices in format "fp
 
 ### Community 168 - "Community 168"
 Cohesion: 0.18
 Nodes (17): str, VideoParams, generate_audio(), generate_final_videos(), generate_script(), generate_subtitle(), generate_terms(), get_video_materials() (+9 more)
-
-### Community 170 - "Community 170"
-Cohesion: 0.40
-Nodes (5): Communicate, create_edge_tts_communicate(), 按当前已安装的 edge_tts 版本构造 Communicate 对象。      背景：     1. 主线代码已经升级到 edge_tts 7.x，, 按当前已安装的 edge_tts 版本构造 Communicate 对象。      背景：     1. 主线代码已经升级到 edge_tts 7.x，, 按当前已安装的 edge_tts 版本构造 Communicate 对象。      背景：     1. 主线代码已经升级到 edge_tts 7.x，
 
 ### Community 171 - "Community 171"
 Cohesion: 0.22
@@ -577,19 +586,19 @@ Nodes (3): language 默认 auto 时，不应该固定成某个国家或语种，
 ## Knowledge Gaps
 - **1700 isolated node(s):** `VideoParams`, `webui.sh script`, `PYTHONPATH`, `$schema`, `plugin` (+1695 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **64 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TaskQueueFullError` connect `Community 165` to `Community 135`, `Community 167`, `Community 73`, `Community 7`, `Community 13`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Why does `azure_tts_v2()` connect `Community 158` to `Community 160`, `Community 8`, `Community 162`, `Community 13`?**
+- **Why does `TaskQueueFullError` connect `Community 7` to `Community 73`, `Community 13`?**
+  _High betweenness centrality (0.052) - this node is a cross-community bridge._
+- **Why does `azure_tts_v2()` connect `Community 160` to `Community 8`, `Community 162`, `Community 13`, `Community 158`?**
   _High betweenness centrality (0.030) - this node is a cross-community bridge._
-- **Why does `TestVoiceService` connect `Community 17` to `Community 131`, `Community 139`, `Community 140`, `Community 141`, `Community 142`, `Community 143`, `Community 144`, `Community 145`, `Community 146`, `Community 147`, `Community 148`, `Community 149`, `Community 150`, `Community 151`, `Community 152`, `Community 153`, `Community 154`, `Community 162`, `Community 166`?**
+- **Why does `TestVoiceService` connect `Community 17` to `Community 131`, `Community 166`, `Community 139`, `Community 140`, `Community 141`, `Community 142`, `Community 143`, `Community 144`, `Community 145`, `Community 146`, `Community 147`, `Community 148`, `Community 149`, `Community 150`, `Community 151`, `Community 152`, `Community 153`, `Community 154`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `VideoParams`, `webui.sh script`, `PYTHONPATH` to the rest of the system?**
-  _2068 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2071 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.012121212121212121 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

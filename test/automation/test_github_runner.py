@@ -45,7 +45,8 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
     )
     mock_dependencies["load_config"].return_value = [channel]
     mock_dependencies["load_history"].return_value = ["old topic"]
-    mock_dependencies["generate_topics"].return_value = ["new topic"]
+    generated_topic = "{'title': 'Cat Title', 'core_scientific_fact': 'cat fact'}"
+    mock_dependencies["generate_topics"].return_value = [generated_topic]
 
     mock_dependencies["load_client"].return_value = {"client": "data"}
     mock_dependencies["load_token"].return_value = {"token": "data"}
@@ -58,7 +59,6 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
     mock_dependencies["start_task"].return_value = {
         "videos": ["/path/to/video.mp4"],
         "video_script": "cat story",
-        "video_title": "Cat Title",
     }
 
     with tempfile.TemporaryDirectory() as tmp:
@@ -74,9 +74,15 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
         res = results[0]
         assert res["channel_id"] == "cat_shorts"
         assert len(res["videos"]) == 1
-        assert res["videos"][0]["topic"] == "new topic"
+        assert res["videos"][0]["topic"] == generated_topic
         assert res["videos"][0]["status"] == "success"
         assert res["videos"][0]["video_id"] == "vid123"
+        mock_svc.upload_video.assert_called_once_with(
+            video_path="/path/to/video.mp4",
+            title="Cat Title",
+            description="cat story",
+            tags=[],
+        )
 
         # Verify calls
         mock_dependencies["generate_topics"].assert_called_once_with(
@@ -86,8 +92,8 @@ def test_run_automation_orchestrates_correctly(mock_dependencies):
         assert mock_dependencies["append_history"].call_count == 2
         first_record = mock_dependencies["append_history"].call_args_list[0].args[1]
         second_record = mock_dependencies["append_history"].call_args_list[1].args[1]
-        assert first_record["topic"] == "new topic"
+        assert first_record["topic"] == generated_topic
         assert first_record["status"] == "generated"
-        assert second_record["topic"] == "new topic"
+        assert second_record["topic"] == generated_topic
         assert second_record["status"] == "success"
         assert second_record["video_id"] == "vid123"

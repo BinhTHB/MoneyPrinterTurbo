@@ -506,7 +506,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/asgi.py",
       "source_location": "L18",
       "id": "httpexception",
-      "community": 135,
+      "community": 7,
       "norm_label": "httpexception"
     },
     {
@@ -765,7 +765,7 @@
       "label": "run_automation()",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "automation_github_runner_run_automation",
       "community": 164,
       "norm_label": "run_automation()"
@@ -774,7 +774,7 @@
       "label": "str",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "app_automation_github_runner_py_str",
       "community": 164,
       "norm_label": "str"
@@ -783,7 +783,7 @@
       "label": "bool",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "app_automation_github_runner_py_bool",
       "community": 164,
       "norm_label": "bool"
@@ -792,7 +792,7 @@
       "label": "Any",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "app_automation_github_runner_py_any",
       "community": 164,
       "norm_label": "any"
@@ -801,7 +801,7 @@
       "label": "_run_channel()",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L81",
+      "source_location": "L82",
       "id": "automation_github_runner_run_channel",
       "community": 164,
       "norm_label": "_run_channel()"
@@ -810,7 +810,7 @@
       "label": "ChannelConfig",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L81",
+      "source_location": "L82",
       "id": "app_automation_github_runner_py_channelconfig",
       "community": 164,
       "norm_label": "channelconfig"
@@ -819,26 +819,26 @@
       "label": "_run_single_video()",
       "file_type": "code",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L162",
+      "source_location": "L163",
       "id": "automation_github_runner_run_single_video",
       "community": 164,
       "norm_label": "_run_single_video()"
     },
     {
-      "label": "GitHub Actions automation runner for YouTube video generation.  Orchestrates mul",
+      "label": "GitHub Actions automation runner for YouTube video generation.  Orchestrates m",
       "file_type": "rationale",
       "source_file": "app/automation/github_runner.py",
       "source_location": "L1",
       "id": "automation_github_runner_rationale_1",
       "community": 164,
-      "norm_label": "github actions automation runner for youtube video generation.  orchestrates mul"
+      "norm_label": "github actions automation runner for youtube video generation.  orchestrates m"
     },
     {
       "label": "Run the YouTube automation pipeline for all configured channels.      Args:",
       "file_type": "rationale",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L39",
-      "id": "automation_github_runner_rationale_39",
+      "source_location": "L40",
+      "id": "automation_github_runner_rationale_40",
       "community": 164,
       "norm_label": "run the youtube automation pipeline for all configured channels.      args:"
     },
@@ -846,8 +846,8 @@
       "label": "Run automation for a single channel.",
       "file_type": "rationale",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L87",
-      "id": "automation_github_runner_rationale_87",
+      "source_location": "L88",
+      "id": "automation_github_runner_rationale_88",
       "community": 164,
       "norm_label": "run automation for a single channel."
     },
@@ -855,8 +855,8 @@
       "label": "Generate a single video and upload to YouTube.",
       "file_type": "rationale",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L167",
-      "id": "automation_github_runner_rationale_167",
+      "source_location": "L168",
+      "id": "automation_github_runner_rationale_168",
       "community": 164,
       "norm_label": "generate a single video and upload to youtube."
     },
@@ -933,49 +933,49 @@
       "norm_label": "any"
     },
     {
-      "label": "Topic history management for YouTube automation.  Track topics already used per",
+      "label": "Topic history management for YouTube automation.  Track topics already used pe",
       "file_type": "rationale",
       "source_file": "app/automation/topic_history.py",
       "source_location": "L1",
       "id": "automation_topic_history_rationale_1",
       "community": 133,
-      "norm_label": "topic history management for youtube automation.  track topics already used per"
+      "norm_label": "topic history management for youtube automation.  track topics already used pe"
     },
     {
-      "label": "Normalize a topic string for deduplication.      - Lowercase     - Strip leading",
+      "label": "Normalize a topic string for deduplication.      - Lowercase     - Strip lead",
       "file_type": "rationale",
       "source_file": "app/automation/topic_history.py",
       "source_location": "L14",
       "id": "automation_topic_history_rationale_14",
       "community": 133,
-      "norm_label": "normalize a topic string for deduplication.      - lowercase     - strip leading"
+      "norm_label": "normalize a topic string for deduplication.      - lowercase     - strip lead"
     },
     {
-      "label": "Check if a topic is a duplicate of any in the previous topics list.      Uses no",
+      "label": "Check if a topic is a duplicate of any in the previous topics list.      Uses",
       "file_type": "rationale",
       "source_file": "app/automation/topic_history.py",
       "source_location": "L36",
       "id": "automation_topic_history_rationale_36",
       "community": 133,
-      "norm_label": "check if a topic is a duplicate of any in the previous topics list.      uses no"
+      "norm_label": "check if a topic is a duplicate of any in the previous topics list.      uses"
     },
     {
-      "label": "Load topic history from a JSON file.      Args:         path: Path to the histor",
+      "label": "Load topic history from a JSON file.      Args:         path: Path to the his",
       "file_type": "rationale",
       "source_file": "app/automation/topic_history.py",
       "source_location": "L56",
       "id": "automation_topic_history_rationale_56",
       "community": 133,
-      "norm_label": "load topic history from a json file.      args:         path: path to the histor"
+      "norm_label": "load topic history from a json file.      args:         path: path to the his"
     },
     {
-      "label": "Append or update a record in the topic history file.      Creates the file and p",
+      "label": "Append or update a record in the topic history file.      Creates the file and",
       "file_type": "rationale",
       "source_file": "app/automation/topic_history.py",
       "source_location": "L77",
       "id": "automation_topic_history_rationale_77",
       "community": 133,
-      "norm_label": "append or update a record in the topic history file.      creates the file and p"
+      "norm_label": "append or update a record in the topic history file.      creates the file and"
     },
     {
       "label": "topic_planner.py",
@@ -1289,7 +1289,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/base_manager.py",
       "source_location": "L1",
       "id": "e_projects_window_moneyprinterturbo_app_controllers_manager_base_manager_py",
-      "community": 165,
+      "community": 7,
       "norm_label": "base_manager.py"
     },
     {
@@ -1298,7 +1298,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/base_manager.py",
       "source_location": "L7",
       "id": "manager_base_manager_taskqueuefullerror",
-      "community": 165,
+      "community": 7,
       "norm_label": "taskqueuefullerror"
     },
     {
@@ -1442,7 +1442,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L1",
       "id": "e_projects_window_moneyprinterturbo_app_controllers_manager_memory_manager_py",
-      "community": 167,
+      "community": 7,
       "norm_label": "memory_manager.py"
     },
     {
@@ -1451,7 +1451,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L7",
       "id": "manager_memory_manager_inmemorytaskmanager",
-      "community": 167,
+      "community": 7,
       "norm_label": "inmemorytaskmanager"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L8",
       "id": "manager_memory_manager_inmemorytaskmanager_create_queue",
-      "community": 167,
+      "community": 7,
       "norm_label": ".create_queue()"
     },
     {
@@ -1469,7 +1469,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L11",
       "id": "manager_memory_manager_inmemorytaskmanager_enqueue",
-      "community": 167,
+      "community": 7,
       "norm_label": ".enqueue()"
     },
     {
@@ -1478,7 +1478,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L14",
       "id": "manager_memory_manager_inmemorytaskmanager_dequeue",
-      "community": 167,
+      "community": 7,
       "norm_label": ".dequeue()"
     },
     {
@@ -1487,7 +1487,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L17",
       "id": "manager_memory_manager_inmemorytaskmanager_is_queue_empty",
-      "community": 167,
+      "community": 7,
       "norm_label": ".is_queue_empty()"
     },
     {
@@ -1496,7 +1496,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/memory_manager.py",
       "source_location": "L20",
       "id": "manager_memory_manager_inmemorytaskmanager_queue_size",
-      "community": 167,
+      "community": 7,
       "norm_label": ".queue_size()"
     },
     {
@@ -1505,7 +1505,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L1",
       "id": "e_projects_window_moneyprinterturbo_app_controllers_manager_redis_manager_py",
-      "community": 165,
+      "community": 7,
       "norm_label": "redis_manager.py"
     },
     {
@@ -1514,7 +1514,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L16",
       "id": "manager_redis_manager_redistaskmanager",
-      "community": 165,
+      "community": 7,
       "norm_label": "redistaskmanager"
     },
     {
@@ -1550,7 +1550,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L26",
       "id": "manager_redis_manager_redistaskmanager_create_queue",
-      "community": 165,
+      "community": 7,
       "norm_label": ".create_queue()"
     },
     {
@@ -1559,7 +1559,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L29",
       "id": "manager_redis_manager_redistaskmanager_enqueue",
-      "community": 165,
+      "community": 7,
       "norm_label": ".enqueue()"
     },
     {
@@ -1568,7 +1568,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L43",
       "id": "manager_redis_manager_redistaskmanager_dequeue",
-      "community": 165,
+      "community": 7,
       "norm_label": ".dequeue()"
     },
     {
@@ -1577,7 +1577,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L60",
       "id": "manager_redis_manager_redistaskmanager_is_queue_empty",
-      "community": 165,
+      "community": 7,
       "norm_label": ".is_queue_empty()"
     },
     {
@@ -1586,7 +1586,7 @@
       "source_file": "E:/projects_window/MoneyPrinterTurbo/app/controllers/manager/redis_manager.py",
       "source_location": "L63",
       "id": "manager_redis_manager_redistaskmanager_queue_size",
-      "community": 165,
+      "community": 7,
       "norm_label": ".queue_size()"
     },
     {
@@ -1685,7 +1685,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L1",
       "id": "app_controllers_v1_video_py",
-      "community": 135,
+      "community": 7,
       "norm_label": "video.py"
     },
     {
@@ -1694,7 +1694,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L63",
       "id": "v1_video_sanitize_upload_filename",
-      "community": 135,
+      "community": 7,
       "norm_label": "_sanitize_upload_filename()"
     },
     {
@@ -1703,7 +1703,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L63",
       "id": "app_controllers_v1_video_py_str",
-      "community": 135,
+      "community": 7,
       "norm_label": "str"
     },
     {
@@ -1712,7 +1712,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L76",
       "id": "v1_video_resolve_path_within_directory",
-      "community": 135,
+      "community": 7,
       "norm_label": "_resolve_path_within_directory()"
     },
     {
@@ -1721,7 +1721,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L90",
       "id": "v1_video_task_file_to_uri",
-      "community": 135,
+      "community": 7,
       "norm_label": "_task_file_to_uri()"
     },
     {
@@ -1730,7 +1730,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L116",
       "id": "v1_video_create_video",
-      "community": 165,
+      "community": 7,
       "norm_label": "create_video()"
     },
     {
@@ -1739,7 +1739,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L116",
       "id": "backgroundtasks",
-      "community": 165,
+      "community": 7,
       "norm_label": "backgroundtasks"
     },
     {
@@ -1748,7 +1748,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L116",
       "id": "app_controllers_v1_video_py_request",
-      "community": 135,
+      "community": 7,
       "norm_label": "request"
     },
     {
@@ -1757,7 +1757,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L116",
       "id": "taskvideorequest",
-      "community": 165,
+      "community": 7,
       "norm_label": "taskvideorequest"
     },
     {
@@ -1766,7 +1766,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L123",
       "id": "v1_video_create_subtitle",
-      "community": 165,
+      "community": 7,
       "norm_label": "create_subtitle()"
     },
     {
@@ -1775,7 +1775,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L123",
       "id": "subtitlerequest",
-      "community": 165,
+      "community": 7,
       "norm_label": "subtitlerequest"
     },
     {
@@ -1784,7 +1784,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L130",
       "id": "v1_video_create_audio",
-      "community": 165,
+      "community": 7,
       "norm_label": "create_audio()"
     },
     {
@@ -1793,7 +1793,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L130",
       "id": "audiorequest",
-      "community": 165,
+      "community": 7,
       "norm_label": "audiorequest"
     },
     {
@@ -1802,7 +1802,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L136",
       "id": "v1_video_create_task",
-      "community": 165,
+      "community": 7,
       "norm_label": "create_task()"
     },
     {
@@ -1811,7 +1811,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L167",
       "id": "v1_video_get_all_tasks",
-      "community": 135,
+      "community": 7,
       "norm_label": "get_all_tasks()"
     },
     {
@@ -1820,7 +1820,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L167",
       "id": "app_controllers_v1_video_py_int",
-      "community": 135,
+      "community": 7,
       "norm_label": "int"
     },
     {
@@ -1829,7 +1829,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L183",
       "id": "v1_video_get_task",
-      "community": 135,
+      "community": 7,
       "norm_label": "get_task()"
     },
     {
@@ -1838,7 +1838,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L183",
       "id": "taskqueryrequest",
-      "community": 135,
+      "community": 7,
       "norm_label": "taskqueryrequest"
     },
     {
@@ -1847,7 +1847,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L217",
       "id": "v1_video_delete_video",
-      "community": 135,
+      "community": 7,
       "norm_label": "delete_video()"
     },
     {
@@ -1856,7 +1856,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L238",
       "id": "v1_video_get_bgm_list",
-      "community": 135,
+      "community": 7,
       "norm_label": "get_bgm_list()"
     },
     {
@@ -1865,7 +1865,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L263",
       "id": "v1_video_upload_bgm_file",
-      "community": 135,
+      "community": 7,
       "norm_label": "upload_bgm_file()"
     },
     {
@@ -1874,7 +1874,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L263",
       "id": "uploadfile",
-      "community": 135,
+      "community": 7,
       "norm_label": "uploadfile"
     },
     {
@@ -1883,7 +1883,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L285",
       "id": "v1_video_get_video_materials_list",
-      "community": 135,
+      "community": 7,
       "norm_label": "get_video_materials_list()"
     },
     {
@@ -1892,7 +1892,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L315",
       "id": "v1_video_upload_video_material_file",
-      "community": 135,
+      "community": 7,
       "norm_label": "upload_video_material_file()"
     },
     {
@@ -1901,7 +1901,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L338",
       "id": "v1_video_stream_video",
-      "community": 135,
+      "community": 7,
       "norm_label": "stream_video()"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L381",
       "id": "v1_video_download_video",
-      "community": 135,
+      "community": 7,
       "norm_label": "download_video()"
     },
     {
@@ -1919,7 +1919,7 @@
       "source_file": "app/controllers/v1/video.py",
       "source_location": "L382",
       "id": "v1_video_rationale_382",
-      "community": 135,
+      "community": 7,
       "norm_label": "download video     :param request: request request     :param file_path: video"
     },
     {
@@ -3800,7 +3800,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L170",
       "id": "services_voice_get_fptai_voices",
-      "community": 158,
+      "community": 167,
       "norm_label": "get_fptai_voices()"
     },
     {
@@ -3836,7 +3836,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L245",
       "id": "services_voice_parse_voice_name",
-      "community": 158,
+      "community": 160,
       "norm_label": "parse_voice_name()"
     },
     {
@@ -3845,7 +3845,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L253",
       "id": "services_voice_is_azure_v2_voice",
-      "community": 158,
+      "community": 160,
       "norm_label": "is_azure_v2_voice()"
     },
     {
@@ -3935,7 +3935,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L336",
       "id": "services_voice_generate_silent_audio",
-      "community": 160,
+      "community": 135,
       "norm_label": "generate_silent_audio()"
     },
     {
@@ -3971,7 +3971,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L506",
       "id": "services_voice_ensure_file_path_exists",
-      "community": 8,
+      "community": 135,
       "norm_label": "ensure_file_path_exists()"
     },
     {
@@ -3998,7 +3998,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L606",
       "id": "services_voice_create_edge_tts_communicate",
-      "community": 170,
+      "community": 159,
       "norm_label": "create_edge_tts_communicate()"
     },
     {
@@ -4007,7 +4007,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L606",
       "id": "communicate",
-      "community": 170,
+      "community": 159,
       "norm_label": "communicate"
     },
     {
@@ -4061,7 +4061,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L959",
       "id": "services_voice_azure_tts_v2",
-      "community": 158,
+      "community": 160,
       "norm_label": "azure_tts_v2()"
     },
     {
@@ -4079,7 +4079,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L1205",
       "id": "services_voice_load_gemini_live_tts_system_instruction",
-      "community": 8,
+      "community": 158,
       "norm_label": "_load_gemini_live_tts_system_instruction()"
     },
     {
@@ -4124,7 +4124,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L1362",
       "id": "services_voice_gemini_live_tts",
-      "community": 8,
+      "community": 158,
       "norm_label": "gemini_live_tts()"
     },
     {
@@ -4214,7 +4214,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L1962",
       "id": "services_voice_write_subtitle_items",
-      "community": 162,
+      "community": 135,
       "norm_label": "_write_subtitle_items()"
     },
     {
@@ -4322,7 +4322,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L171",
       "id": "services_voice_rationale_171",
-      "community": 158,
+      "community": 167,
       "norm_label": "get fpt ai tts voice list.      returns:         list of voices in format \"fp"
     },
     {
@@ -4367,7 +4367,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L337",
       "id": "services_voice_rationale_337",
-      "community": 160,
+      "community": 135,
       "norm_label": "\u751f\u6210 mp3 \u9759\u97f3\u97f3\u9891,\u4f5c\u4e3a\u201c\u65e0\u914d\u97f3\u201d\u6a21\u5f0f\u7684\u65f6\u95f4\u8f74\u5360\u4f4d\u3002      \u4f7f\u7528 ffmpeg \u7684 anullsrc \u76f4\u63a5\u751f\u6210\u9759\u97f3,\u6bd4\u5148\u6784\u9020\u4e34\u65f6 wav \u518d\u8f6c\u7801\u66f4\u5c11"
     },
     {
@@ -4376,7 +4376,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L507",
       "id": "services_voice_rationale_507",
-      "community": 8,
+      "community": 135,
       "norm_label": "\u786e\u4fdd\u8f93\u51fa\u6587\u4ef6\u6240\u5728\u76ee\u5f55\u4e00\u5b9a\u5b58\u5728\u3002      \u8fd9\u91cc\u5355\u72ec\u505a\u4e00\u5c42\u515c\u5e95,\u662f\u56e0\u4e3a edge_tts 7.x \u5728\u771f\u6b63\u53d1\u8d77\u7f51\u7edc\u8bf7\u6c42\u4e4b\u524d,     \u5c31\u4f1a\u5148\u6253\u5f00\u76ee\u6807\u97f3\u9891\u6587\u4ef6;"
     },
     {
@@ -4403,7 +4403,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L609",
       "id": "services_voice_rationale_609",
-      "community": 170,
+      "community": 159,
       "norm_label": "\u6309\u5f53\u524d\u5df2\u5b89\u88c5\u7684 edge_tts \u7248\u672c\u6784\u9020 communicate \u5bf9\u8c61\u3002      \u80cc\u666f:     1. \u4e3b\u7ebf\u4ee3\u7801\u5df2\u7ecf\u5347\u7ea7\u5230 edge_tts 7.x,"
     },
     {
@@ -4457,7 +4457,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L1369",
       "id": "services_voice_rationale_1369",
-      "community": 8,
+      "community": 158,
       "norm_label": "generate speech with gemini live api native audio models."
     },
     {
@@ -4529,7 +4529,7 @@
       "source_file": "app/services/voice.py",
       "source_location": "L1963",
       "id": "services_voice_rationale_1963",
-      "community": 162,
+      "community": 135,
       "norm_label": "\u5c06\u5df2\u7ecf\u805a\u5408\u597d\u7684\u5b57\u5e55\u6bb5\u5199\u5165\u5230 srt \u6587\u4ef6,\u5e76\u505a\u4e00\u6b21\u57fa\u672c\u53ef\u8bfb\u6027\u9a8c\u8bc1\u3002      \u8fd4\u56de\u503c:     - `true`:\u5b57\u5e55\u6587\u4ef6\u6210\u529f\u843d\u76d8\u4e14\u53ef\u88ab moviepy"
     },
     {
@@ -5357,7 +5357,7 @@
       "source_file": "test/automation/test_github_runner.py",
       "source_location": "L1",
       "id": "test_automation_test_github_runner_py",
-      "community": 164,
+      "community": 163,
       "norm_label": "test_github_runner.py"
     },
     {
@@ -5366,7 +5366,7 @@
       "source_file": "test/automation/test_github_runner.py",
       "source_location": "L14",
       "id": "automation_test_github_runner_mock_dependencies",
-      "community": 164,
+      "community": 163,
       "norm_label": "mock_dependencies()"
     },
     {
@@ -5375,7 +5375,7 @@
       "source_file": "test/automation/test_github_runner.py",
       "source_location": "L37",
       "id": "automation_test_github_runner_test_run_automation_orchestrates_correctly",
-      "community": 164,
+      "community": 163,
       "norm_label": "test_run_automation_orchestrates_correctly()"
     },
     {
@@ -5807,7 +5807,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L37",
       "id": "services_test_llm_testscriptpromptoptions_test_normalize_text_response_rejects_think_only_response",
-      "community": 180,
+      "community": 78,
       "norm_label": ".test_normalize_text_response_rejects_think_only_response()"
     },
     {
@@ -5816,7 +5816,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L44",
       "id": "services_test_llm_testscriptpromptoptions_test_normalize_text_response_removes_unclosed_think_block",
-      "community": 181,
+      "community": 78,
       "norm_label": ".test_normalize_text_response_removes_unclosed_think_block()"
     },
     {
@@ -5825,7 +5825,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L52",
       "id": "services_test_llm_testscriptpromptoptions_test_build_script_prompt_appends_advanced_requirements",
-      "community": 78,
+      "community": 170,
       "norm_label": ".test_build_script_prompt_appends_advanced_requirements()"
     },
     {
@@ -5861,7 +5861,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L132",
       "id": "services_test_llm_testscriptpromptoptions_test_video_script_request_rejects_invalid_advanced_options",
-      "community": 78,
+      "community": 11,
       "norm_label": ".test_video_script_request_rejects_invalid_advanced_options()"
     },
     {
@@ -6428,7 +6428,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L38",
       "id": "services_test_llm_rationale_38",
-      "community": 180,
+      "community": 78,
       "norm_label": "\u5982\u679c\u6a21\u578b\u53ea\u8fd4\u56de\u601d\u8003\u5757\u800c\u6ca1\u6709\u6700\u7ec8\u7b54\u6848,\u5e94\u89c6\u4e3a\u7a7a\u5185\u5bb9,\u89e6\u53d1\u91cd\u8bd5\u6216\u660e\u786e\u9519\u8bef\u3002"
     },
     {
@@ -6437,7 +6437,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L45",
       "id": "services_test_llm_rationale_45",
-      "community": 181,
+      "community": 78,
       "norm_label": "\u67d0\u4e9b\u7f51\u5173\u53ef\u80fd\u56e0\u4e3a\u622a\u65ad\u53ea\u8fd4\u56de\u672a\u95ed\u5408\u7684 `<think>`\u3002\u8fd9\u79cd\u5185\u5bb9\u540c\u6837\u4e0d\u80fd         \u8fdb\u5165\u6700\u7ec8\u811a\u672c;\u5982\u679c\u6e05\u7406\u540e\u6ca1\u6709\u6b63\u6587,\u5c31\u5e94\u8be5\u6309\u7a7a\u54cd\u5e94\u5904\u7406\u3002"
     },
     {
@@ -6446,7 +6446,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L53",
       "id": "services_test_llm_rationale_53",
-      "community": 78,
+      "community": 170,
       "norm_label": "\u9ad8\u7ea7\u6587\u6848\u8981\u6c42\u53ea\u4f5c\u4e3a\u9644\u52a0\u7ea6\u675f,\u4e0d\u66ff\u6362\u9ed8\u8ba4\u7cfb\u7edf\u63d0\u793a\u8bcd\u3002         \u8fd9\u6837\u666e\u901a\u7528\u6237\u4e0d\u914d\u7f6e\u65f6\u4ecd\u7136\u8d70\u7a33\u5b9a\u9ed8\u8ba4\u89c4\u5219,\u9ad8\u7ea7\u7528\u6237\u4e5f\u80fd\u7ec6\u5316\u98ce\u683c\u3002"
     },
     {
@@ -6473,7 +6473,7 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L133",
       "id": "services_test_llm_rationale_133",
-      "community": 78,
+      "community": 11,
       "norm_label": "api \u8bf7\u6c42\u6a21\u578b\u9700\u8981\u9650\u5236\u9ad8\u7ea7 prompt \u53c2\u6570,\u907f\u514d\u5916\u90e8\u8c03\u7528\u7ed5\u8fc7 webui         \u4f20\u5165\u5f02\u5e38\u6bb5\u843d\u6570\u6216\u8d85\u957f\u63d0\u793a\u8bcd,\u5bfc\u81f4\u6a21\u578b\u6210\u672c\u548c\u7ed3\u679c\u4e0d\u53ef\u63a7\u3002"
     },
     {
@@ -7625,7 +7625,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L1",
       "id": "test_services_test_video_py",
-      "community": 167,
+      "community": 7,
       "norm_label": "test_video.py"
     },
     {
@@ -7634,7 +7634,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L30",
       "id": "services_test_video_fakerequest",
-      "community": 167,
+      "community": 7,
       "norm_label": "_fakerequest"
     },
     {
@@ -7643,7 +7643,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L31",
       "id": "services_test_video_fakerequest_init",
-      "community": 167,
+      "community": 7,
       "norm_label": ".__init__()"
     },
     {
@@ -7652,7 +7652,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L35",
       "id": "services_test_video_testsecuritycontrols",
-      "community": 167,
+      "community": 7,
       "norm_label": "testsecuritycontrols"
     },
     {
@@ -7661,7 +7661,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L36",
       "id": "services_test_video_testsecuritycontrols_setup",
-      "community": 167,
+      "community": 7,
       "norm_label": ".setup()"
     },
     {
@@ -7670,7 +7670,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L39",
       "id": "services_test_video_testsecuritycontrols_teardown",
-      "community": 167,
+      "community": 7,
       "norm_label": ".teardown()"
     },
     {
@@ -7679,7 +7679,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L43",
       "id": "services_test_video_testsecuritycontrols_test_task_query_returns_relative_task_url_without_mutating_state",
-      "community": 167,
+      "community": 7,
       "norm_label": ".test_task_query_returns_relative_task_url_without_mutating_state()"
     },
     {
@@ -7688,7 +7688,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L70",
       "id": "services_test_video_testsecuritycontrols_test_in_memory_task_manager_rejects_when_queue_is_full",
-      "community": 167,
+      "community": 7,
       "norm_label": ".test_in_memory_task_manager_rejects_when_queue_is_full()"
     },
     {
@@ -7733,7 +7733,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L132",
       "id": "services_test_video_testvideoservice_test_preprocess_video_rejects_material_outside_local_videos",
-      "community": 73,
+      "community": 190,
       "norm_label": ".test_preprocess_video_rejects_material_outside_local_videos()"
     },
     {
@@ -7751,7 +7751,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L158",
       "id": "services_test_video_testvideoservice_test_get_bgm_file_accepts_project_relative_song_path",
-      "community": 73,
+      "community": 191,
       "norm_label": ".test_get_bgm_file_accepts_project_relative_song_path()"
     },
     {
@@ -7760,7 +7760,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L177",
       "id": "services_test_video_testvideoservice_test_get_bgm_file_rejects_path_outside_song_directory",
-      "community": 73,
+      "community": 192,
       "norm_label": ".test_get_bgm_file_rejects_path_outside_song_directory()"
     },
     {
@@ -7769,7 +7769,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L185",
       "id": "services_test_video_testvideoservice_test_get_ffmpeg_binary_uses_configured_env_path",
-      "community": 73,
+      "community": 193,
       "norm_label": ".test_get_ffmpeg_binary_uses_configured_env_path()"
     },
     {
@@ -7778,7 +7778,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L190",
       "id": "services_test_video_testvideoservice_test_get_ffmpeg_binary_falls_back_to_imageio_ffmpeg",
-      "community": 73,
+      "community": 194,
       "norm_label": ".test_get_ffmpeg_binary_falls_back_to_imageio_ffmpeg()"
     },
     {
@@ -7787,7 +7787,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L204",
       "id": "services_test_video_testvideoservice_test_get_effective_video_codec_falls_back_when_encoder_missing",
-      "community": 73,
+      "community": 195,
       "norm_label": ".test_get_effective_video_codec_falls_back_when_encoder_missing()"
     },
     {
@@ -7796,7 +7796,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L214",
       "id": "services_test_video_testvideoservice_test_ffmpeg_encoder_exists_falls_back_when_probe_fails",
-      "community": 73,
+      "community": 196,
       "norm_label": ".test_ffmpeg_encoder_exists_falls_back_when_probe_fails()"
     },
     {
@@ -7805,7 +7805,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L226",
       "id": "services_test_video_testvideoservice_test_write_videofile_falls_back_after_runtime_encoder_failure",
-      "community": 73,
+      "community": 197,
       "norm_label": ".test_write_videofile_falls_back_after_runtime_encoder_failure()"
     },
     {
@@ -7814,7 +7814,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L256",
       "id": "services_test_video_testvideoservice_test_write_videofile_does_not_disable_codec_when_fallback_also_fails",
-      "community": 73,
+      "community": 198,
       "norm_label": ".test_write_videofile_does_not_disable_codec_when_fallback_also_fails()"
     },
     {
@@ -7823,7 +7823,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L278",
       "id": "services_test_video_testvideoservice_test_format_ffmpeg_concat_path_normalizes_windows_path",
-      "community": 73,
+      "community": 199,
       "norm_label": ".test_format_ffmpeg_concat_path_normalizes_windows_path()"
     },
     {
@@ -7832,7 +7832,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L289",
       "id": "services_test_video_testvideoservice_test_concat_video_clips_falls_back_after_runtime_encoder_failure",
-      "community": 73,
+      "community": 200,
       "norm_label": ".test_concat_video_clips_falls_back_after_runtime_encoder_failure()"
     },
     {
@@ -7841,7 +7841,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L328",
       "id": "services_test_video_testvideoservice_test_concat_video_clips_does_not_disable_codec_when_fallback_also_fails",
-      "community": 73,
+      "community": 201,
       "norm_label": ".test_concat_video_clips_does_not_disable_codec_when_fallback_also_fails()"
     },
     {
@@ -7859,7 +7859,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L382",
       "id": "services_test_video_testvideoservice_test_combine_videos_closes_audio_clip_when_duration_read_fails",
-      "community": 73,
+      "community": 203,
       "norm_label": ".test_combine_videos_closes_audio_clip_when_duration_read_fails()"
     },
     {
@@ -7868,7 +7868,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L415",
       "id": "services_test_video_testvideoservice_test_combine_videos_handles_none_transition_mode",
-      "community": 73,
+      "community": 204,
       "norm_label": ".test_combine_videos_handles_none_transition_mode()"
     },
     {
@@ -7877,7 +7877,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L443",
       "id": "services_test_video_testvideoservice_test_combine_videos_keeps_small_duration_safety_margin",
-      "community": 73,
+      "community": 165,
       "norm_label": ".test_combine_videos_keeps_small_duration_safety_margin()"
     },
     {
@@ -7886,7 +7886,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L503",
       "id": "services_test_video_testvideoservice_test_prioritize_unique_source_clips_uses_each_source_before_reuse",
-      "community": 73,
+      "community": 165,
       "norm_label": ".test_prioritize_unique_source_clips_uses_each_source_before_reuse()"
     },
     {
@@ -7895,7 +7895,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L525",
       "id": "services_test_video_testvideoservice_test_prioritize_unique_source_clips_keeps_sequential_order",
-      "community": 73,
+      "community": 180,
       "norm_label": ".test_prioritize_unique_source_clips_keeps_sequential_order()"
     },
     {
@@ -7904,7 +7904,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L542",
       "id": "services_test_video_testvideoservice_test_prioritize_unique_source_clips_prefers_long_primary_clip",
-      "community": 73,
+      "community": 181,
       "norm_label": ".test_prioritize_unique_source_clips_prefers_long_primary_clip()"
     },
     {
@@ -7913,7 +7913,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L567",
       "id": "services_test_video_testvideoservice_test_wrap_text",
-      "community": 73,
+      "community": 188,
       "norm_label": ".test_wrap_text()"
     },
     {
@@ -7922,7 +7922,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L601",
       "id": "services_test_video_testvideoservice_test_rounded_subtitle_background_clip_has_transparent_corners",
-      "community": 73,
+      "community": 189,
       "norm_label": ".test_rounded_subtitle_background_clip_has_transparent_corners()"
     },
     {
@@ -7949,7 +7949,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L44",
       "id": "services_test_video_rationale_44",
-      "community": 167,
+      "community": 7,
       "norm_label": "endpoint \u672a\u663e\u5f0f\u914d\u7f6e\u65f6,\u4efb\u52a1\u67e5\u8be2\u63a5\u53e3\u4e0d\u80fd\u4f7f\u7528 host \u6d3e\u751f\u7edd\u5bf9 url,         \u4e5f\u4e0d\u80fd\u628a\u5c55\u793a url \u56de\u5199\u5230\u4efb\u52a1\u72b6\u6001\u91cc,\u5426\u5219\u4e0d\u540c host"
     },
     {
@@ -7958,7 +7958,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L71",
       "id": "services_test_video_rationale_71",
-      "community": 167,
+      "community": 7,
       "norm_label": "\u5e76\u53d1\u6570\u7528\u5c3d\u540e,\u7b49\u5f85\u961f\u5217\u5fc5\u987b\u6709\u786c\u4e0a\u9650\u3002\u8fd9\u91cc\u7528 max_concurrent_tasks=0         \u5f3a\u5236\u4efb\u52a1\u8fdb\u5165\u961f\u5217,\u9a8c\u8bc1\u8d85\u8fc7 max_queued_t"
     },
     {
@@ -7967,7 +7967,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L133",
       "id": "services_test_video_rationale_133",
-      "community": 73,
+      "community": 190,
       "norm_label": "local \u7d20\u6750\u8def\u5f84\u6765\u81ea api \u53c2\u6570,\u4e0d\u80fd\u5141\u8bb8\u4efb\u610f\u7edd\u5bf9\u8def\u5f84\u8fdb\u5165 moviepy\u3002         \u8fd9\u91cc\u9a8c\u8bc1\u975e local_videos \u767d\u540d\u5355\u76ee\u5f55\u5185\u7684\u8def\u5f84\u4f1a"
     },
     {
@@ -7985,7 +7985,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L159",
       "id": "services_test_video_rationale_159",
-      "community": 73,
+      "community": 191,
       "norm_label": "\u7528\u6237\u5728 webui \u4e2d\u53ef\u80fd\u76f4\u63a5\u586b\u5199 ./resource/songs/xxx.mp3\u3002\u8be5\u8def\u5f84\u867d\u7136\u662f         \u9879\u76ee\u6839\u76ee\u5f55\u76f8\u5bf9\u8def\u5f84,\u4f46\u5b9e\u9645\u6587\u4ef6\u4ecd\u5728 res"
     },
     {
@@ -7994,7 +7994,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L178",
       "id": "services_test_video_rationale_178",
-      "community": 73,
+      "community": 192,
       "norm_label": "\u7528\u6237\u4f20\u5165\u7684 bgm_file \u4e0d\u80fd\u76f4\u63a5\u4f5c\u4e3a\u672c\u5730\u8def\u5f84\u6253\u5f00,\u5426\u5219\u53ef\u80fd\u8bfb\u53d6\u7cfb\u7edf\u6587\u4ef6\u3002         \u5373\u4f7f\u5916\u90e8\u6587\u4ef6\u5b58\u5728,\u4e5f\u5fc5\u987b\u56e0\u4e3a\u4e0d\u5728 songs \u76ee\u5f55\u5185\u88ab\u62d2\u7edd\u3002"
     },
     {
@@ -8003,7 +8003,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L186",
       "id": "services_test_video_rationale_186",
-      "community": 73,
+      "community": 193,
       "norm_label": "\u914d\u7f6e\u4e2d\u663e\u5f0f\u6307\u5b9a ffmpeg \u65f6,\u5e94\u4f18\u5148\u4f7f\u7528\u8be5\u8def\u5f84\u3002"
     },
     {
@@ -8012,7 +8012,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L191",
       "id": "services_test_video_rationale_191",
-      "community": 73,
+      "community": 194,
       "norm_label": "windows \u4fbf\u643a\u5305\u91cc\u7cfb\u7edf path \u53ef\u80fd\u6ca1\u6709 ffmpeg,\u4f46 moviepy \u4f9d\u8d56\u7684         imageio-ffmpeg \u901a\u5e38\u4f1a\u63d0\u4f9b\u53ef\u6267\u884c\u6587\u4ef6"
     },
     {
@@ -8021,7 +8021,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L205",
       "id": "services_test_video_rationale_205",
-      "community": 73,
+      "community": 195,
       "norm_label": "\u7528\u6237\u9009\u62e9\u7684\u786c\u4ef6\u7f16\u7801\u5668\u5fc5\u987b\u5148\u7ecf\u8fc7 ffmpeg encoder \u5217\u8868\u68c0\u6d4b\u3002\u68c0\u6d4b\u4e0d\u5230         \u65f6\u76f4\u63a5\u56de\u9000 libx264,\u907f\u514d\u751f\u6210\u4efb\u52a1\u5728\u5199\u6587\u4ef6\u9636\u6bb5\u624d\u5931\u8d25\u3002"
     },
     {
@@ -8030,7 +8030,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L215",
       "id": "services_test_video_rationale_215",
-      "community": 73,
+      "community": 196,
       "norm_label": "windows \u4e0a\u7528\u6237\u914d\u7f6e\u7684 ffmpeg \u53ef\u80fd\u56e0\u4e3a\u8def\u5f84\u635f\u574f\u3001\u6743\u9650\u6216\u6740\u8f6f\u62e6\u622a\u800c\u65e0\u6cd5         \u6b63\u5e38\u6267\u884c\u3002encoder \u63a2\u6d4b\u5931\u8d25\u65f6\u5fc5\u987b\u8fd4\u56de false,"
     },
     {
@@ -8039,7 +8039,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L227",
       "id": "services_test_video_rationale_227",
-      "community": 73,
+      "community": 197,
       "norm_label": "ffmpeg \u58f0\u660e\u652f\u6301\u67d0\u4e2a\u786c\u4ef6\u7f16\u7801\u5668,\u4e0d\u4ee3\u8868\u5f53\u524d\u663e\u5361\u6216\u9a71\u52a8\u4e00\u5b9a\u53ef\u7528\u3002         \u9996\u6b21\u5b9e\u9645\u7f16\u7801\u5931\u8d25\u540e,\u5e94\u7acb\u5373\u7528 libx264 \u91cd\u8bd5,\u5e76\u5728\u672c\u8fdb\u7a0b\u7981\u7528\u8be5\u7f16\u7801"
     },
     {
@@ -8048,7 +8048,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L257",
       "id": "services_test_video_rationale_257",
-      "community": 73,
+      "community": 198,
       "norm_label": "\u5982\u679c libx264 \u515c\u5e95\u4e5f\u5931\u8d25,\u5931\u8d25\u539f\u56e0\u66f4\u53ef\u80fd\u662f\u8f93\u51fa\u8def\u5f84\u3001\u6743\u9650\u3001\u6587\u4ef6\u5360\u7528\u7b49         \u901a\u7528\u95ee\u9898,\u4e0d\u80fd\u8bef\u5224\u4e3a\u786c\u4ef6\u7f16\u7801\u5668\u4e0d\u53ef\u7528\u3002"
     },
     {
@@ -8057,7 +8057,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L279",
       "id": "services_test_video_rationale_279",
-      "community": 73,
+      "community": 199,
       "norm_label": "concat demuxer \u7684\u6587\u4ef6\u5217\u8868\u5bf9 windows \u53cd\u659c\u6760\u8f83\u654f\u611f,\u5199\u5165 list \u524d\u7edf\u4e00         \u8f6c\u6210\u6b63\u659c\u6760,\u5e76\u7ee7\u7eed\u4fdd\u7559\u5355\u5f15\u53f7\u8f6c\u4e49\u3002"
     },
     {
@@ -8066,7 +8066,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L290",
       "id": "services_test_video_rationale_290",
-      "community": 73,
+      "community": 200,
       "norm_label": "\u6700\u7ec8 ffmpeg concat \u9636\u6bb5\u4e5f\u8981\u5177\u5907\u540c\u6837\u7684\u56de\u9000\u80fd\u529b\u3002\u8fd9\u91cc\u7528 mock \u6a21\u62df         h264_nvenc \u7f16\u7801\u5931\u8d25,\u786e\u8ba4\u4f1a\u81ea\u52a8\u518d\u7528 libx"
     },
     {
@@ -8075,7 +8075,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L329",
       "id": "services_test_video_rationale_329",
-      "community": 73,
+      "community": 201,
       "norm_label": "concat \u9636\u6bb5\u5982\u679c libx264 \u4e5f\u5931\u8d25,\u8bf4\u660e\u53ef\u80fd\u662f\u8f93\u5165 list\u3001\u8def\u5f84\u6216\u8f93\u51fa\u6743\u9650         \u95ee\u9898,\u4e0d\u80fd\u628a\u786c\u4ef6\u7f16\u7801\u5668\u52a0\u5165\u8fd0\u884c\u65f6\u7981\u7528\u5217\u8868\u3002"
     },
     {
@@ -8093,7 +8093,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L383",
       "id": "services_test_video_rationale_383",
-      "community": 73,
+      "community": 203,
       "norm_label": "`combine_videos()` \u53ea\u9700\u8981\u8bfb\u53d6\u65c1\u767d\u97f3\u9891\u65f6\u957f\u3002\u5373\u4f7f\u8bfb\u53d6 duration         \u65f6\u53d1\u751f\u5f02\u5e38,\u4e5f\u5fc5\u987b\u5173\u95ed audiofileclip,"
     },
     {
@@ -8102,7 +8102,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L416",
       "id": "services_test_video_rationale_416",
-      "community": 73,
+      "community": 204,
       "norm_label": "ensure `combine_videos` safely handles         `video_transition_mode=none`."
     },
     {
@@ -8111,7 +8111,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L444",
       "id": "services_test_video_rationale_444",
-      "community": 73,
+      "community": 165,
       "norm_label": "\u97f3\u9891\u548c\u7d20\u6750\u7d2f\u8ba1\u65f6\u957f\u521a\u597d\u76f8\u7b49\u65f6,\u4ecd\u5e94\u7ee7\u7eed\u8ffd\u52a0\u4e00\u4e2a\u77ed\u7247\u6bb5\u4f5c\u4e3a\u5b89\u5168\u4f59\u91cf\u3002          ffmpeg \u6309\u5e27\u7387\u62fc\u63a5\u540e\u53ef\u80fd\u8ba9\u6700\u7ec8\u89c6\u9891\u6bd4\u7406\u8bba\u65f6\u957f\u77ed\u51e0\u5341\u6beb\u79d2\u3002\u5982\u679c\u8fd9\u91cc"
     },
     {
@@ -8120,7 +8120,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L504",
       "id": "services_test_video_rationale_504",
-      "community": 73,
+      "community": 165,
       "norm_label": "\u968f\u673a\u6a21\u5f0f\u4e0b,\u4e00\u4e2a\u957f\u7d20\u6750\u4f1a\u88ab\u62c6\u6210\u591a\u4e2a\u7247\u6bb5\u3002\u8c03\u5ea6\u5c42\u5e94\u5148\u8ba9\u6bcf\u4e2a\u6e90\u7d20\u6750         \u81f3\u5c11\u51fa\u73b0\u4e00\u6b21,\u518d\u4f7f\u7528\u540c\u4e00\u6e90\u7d20\u6750\u7684\u5176\u4ed6\u5207\u7247,\u964d\u4f4e\u7528\u6237\u611f\u77e5\u5230\u7684\u91cd\u590d\u3002"
     },
     {
@@ -8129,7 +8129,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L526",
       "id": "services_test_video_rationale_526",
-      "community": 73,
+      "community": 180,
       "norm_label": "\u987a\u5e8f\u6a21\u5f0f\u672c\u8eab\u53ea\u53d6\u6bcf\u4e2a\u7d20\u6750\u7684\u9996\u6bb5,\u4e0d\u5e94\u88ab\u968f\u673a\u8c03\u5ea6\u903b\u8f91\u6539\u53d8\u987a\u5e8f\u3002"
     },
     {
@@ -8138,7 +8138,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L543",
       "id": "services_test_video_rationale_543",
-      "community": 73,
+      "community": 181,
       "norm_label": "\u540c\u4e00\u4e2a\u6e90\u7d20\u6750\u7684\u6700\u540e\u4e00\u4e2a\u5207\u7247\u53ef\u80fd\u77ed\u4e8e\u76ee\u6807\u7247\u6bb5\u65f6\u957f\u3002\u9996\u8f6e\u53bb\u91cd\u65f6\u5e94\u4f18\u5148         \u9009\u62e9\u8f83\u957f\u7247\u6bb5,\u5426\u5219\u4f1a\u56e0\u4e3a\u7d2f\u8ba1\u65f6\u957f\u4e0d\u8db3\u800c\u63d0\u524d\u590d\u7528\u7d20\u6750\u3002"
     },
     {
@@ -8147,7 +8147,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L568",
       "id": "services_test_video_rationale_568",
-      "community": 73,
+      "community": 188,
       "norm_label": "test text wrapping function"
     },
     {
@@ -8156,7 +8156,7 @@
       "source_file": "test/services/test_video.py",
       "source_location": "L602",
       "id": "services_test_video_rationale_602",
-      "community": 73,
+      "community": 189,
       "norm_label": "\u5706\u89d2\u5b57\u5e55\u80cc\u666f\u53ea\u5728\u7528\u6237\u663e\u5f0f\u5f00\u542f\u65f6\u4f7f\u7528\u3002\u8fd9\u91cc\u76f4\u63a5\u9a8c\u8bc1\u751f\u6210\u7684 rgba         \u80cc\u666f\u5177\u5907\u900f\u660e\u5706\u89d2\u548c\u534a\u900f\u660e\u4e2d\u5fc3,\u907f\u514d\u540e\u7eed\u6539\u52a8\u628a\u5706\u89d2\u6548\u679c\u9000\u5316\u6210\u5b9e\u5fc3\u77e9\u5f62\u3002"
     },
     {
@@ -8264,7 +8264,7 @@
       "source_file": "test/services/test_voice.py",
       "source_location": "L166",
       "id": "services_test_voice_test_siliconflow",
-      "community": 162,
+      "community": 166,
       "norm_label": "test_siliconflow()"
     },
     {
@@ -8300,7 +8300,7 @@
       "source_file": "test/services/test_voice.py",
       "source_location": "L326",
       "id": "services_test_voice_test_azure_tts_v2",
-      "community": 162,
+      "community": 166,
       "norm_label": "test_azure_tts_v2()"
     },
     {
@@ -24522,6 +24522,33 @@
       "norm_label": "test resources"
     },
     {
+      "label": "Run the YouTube automation pipeline for all configured channels.      Args:",
+      "file_type": "rationale",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L39",
+      "community": 164,
+      "norm_label": "run the youtube automation pipeline for all configured channels.      args:",
+      "id": "automation_github_runner_rationale_39"
+    },
+    {
+      "label": "Run automation for a single channel.",
+      "file_type": "rationale",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L87",
+      "community": 164,
+      "norm_label": "run automation for a single channel.",
+      "id": "automation_github_runner_rationale_87"
+    },
+    {
+      "label": "Generate a single video and upload to YouTube.",
+      "file_type": "rationale",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L167",
+      "community": 164,
+      "norm_label": "generate a single video and upload to youtube.",
+      "id": "automation_github_runner_rationale_167"
+    },
+    {
       "label": "Generate a single video and upload to YouTube.",
       "file_type": "rationale",
       "source_file": "app/automation/github_runner.py",
@@ -24832,7 +24859,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L190",
-      "community": 158,
+      "community": 167,
       "norm_label": "get fpt ai tts voice list.      returns:         list of voices in format \"fp",
       "id": "services_voice_rationale_190"
     },
@@ -24868,7 +24895,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L329",
-      "community": 160,
+      "community": 135,
       "norm_label": "\u751f\u6210 mp3 \u9759\u97f3\u97f3\u9891,\u4f5c\u4e3a\u201c\u65e0\u914d\u97f3\u201d\u6a21\u5f0f\u7684\u65f6\u95f4\u8f74\u5360\u4f4d\u3002      \u4f7f\u7528 ffmpeg \u7684 anullsrc \u76f4\u63a5\u751f\u6210\u9759\u97f3,\u6bd4\u5148\u6784\u9020\u4e34\u65f6 wav \u518d\u8f6c\u7801\u66f4\u5c11",
       "id": "services_voice_rationale_329"
     },
@@ -24877,7 +24904,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L475",
-      "community": 8,
+      "community": 135,
       "norm_label": "\u786e\u4fdd\u8f93\u51fa\u6587\u4ef6\u6240\u5728\u76ee\u5f55\u4e00\u5b9a\u5b58\u5728\u3002      \u8fd9\u91cc\u5355\u72ec\u505a\u4e00\u5c42\u515c\u5e95,\u662f\u56e0\u4e3a edge_tts 7.x \u5728\u771f\u6b63\u53d1\u8d77\u7f51\u7edc\u8bf7\u6c42\u4e4b\u524d,     \u5c31\u4f1a\u5148\u6253\u5f00\u76ee\u6807\u97f3\u9891\u6587\u4ef6;",
       "id": "services_voice_rationale_475"
     },
@@ -24904,7 +24931,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L577",
-      "community": 170,
+      "community": 159,
       "norm_label": "\u6309\u5f53\u524d\u5df2\u5b89\u88c5\u7684 edge_tts \u7248\u672c\u6784\u9020 communicate \u5bf9\u8c61\u3002      \u80cc\u666f:     1. \u4e3b\u7ebf\u4ee3\u7801\u5df2\u7ecf\u5347\u7ea7\u5230 edge_tts 7.x,",
       "id": "services_voice_rationale_577"
     },
@@ -25021,7 +25048,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L1572",
-      "community": 162,
+      "community": 135,
       "norm_label": "\u5c06\u5df2\u7ecf\u805a\u5408\u597d\u7684\u5b57\u5e55\u6bb5\u5199\u5165\u5230 srt \u6587\u4ef6,\u5e76\u505a\u4e00\u6b21\u57fa\u672c\u53ef\u8bfb\u6027\u9a8c\u8bc1\u3002      \u8fd4\u56de\u503c:     - `true`:\u5b57\u5e55\u6587\u4ef6\u6210\u529f\u843d\u76d8\u4e14\u53ef\u88ab moviepy",
       "id": "services_voice_rationale_1572"
     },
@@ -25156,7 +25183,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_video.py",
       "source_location": "L466",
-      "community": 73,
+      "community": 180,
       "norm_label": "\u987a\u5e8f\u6a21\u5f0f\u672c\u8eab\u53ea\u53d6\u6bcf\u4e2a\u7d20\u6750\u7684\u9996\u6bb5,\u4e0d\u5e94\u88ab\u968f\u673a\u8c03\u5ea6\u903b\u8f91\u6539\u53d8\u987a\u5e8f\u3002",
       "id": "services_test_video_rationale_466"
     },
@@ -25165,7 +25192,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_video.py",
       "source_location": "L483",
-      "community": 73,
+      "community": 181,
       "norm_label": "\u540c\u4e00\u4e2a\u6e90\u7d20\u6750\u7684\u6700\u540e\u4e00\u4e2a\u5207\u7247\u53ef\u80fd\u77ed\u4e8e\u76ee\u6807\u7247\u6bb5\u65f6\u957f\u3002\u9996\u8f6e\u53bb\u91cd\u65f6\u5e94\u4f18\u5148         \u9009\u62e9\u8f83\u957f\u7247\u6bb5,\u5426\u5219\u4f1a\u56e0\u4e3a\u7d2f\u8ba1\u65f6\u957f\u4e0d\u8db3\u800c\u63d0\u524d\u590d\u7528\u7d20\u6750\u3002",
       "id": "services_test_video_rationale_483"
     },
@@ -25174,7 +25201,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_video.py",
       "source_location": "L508",
-      "community": 73,
+      "community": 188,
       "norm_label": "test text wrapping function",
       "id": "services_test_video_rationale_508"
     },
@@ -25183,7 +25210,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_video.py",
       "source_location": "L542",
-      "community": 73,
+      "community": 189,
       "norm_label": "\u5706\u89d2\u5b57\u5e55\u80cc\u666f\u53ea\u5728\u7528\u6237\u663e\u5f0f\u5f00\u542f\u65f6\u4f7f\u7528\u3002\u8fd9\u91cc\u76f4\u63a5\u9a8c\u8bc1\u751f\u6210\u7684 rgba         \u80cc\u666f\u5177\u5907\u900f\u660e\u5706\u89d2\u548c\u534a\u900f\u660e\u4e2d\u5fc3,\u907f\u514d\u540e\u7eed\u6539\u52a8\u628a\u5706\u89d2\u6548\u679c\u9000\u5316\u6210\u5b9e\u5fc3\u77e9\u5f62\u3002",
       "id": "services_test_video_rationale_542"
     },
@@ -25309,7 +25336,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L189",
-      "community": 158,
+      "community": 167,
       "norm_label": "get fpt ai tts voice list.      returns:         list of voices in format \"fp",
       "id": "services_voice_rationale_189"
     },
@@ -25354,7 +25381,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L328",
-      "community": 160,
+      "community": 135,
       "norm_label": "\u751f\u6210 mp3 \u9759\u97f3\u97f3\u9891,\u4f5c\u4e3a\u201c\u65e0\u914d\u97f3\u201d\u6a21\u5f0f\u7684\u65f6\u95f4\u8f74\u5360\u4f4d\u3002      \u4f7f\u7528 ffmpeg \u7684 anullsrc \u76f4\u63a5\u751f\u6210\u9759\u97f3,\u6bd4\u5148\u6784\u9020\u4e34\u65f6 wav \u518d\u8f6c\u7801\u66f4\u5c11",
       "id": "services_voice_rationale_328"
     },
@@ -25363,7 +25390,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L474",
-      "community": 8,
+      "community": 135,
       "norm_label": "\u786e\u4fdd\u8f93\u51fa\u6587\u4ef6\u6240\u5728\u76ee\u5f55\u4e00\u5b9a\u5b58\u5728\u3002      \u8fd9\u91cc\u5355\u72ec\u505a\u4e00\u5c42\u515c\u5e95,\u662f\u56e0\u4e3a edge_tts 7.x \u5728\u771f\u6b63\u53d1\u8d77\u7f51\u7edc\u8bf7\u6c42\u4e4b\u524d,     \u5c31\u4f1a\u5148\u6253\u5f00\u76ee\u6807\u97f3\u9891\u6587\u4ef6;",
       "id": "services_voice_rationale_474"
     },
@@ -25390,7 +25417,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L576",
-      "community": 170,
+      "community": 159,
       "norm_label": "\u6309\u5f53\u524d\u5df2\u5b89\u88c5\u7684 edge_tts \u7248\u672c\u6784\u9020 communicate \u5bf9\u8c61\u3002      \u80cc\u666f:     1. \u4e3b\u7ebf\u4ee3\u7801\u5df2\u7ecf\u5347\u7ea7\u5230 edge_tts 7.x,",
       "id": "services_voice_rationale_576"
     },
@@ -25507,7 +25534,7 @@
       "file_type": "rationale",
       "source_file": "app/services/voice.py",
       "source_location": "L1570",
-      "community": 162,
+      "community": 135,
       "norm_label": "\u5c06\u5df2\u7ecf\u805a\u5408\u597d\u7684\u5b57\u5e55\u6bb5\u5199\u5165\u5230 srt \u6587\u4ef6,\u5e76\u505a\u4e00\u6b21\u57fa\u672c\u53ef\u8bfb\u6027\u9a8c\u8bc1\u3002      \u8fd4\u56de\u503c:     - `true`:\u5b57\u5e55\u6587\u4ef6\u6210\u529f\u843d\u76d8\u4e14\u53ef\u88ab moviepy",
       "id": "services_voice_rationale_1570"
     },
@@ -25759,7 +25786,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_llm.py",
       "source_location": "L32",
-      "community": 180,
+      "community": 78,
       "norm_label": "\u5982\u679c\u6a21\u578b\u53ea\u8fd4\u56de\u601d\u8003\u5757\u800c\u6ca1\u6709\u6700\u7ec8\u7b54\u6848,\u5e94\u89c6\u4e3a\u7a7a\u5185\u5bb9,\u89e6\u53d1\u91cd\u8bd5\u6216\u660e\u786e\u9519\u8bef\u3002",
       "id": "services_test_llm_rationale_32"
     },
@@ -25768,7 +25795,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_llm.py",
       "source_location": "L39",
-      "community": 181,
+      "community": 78,
       "norm_label": "\u67d0\u4e9b\u7f51\u5173\u53ef\u80fd\u56e0\u4e3a\u622a\u65ad\u53ea\u8fd4\u56de\u672a\u95ed\u5408\u7684 `<think>`\u3002\u8fd9\u79cd\u5185\u5bb9\u540c\u6837\u4e0d\u80fd         \u8fdb\u5165\u6700\u7ec8\u811a\u672c;\u5982\u679c\u6e05\u7406\u540e\u6ca1\u6709\u6b63\u6587,\u5c31\u5e94\u8be5\u6309\u7a7a\u54cd\u5e94\u5904\u7406\u3002",
       "id": "services_test_llm_rationale_39"
     },
@@ -25777,7 +25804,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_llm.py",
       "source_location": "L47",
-      "community": 78,
+      "community": 170,
       "norm_label": "\u9ad8\u7ea7\u6587\u6848\u8981\u6c42\u53ea\u4f5c\u4e3a\u9644\u52a0\u7ea6\u675f,\u4e0d\u66ff\u6362\u9ed8\u8ba4\u7cfb\u7edf\u63d0\u793a\u8bcd\u3002         \u8fd9\u6837\u666e\u901a\u7528\u6237\u4e0d\u914d\u7f6e\u65f6\u4ecd\u7136\u8d70\u7a33\u5b9a\u9ed8\u8ba4\u89c4\u5219,\u9ad8\u7ea7\u7528\u6237\u4e5f\u80fd\u7ec6\u5316\u98ce\u683c\u3002",
       "id": "services_test_llm_rationale_47"
     },
@@ -25804,7 +25831,7 @@
       "file_type": "rationale",
       "source_file": "test/services/test_llm.py",
       "source_location": "L127",
-      "community": 78,
+      "community": 11,
       "norm_label": "api \u8bf7\u6c42\u6a21\u578b\u9700\u8981\u9650\u5236\u9ad8\u7ea7 prompt \u53c2\u6570,\u907f\u514d\u5916\u90e8\u8c03\u7528\u7ed5\u8fc7 webui         \u4f20\u5165\u5f02\u5e38\u6bb5\u843d\u6570\u6216\u8d85\u957f\u63d0\u793a\u8bcd,\u5bfc\u81f4\u6a21\u578b\u6210\u672c\u548c\u7ed3\u679c\u4e0d\u53ef\u63a7\u3002",
       "id": "services_test_llm_rationale_127"
     },
@@ -26011,7 +26038,7 @@
       "file_type": "code",
       "source_file": "test/services/test_voice.py",
       "source_location": "L156",
-      "community": 162,
+      "community": 17,
       "norm_label": ".test_siliconflow()",
       "id": "services_test_voice_testvoiceservice_test_siliconflow"
     },
@@ -26029,7 +26056,7 @@
       "file_type": "code",
       "source_file": "test/services/test_voice.py",
       "source_location": "L308",
-      "community": 162,
+      "community": 17,
       "norm_label": ".test_azure_tts_v2()",
       "id": "services_test_voice_testvoiceservice_test_azure_tts_v2"
     },
@@ -26313,7 +26340,7 @@
       "file_type": "code",
       "source_file": "app/controllers/manager/base_manager.py",
       "source_location": "L1",
-      "community": 165,
+      "community": 7,
       "norm_label": "base_manager.py",
       "id": "app_controllers_manager_base_manager_py"
     },
@@ -26340,7 +26367,7 @@
       "file_type": "code",
       "source_file": "app/controllers/manager/memory_manager.py",
       "source_location": "L1",
-      "community": 167,
+      "community": 7,
       "norm_label": "memory_manager.py",
       "id": "app_controllers_manager_memory_manager_py"
     },
@@ -26349,7 +26376,7 @@
       "file_type": "code",
       "source_file": "app/controllers/manager/redis_manager.py",
       "source_location": "L1",
-      "community": 165,
+      "community": 7,
       "norm_label": "redis_manager.py",
       "id": "app_controllers_manager_redis_manager_py"
     },
@@ -29098,6 +29125,17 @@
       "source_file": "app/automation/github_runner.py",
       "source_location": "L30",
       "weight": 1.0,
+      "source": "app_automation_github_runner_py",
+      "target": "services_llm_coerce_metadata_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L30",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "app_automation_github_runner_py",
       "target": "services_youtube_upload_youtubeuploadservice"
@@ -29150,11 +29188,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "automation_github_runner_rationale_39",
-      "target": "automation_github_runner_run_automation"
+      "source": "automation_github_runner_rationale_40",
+      "target": "automation_github_runner_run_automation",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -29176,6 +29214,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "automation_test_github_runner_test_run_automation_orchestrates_correctly",
+      "target": "automation_github_runner_run_automation"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "automation_github_runner_rationale_39",
       "target": "automation_github_runner_run_automation"
     },
     {
@@ -29300,11 +29348,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "automation_github_runner_rationale_87",
-      "target": "automation_github_runner_run_channel"
+      "source": "automation_github_runner_rationale_88",
+      "target": "automation_github_runner_run_channel",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -29340,6 +29388,16 @@
       "target": "automation_topic_history_append_history"
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "automation_github_runner_rationale_87",
+      "target": "automation_github_runner_run_channel"
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -29364,10 +29422,21 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/automation/github_runner.py",
-      "source_location": "L167",
+      "source_location": "L168",
       "weight": 1.0,
-      "source": "automation_github_runner_rationale_167",
+      "source": "automation_github_runner_rationale_168",
       "target": "automation_github_runner_run_single_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "automation_github_runner_run_single_video",
+      "target": "services_llm_coerce_metadata_text",
       "confidence_score": 1.0
     },
     {
@@ -29380,6 +29449,16 @@
       "confidence_score": 1.0,
       "source": "automation_github_runner_run_single_video",
       "target": "services_youtube_upload_youtubeuploadservice"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/automation/github_runner.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "automation_github_runner_rationale_167",
+      "target": "automation_github_runner_run_single_video"
     },
     {
       "relation": "rationale_for",
@@ -29470,9 +29549,9 @@
       "source_file": "app/automation/topic_history.py",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "automation_topic_history_append_history",
-      "target": "automation_topic_history_normalize_topic",
-      "confidence_score": 1.0
+      "target": "automation_topic_history_normalize_topic"
     },
     {
       "relation": "rationale_for",
@@ -33070,9 +33149,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L986",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_services_llm_py",
-      "target": "services_llm_parse_metadata_object",
-      "confidence_score": 1.0
+      "target": "services_llm_parse_metadata_object"
     },
     {
       "relation": "contains",
@@ -33351,9 +33430,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L986",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_parse_metadata_object",
-      "target": "app_services_llm_py_str",
-      "confidence_score": 1.0
+      "target": "app_services_llm_py_str"
     },
     {
       "relation": "calls",
@@ -33438,9 +33517,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_71",
-      "target": "services_llm_sanitize_error_message",
-      "confidence_score": 1.0
+      "target": "services_llm_sanitize_error_message"
     },
     {
       "relation": "rationale_for",
@@ -33513,9 +33592,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_104",
-      "target": "services_llm_get_response_field",
-      "confidence_score": 1.0
+      "target": "services_llm_get_response_field"
     },
     {
       "relation": "rationale_for",
@@ -33554,9 +33633,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_115",
-      "target": "services_llm_extract_qwen_generation_text",
-      "confidence_score": 1.0
+      "target": "services_llm_extract_qwen_generation_text"
     },
     {
       "relation": "rationale_for",
@@ -33783,9 +33862,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L987",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_parse_metadata_object",
-      "target": "services_llm_strip_code_fence",
-      "confidence_score": 1.0
+      "target": "services_llm_strip_code_fence"
     },
     {
       "relation": "rationale_for",
@@ -33793,9 +33872,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L749",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_749",
-      "target": "services_llm_strip_code_fence",
-      "confidence_score": 1.0
+      "target": "services_llm_strip_code_fence"
     },
     {
       "relation": "calls",
@@ -33977,9 +34056,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L972",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_coerce_metadata_text",
-      "target": "services_llm_parse_metadata_object",
-      "confidence_score": 1.0
+      "target": "services_llm_parse_metadata_object"
     },
     {
       "relation": "calls",
@@ -33999,9 +34078,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L1088",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_parse_social_metadata",
-      "target": "services_llm_parse_metadata_object",
-      "confidence_score": 1.0
+      "target": "services_llm_parse_metadata_object"
     },
     {
       "relation": "calls",
@@ -34031,9 +34110,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L1009",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_1009",
-      "target": "services_llm_normalize_hashtags",
-      "confidence_score": 1.0
+      "target": "services_llm_normalize_hashtags"
     },
     {
       "relation": "rationale_for",
@@ -34104,9 +34183,9 @@
       "source_file": "app/services/llm.py",
       "source_location": "L1134",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_llm_rationale_1134",
-      "target": "services_llm_generate_social_metadata",
-      "confidence_score": 1.0
+      "target": "services_llm_generate_social_metadata"
     },
     {
       "relation": "rationale_for",
@@ -44696,9 +44775,9 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L902",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_test_llm_testsocialmetadata",
-      "target": "services_test_llm_testsocialmetadata_test_parse_social_metadata_extracts_stringified_title_dict",
-      "confidence_score": 1.0
+      "target": "services_test_llm_testsocialmetadata_test_parse_social_metadata_extracts_stringified_title_dict"
     },
     {
       "relation": "method",
@@ -44806,9 +44885,9 @@
       "source_file": "test/services/test_llm.py",
       "source_location": "L960",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "services_test_llm_rationale_960",
-      "target": "services_test_llm_testsocialmetadata_test_request_model_rejects_oversized_social_metadata_fields",
-      "confidence_score": 1.0
+      "target": "services_test_llm_testsocialmetadata_test_request_model_rejects_oversized_social_metadata_fields"
     },
     {
       "relation": "rationale_for",
@@ -65809,5 +65888,5 @@
       "source_file": "docs/PR_MERGE_RECORD_2026-04-02.md"
     }
   ],
-  "built_at_commit": "89f4456e38a3fd3265dfa5c8e46e3af769da54da"
+  "built_at_commit": "4a8fbb927d74c6492adf5dc5b8be536e6270ecee"
 }

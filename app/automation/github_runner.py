@@ -27,6 +27,7 @@ from app.automation.youtube_credentials import (
 )
 from app.models.schema import VideoParams
 from app.services import task as tm
+from app.services.llm import _coerce_metadata_text
 from app.services.youtube_upload import YouTubeUploadService
 
 
@@ -214,7 +215,9 @@ def _run_single_video(
                 }
 
             video_path = video_paths[0]
-            video_title = task_result.get("video_title", topic)
+            video_title = task_result.get("video_title") or _coerce_metadata_text(
+                topic, "title"
+            )
             video_script = task_result.get("video_script", "")
 
             yt_config = {
