@@ -24,6 +24,20 @@
       "created_at": "2026-06-28T18:03:29.697461+00:00",
       "video_id": "3uznMCYzX8U",
       "url": "https://youtu.be/3uznMCYzX8U"
+    },
+    {
+      "topic": "{'title': 'The fish that walks on land to find love', 'fact': 'The Mangrove Killifish can survive on land for months by breathing through its skin and can even change its sex to self-fertilize if it cannot find a mate, making it the only known hermaphroditic vertebrate.', 'visual': 'Macro footage of a small, mud-colored fish wiggling across wet leaves or mud, transitioning to a split-screen showing a mangrove forest habitat.'}",
+      "created_at": "2026-07-08T18:13:42.270416+00:00",
+      "status": "error",
+      "updated_at": "2026-07-08T18:22:14.477385+00:00",
+      "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    },
+    {
+      "topic": "{'title': 'The ant that farms its own fungus', 'fact': 'Leafcutter ants do not eat the leaves they carry; they use them as fertilizer to grow a specific type of fungus in underground gardens, which serves as their sole food source—a complex agricultural system that predates human farming by millions of years.', 'visual': 'Macro time-lapse of ants carrying leaf fragments into an underground tunnel, transitioning to a close-up of the white, fuzzy fungus growing on the leaf mulch.'}",
+      "created_at": "2026-07-09T18:46:37.039075+00:00",
+      "status": "error",
+      "updated_at": "2026-07-09T18:52:41.229714+00:00",
+      "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
     }
   ]
 }
