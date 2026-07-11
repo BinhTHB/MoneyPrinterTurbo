@@ -30,13 +30,6 @@
       "created_at": "2026-07-02T18:30:29.722604+00:00",
       "video_id": "ON1Zok8NmpI",
       "url": "https://youtu.be/ON1Zok8NmpI"
-    },
-    {
-      "topic": "Title: These AR glasses turn your desk into a 100-inch monitor. Innovation: Micro-OLED projection technology integrated into lightweight, stylish frames. Use Case: Working on multiple virtual screens while commuting on a train or sitting in a cramped coffee shop without needing a physical laptop.",
-      "created_at": "2026-07-10T18:17:37.946635+00:00",
-      "status": "error",
-      "updated_at": "2026-07-10T18:24:04.733412+00:00",
-      "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
     }
   ]
 }
