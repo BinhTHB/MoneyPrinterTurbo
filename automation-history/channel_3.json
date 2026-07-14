@@ -22,6 +22,13 @@
       "updated_at": "2026-07-11T17:53:17.956327+00:00",
       "video_id": "roqPVeXYJwk",
       "url": "https://youtu.be/roqPVeXYJwk"
+    },
+    {
+      "topic": "{'title': \"Why do you feel a strange urge to 'buy' your parents' love with expensive gifts while living far away?\", 'psychological_effect': 'The Guilt-Induced Compensatory Altruism & Emotional Outsourcing', 'angle': \"Analyzing the common Vietnamese 'expat' or urban-migrant phenomenon where children working in big cities feel immense pressure to send money or luxury goods back home to 'buy' peace of mind, essentially using material gifts as a substitute for the physical presence and emotional labor they cannot provide due to their busy careers.\"}",
+      "created_at": "2026-07-13T18:27:42.705004+00:00",
+      "status": "error",
+      "updated_at": "2026-07-13T18:28:08.209584+00:00",
+      "error": "video generation failed"
     }
   ]
 }
