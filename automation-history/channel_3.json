@@ -29,6 +29,14 @@
       "status": "error",
       "updated_at": "2026-07-13T18:28:08.209584+00:00",
       "error": "video generation failed"
+    },
+    {
+      "topic": "{'title': \"Why do you 'ghost' your friends' wedding invites even when you really want to go?\", 'psychological_effect': \"Social Anxiety of Comparison & The 'Performance' Burden\", 'angle': \"Analyzing the Vietnamese trend of young people avoiding weddings not because they dislike the couple, but because the event feels like a high-stakes 'social performance' where they fear being judged for their current career status, outfit, or lack of a partner, leading to a defensive withdrawal from social circles.\"}",
+      "created_at": "2026-07-14T17:57:25.029301+00:00",
+      "status": "success",
+      "updated_at": "2026-07-14T18:05:03.989384+00:00",
+      "video_id": "Q64_H34IyLE",
+      "url": "https://youtu.be/Q64_H34IyLE"
     }
   ]
 }
