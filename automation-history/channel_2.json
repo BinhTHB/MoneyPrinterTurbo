@@ -1,0 +1,42 @@
+{
+  "channel_id": "",
+  "topics": [
+    {
+      "topic": "The Rise of Personal AI Assistants: How LLMs are changing daily task management and productivity",
+      "created_at": "2026-06-29T07:00:11.925238+00:00",
+      "video_id": "XRD6eZ2pkyA",
+      "url": "https://youtu.be/XRD6eZ2pkyA"
+    },
+    {
+      "topic": "Smart Wearables for Health Monitoring: Beyond step counting to real-time blood glucose and stress tracking",
+      "created_at": "2026-06-29T19:07:47.902175+00:00",
+      "video_id": "MEwyMEBoNhs",
+      "url": "https://youtu.be/MEwyMEBoNhs"
+    },
+    {
+      "topic": "Transparent Display Technology: How see-through screens are transforming retail windows and home aesthetics",
+      "created_at": "2026-06-30T18:38:02.833530+00:00",
+      "video_id": "ifxxMu35lEM",
+      "url": "https://youtu.be/ifxxMu35lEM"
+    },
+    {
+      "topic": "Smart Kitchen Tech: How AI-powered appliances are automating meal prep and reducing food waste through computer vision",
+      "created_at": "2026-07-01T19:03:22.815437+00:00",
+      "video_id": "Fk-I1U0aJF4",
+      "url": "https://youtu.be/Fk-I1U0aJF4"
+    },
+    {
+      "topic": "Smart Agriculture Tech: How automated vertical farming and AI sensors are bringing fresh produce into urban apartments",
+      "created_at": "2026-07-02T18:30:29.722604+00:00",
+      "video_id": "ON1Zok8NmpI",
+      "url": "https://youtu.be/ON1Zok8NmpI"
+    },
+    {
+      "topic": "Title: These AR glasses turn your desk into a 100-inch monitor. Innovation: Micro-OLED projection technology integrated into lightweight, stylish frames. Use Case: Working from a coffee shop or airplane with a massive, private multi-screen setup that only you can see.",
+      "created_at": "2026-07-12T17:52:47.981370+00:00",
+      "status": "error",
+      "updated_at": "2026-07-12T17:59:05.511847+00:00",
+      "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    }
+  ]
+}
