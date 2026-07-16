@@ -37,6 +37,13 @@
       "status": "error",
       "updated_at": "2026-07-12T17:59:05.511847+00:00",
       "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    },
+    {
+      "topic": "Title: This AI-powered camera translates any language in real-time. Innovation: Edge-based computer vision combined with instant neural machine translation overlays. Use Case: Pointing your camera at a foreign menu or street sign and seeing the text magically rewrite itself in your native language directly on the screen.",
+      "created_at": "2026-07-16T17:59:34.262443+00:00",
+      "status": "error",
+      "updated_at": "2026-07-16T18:05:09.628888+00:00",
+      "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
     }
   ]
 }
