@@ -38,6 +38,13 @@
       "status": "error",
       "updated_at": "2026-07-10T18:25:28.135564+00:00",
       "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    },
+    {
+      "topic": "{'title': 'The beetle that fires boiling chemical bombs', 'fact': 'The Bombardier Beetle possesses a specialized internal chamber where it mixes hydroquinones and hydrogen peroxide to create an explosive, boiling-hot chemical spray that it can aim with surgical precision to deter predators.', 'visual': \"Macro footage of a beetle lifting its abdomen, followed by a simulated or high-speed capture of the spray mist ejecting from the beetle's rear.\"}",
+      "created_at": "2026-07-16T17:59:24.227089+00:00",
+      "status": "error",
+      "updated_at": "2026-07-16T18:05:23.692948+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
