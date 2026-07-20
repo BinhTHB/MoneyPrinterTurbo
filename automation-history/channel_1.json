@@ -45,6 +45,20 @@
       "status": "error",
       "updated_at": "2026-07-16T18:05:23.692948+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The bird that smells like a cow', 'fact': \"The Hoatzin, or 'stinkbird,' has a digestive system similar to a cow; it uses bacterial fermentation in its foregut to break down tough leaves, which produces a pungent, manure-like odor that deters predators.\", 'visual': \"Close-up shots of the Hoatzin's prehistoric-looking face and spiky crest, followed by footage of them perched in riverside trees, perhaps showing them eating leaves.\"}",
+      "created_at": "2026-07-19T17:50:43.498407+00:00",
+      "status": "error",
+      "updated_at": "2026-07-19T17:58:28.755191+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The frog that breaks its own bones to fight', 'fact': 'The Hairy Frog (Trichobatrachus robustus) can intentionally break its own toe bones to push them through its skin, creating sharp, claw-like protrusions to use as weapons when threatened.', 'visual': 'Macro shots of a bumpy, greenish-brown frog, followed by a 3D medical-style animation or diagram showing the bone piercing through the skin of the toe.'}",
+      "created_at": "2026-07-20T18:48:57.654947+00:00",
+      "status": "error",
+      "updated_at": "2026-07-20T18:55:08.921863+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
