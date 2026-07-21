@@ -37,6 +37,13 @@
       "status": "error",
       "updated_at": "2026-07-12T17:59:05.511847+00:00",
       "error": "('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    },
+    {
+      "topic": "Title: This AI-powered wearable translates any language in real-time. Innovation: Neural audio processing integrated into a discreet, lightweight earpiece that captures and translates speech with near-zero latency. Use Case: Traveling to a foreign country and holding fluid, natural conversations with locals without ever needing to look at a translation app or dictionary.",
+      "created_at": "2026-07-20T18:49:15.815061+00:00",
+      "status": "error",
+      "updated_at": "2026-07-20T18:56:50.593641+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
