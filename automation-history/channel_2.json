@@ -53,10 +53,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered camera identifies everything you see. Innovation: Multimodal AI vision processing integrated into a wearable pendant that analyzes objects in real-time. Use Case: Pointing at a random plant, tool, or ingredient to get instant identification, care instructions, or shopping links without searching online.",
-      "created_at": "2026-07-22T18:03:18.325703+00:00",
+      "topic": "Title: This AI-powered camera identifies everything you see. Innovation: Real-time computer vision processing integrated into wearable smart glasses that analyze objects and text in your field of view. Use Case: Walking through a grocery store and instantly seeing nutritional scores or price comparisons for every item you look at.",
+      "created_at": "2026-07-23T18:08:10.963967+00:00",
       "status": "error",
-      "updated_at": "2026-07-22T18:09:48.511247+00:00",
+      "updated_at": "2026-07-23T18:14:06.946161+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
