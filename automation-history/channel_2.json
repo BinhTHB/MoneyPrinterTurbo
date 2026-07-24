@@ -53,10 +53,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered camera identifies everything you see. Innovation: Real-time computer vision processing integrated into wearable smart glasses that analyze objects and text in your field of view. Use Case: Walking through a grocery store and instantly seeing nutritional scores or price comparisons for every item you look at.",
-      "created_at": "2026-07-23T18:08:10.963967+00:00",
+      "topic": "Title: This AI-powered mirror acts as your personal fashion stylist. Innovation: Computer vision and augmented reality mapping that overlays digital clothing on your reflection in real-time. Use Case: Trying on dozens of outfits virtually in seconds to see how they look and fit before you even step into a dressing room.",
+      "created_at": "2026-07-24T18:12:14.244407+00:00",
       "status": "error",
-      "updated_at": "2026-07-23T18:14:06.946161+00:00",
+      "updated_at": "2026-07-24T18:17:35.463588+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
