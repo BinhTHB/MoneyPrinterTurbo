@@ -51,13 +51,6 @@
       "status": "error",
       "updated_at": "2026-07-21T18:17:24.154412+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "Title: This AI-powered camera identifies every ingredient in your fridge. Innovation: Real-time computer vision integrated into compact internal fridge cameras that track inventory and expiration dates. Use Case: Instantly generating custom recipes on your phone based only on the food you currently have, eliminating the need to meal plan or waste groceries.",
-      "created_at": "2026-07-30T18:10:21.244823+00:00",
-      "status": "error",
-      "updated_at": "2026-07-30T18:16:27.611713+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }

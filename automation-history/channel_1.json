@@ -80,6 +80,20 @@
       "status": "error",
       "updated_at": "2026-07-27T18:26:21.022803+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': \"The caterpillar that uses a silken 'safety line'\", 'fact': \"The larvae of the Gypsy Moth and certain other caterpillars produce a silk thread that they use as a 'bungee cord' to escape predators; if they are knocked off a leaf, they simply hang in mid-air and climb back up the thread once the danger passes.\", 'visual': 'Macro footage of a caterpillar suddenly dropping from a leaf and dangling in the air on an invisible thread, followed by a close-up of it laboriously crawling back up the silk line.'}",
+      "created_at": "2026-07-30T18:13:45.206172+00:00",
+      "status": "error",
+      "updated_at": "2026-07-30T18:20:14.255138+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The fish that hunts by spitting water', 'fact': \"The Archerfish can calculate the refraction of light at the water's surface to spit a precise jet of water at insects perched on overhanging branches, knocking them into the water to be eaten.\", 'visual': 'Slow-motion macro footage of a fish aiming its snout at the surface, followed by a high-speed capture of the water droplet hitting a bug on a leaf and the bug falling into the water.'}",
+      "created_at": "2026-07-31T18:15:49.248755+00:00",
+      "status": "error",
+      "updated_at": "2026-07-31T18:21:32.701706+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
