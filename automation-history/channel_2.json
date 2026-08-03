@@ -51,6 +51,13 @@
       "status": "error",
       "updated_at": "2026-07-21T18:17:24.154412+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered camera identifies everything you see. Innovation: Multimodal AI vision sensors that analyze real-time video feeds to provide instant object recognition and contextual information. Use Case: Pointing your camera at a broken appliance to receive an instant, step-by-step augmented reality repair guide overlaid on the screen.",
+      "created_at": "2026-08-02T17:54:37.938795+00:00",
+      "status": "error",
+      "updated_at": "2026-08-02T18:01:14.340549+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
