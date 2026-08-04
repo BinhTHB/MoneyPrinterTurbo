@@ -109,6 +109,22 @@
       "updated_at": "2026-08-01T18:00:53.014622+00:00",
       "video_id": "C0PS-pD5f9w",
       "url": "https://youtu.be/C0PS-pD5f9w"
+    },
+    {
+      "topic": "{'title': \"Why do you 'aggressively' refresh your tracking app for a package that is still 3 days away?\", 'psychological_effect': 'The Zeigarnik Effect & Anticipatory Dopamine Loop', 'angle': \"Analyzing the Vietnamese 'e-commerce obsession' where the act of tracking a package provides a temporary hit of control and excitement. It explores how the brain treats the 'waiting' phase as a more rewarding psychological experience than the actual act of receiving or using the product, turning online shopping into a cycle of dopamine-seeking rather than consumption.\"}",
+      "created_at": "2026-08-03T18:46:37.938710+00:00",
+      "status": "success",
+      "updated_at": "2026-08-03T18:53:15.796258+00:00",
+      "video_id": "4hvLNoMnYsY",
+      "url": "https://youtu.be/4hvLNoMnYsY"
+    },
+    {
+      "topic": "{'title': \"Why do you 'aggressively' watch travel vlogs of places you have no intention of visiting?\", 'psychological_effect': \"Vicarious Escapism & The 'Mental Vacation' Mechanism\", 'angle': \"Analyzing the Vietnamese 'office-bound' generation who spend hours watching travel content. It explores how this behavior is not about planning a trip, but a psychological survival tactic to mentally 'exit' the confines of a cubicle, using the screen as a window to a world where they feel free from the rigid hierarchy and repetitive routines of their daily lives.\"}",
+      "created_at": "2026-08-04T18:25:06.734478+00:00",
+      "status": "success",
+      "updated_at": "2026-08-04T18:30:34.117855+00:00",
+      "video_id": "qHyGt0vAfQw",
+      "url": "https://youtu.be/qHyGt0vAfQw"
     }
   ]
 }
