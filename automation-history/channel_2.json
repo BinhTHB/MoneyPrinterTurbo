@@ -58,6 +58,20 @@
       "status": "error",
       "updated_at": "2026-08-02T18:01:14.340549+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered exoskeleton glove restores hand mobility. Innovation: Soft robotic actuators and neural-link sensors that mimic and amplify human muscle movement. Use Case: Helping people with grip strength issues or arthritis perform delicate tasks like cooking, writing, or using tools with complete precision.",
+      "created_at": "2026-08-04T18:34:59.115106+00:00",
+      "status": "error",
+      "updated_at": "2026-08-04T18:41:42.848712+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered mirror is your personal fashion stylist. Innovation: Computer vision and augmented reality mapping that overlays virtual clothing onto your reflection in real-time. Use Case: Trying on dozens of outfits digitally in seconds to see exactly how they fit and look before you even step into a store.",
+      "created_at": "2026-08-05T18:15:49.102595+00:00",
+      "status": "error",
+      "updated_at": "2026-08-05T18:21:12.226281+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
