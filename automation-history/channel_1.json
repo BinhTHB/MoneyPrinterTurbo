@@ -87,6 +87,13 @@
       "status": "error",
       "updated_at": "2026-07-30T18:20:14.255138+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': \"The fish that 'sings' with its swim bladder\", 'fact': 'The Midshipman fish produces a low-frequency, continuous hum that can last for hours during mating season; they use specialized sonic muscles to vibrate their swim bladder, creating a sound so loud it can be heard by humans on land or through boat hulls.', 'visual': \"Underwater footage of the bioluminescent Midshipman fish nestled in a rocky crevice, followed by a waveform graphic overlay to visualize the 'hum' sound, and a shot of a boat on the surface to show the scale of the sound's reach.\"}",
+      "created_at": "2026-08-05T18:29:31.581625+00:00",
+      "status": "error",
+      "updated_at": "2026-08-05T18:35:57.782911+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
