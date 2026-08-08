@@ -65,6 +65,13 @@
       "status": "error",
       "updated_at": "2026-08-04T18:41:42.848712+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered smart mirror acts as your personal fitness coach. Innovation: Computer vision sensors embedded in the glass that track skeletal alignment and movement patterns in real-time. Use Case: Correcting your yoga pose or weightlifting form instantly as you watch your reflection, ensuring you never get injured during a home workout.",
+      "created_at": "2026-08-07T17:41:14.685351+00:00",
+      "status": "error",
+      "updated_at": "2026-08-07T17:47:50.385019+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
