@@ -94,13 +94,6 @@
       "status": "error",
       "updated_at": "2026-08-05T18:35:57.782911+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The spider that hunts with a lasso', 'fact': \"The Bolas Spider does not build a web; instead, it hangs from a single silk thread and swings a sticky globule of glue like a cowboy's lasso to snatch passing moths out of the air using chemical mimicry to lure them in.\", 'visual': 'Macro footage of a spider hanging from a thread, followed by a slow-motion simulation or high-speed capture of the spider swinging the sticky ball to strike a moth.'}",
-      "created_at": "2026-08-08T17:21:36.849392+00:00",
-      "status": "error",
-      "updated_at": "2026-08-08T17:28:16.291765+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }

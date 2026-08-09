@@ -72,6 +72,20 @@
       "status": "error",
       "updated_at": "2026-08-07T17:47:50.385019+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered sleep mask controls your dreams. Innovation: Integrated EEG sensors and haptic feedback loops that detect REM cycles to induce lucid dreaming through subtle light and sound patterns. Use Case: Training your brain to solve complex problems or practice public speaking while you sleep, effectively turning downtime into productive learning hours.",
+      "created_at": "2026-08-08T17:21:39.719816+00:00",
+      "status": "error",
+      "updated_at": "2026-08-08T17:28:39.297153+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered desktop robot manages your entire digital life. Innovation: A compact, motorized robotic arm equipped with a high-resolution camera and AI interface that physically interacts with your workspace. Use Case: The robot automatically organizes your physical desk, flips pages of documents for scanning, and physically points to notifications or important tasks on your screen as you work.",
+      "created_at": "2026-08-09T17:22:30.885391+00:00",
+      "status": "error",
+      "updated_at": "2026-08-09T17:28:42.769906+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
