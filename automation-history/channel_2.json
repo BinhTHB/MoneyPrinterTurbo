@@ -79,13 +79,6 @@
       "status": "error",
       "updated_at": "2026-08-08T17:28:39.297153+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "Title: This AI-powered desktop robot acts as your physical workspace assistant. Innovation: Small-scale robotic arm integrated with computer vision and voice-command AI that manipulates physical objects. Use Case: Having the robot automatically organize your pens, fetch your phone, or hold your documents while you type, bridging the gap between digital AI and physical task execution.",
-      "created_at": "2026-08-10T17:44:04.021202+00:00",
-      "status": "error",
-      "updated_at": "2026-08-10T17:49:20.009381+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
