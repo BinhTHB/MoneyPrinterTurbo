@@ -79,6 +79,20 @@
       "status": "error",
       "updated_at": "2026-08-08T17:28:39.297153+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered desktop robot acts as your physical workspace companion. Innovation: High-precision robotic arm with integrated computer vision and LLM-driven tactile feedback. Use Case: Having a physical assistant that organizes your desk, fetches small items, and mimics your hand gestures during video calls to keep you focused on your screen.",
+      "created_at": "2026-08-11T17:50:20.012980+00:00",
+      "status": "error",
+      "updated_at": "2026-08-11T17:56:40.447530+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered smart suitcase follows you like a pet. Innovation: Ultra-wideband proximity sensors and computer vision algorithms that track the owner's gait to maintain a constant distance. Use Case: Navigating busy airports and train stations hands-free, as your luggage automatically maneuvers around obstacles and keeps pace with your walking speed.",
+      "created_at": "2026-08-12T17:52:38.861176+00:00",
+      "status": "error",
+      "updated_at": "2026-08-12T17:59:17.122673+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
