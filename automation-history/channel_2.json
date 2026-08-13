@@ -93,6 +93,13 @@
       "status": "error",
       "updated_at": "2026-08-12T17:59:17.122673+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered desktop projector turns any surface into a touchscreen. Innovation: Laser-based short-throw projection combined with infrared motion-sensing arrays that detect finger taps on tables or walls. Use Case: Transforming a plain kitchen counter into a recipe interface or a coffee shop table into an interactive drawing board without needing a physical screen.",
+      "created_at": "2026-08-13T17:51:50.655670+00:00",
+      "status": "error",
+      "updated_at": "2026-08-13T17:57:01.031333+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
