@@ -101,6 +101,13 @@
       "status": "error",
       "updated_at": "2026-08-12T18:06:13.554317+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The plant-eating sea slug that steals solar power', 'fact': 'The Elysia chlorotica sea slug eats algae and incorporates the chloroplasts into its own body, allowing it to perform photosynthesis and survive on sunlight alone for months without eating.', 'visual': \"Macro shots of a bright green, leaf-shaped sea slug moving slowly on the ocean floor, followed by a microscopic view or animation showing green chloroplasts moving into the slug's tissues.\"}",
+      "created_at": "2026-08-14T17:53:03.026456+00:00",
+      "status": "error",
+      "updated_at": "2026-08-14T17:58:28.993126+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
