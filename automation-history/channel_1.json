@@ -115,6 +115,20 @@
       "status": "error",
       "updated_at": "2026-08-15T17:19:26.258581+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': \"The fish that builds a 'bubble nest' for its babies\", 'fact': 'The Siamese Fighting Fish (Betta) constructs a floating nest made entirely of air bubbles coated in saliva to protect its eggs, and the male aggressively guards this fragile structure until the fry hatch.', 'visual': 'Macro close-up of a Betta fish blowing bubbles at the surface of the water, followed by a shot of the cluster of shimmering bubbles clinging to a floating leaf.'}",
+      "created_at": "2026-08-18T17:32:52.171613+00:00",
+      "status": "error",
+      "updated_at": "2026-08-18T17:40:21.011634+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The ant that uses its own head as a door', 'fact': 'The Cephalotes varians ant has a flat, disc-shaped head that is perfectly evolved to act as a living plug; it sits at the entrance of its nest and uses its head to seal the hole, preventing intruders from entering.', 'visual': \"Macro close-up of a tree branch with a small hole, showing the ant's flat, armored head perfectly flush with the entrance, followed by a shot of another ant tapping on the 'door' to be let in.\"}",
+      "created_at": "2026-08-19T17:19:12.151690+00:00",
+      "status": "error",
+      "updated_at": "2026-08-19T17:25:36.408985+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
