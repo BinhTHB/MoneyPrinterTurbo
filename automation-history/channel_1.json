@@ -124,10 +124,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "{'title': 'The ant that uses its own head as a door', 'fact': 'The Cephalotes varians ant has a flat, disc-shaped head that is perfectly evolved to act as a living plug; it sits at the entrance of its nest and uses its head to seal the hole, preventing intruders from entering.', 'visual': \"Macro close-up of a tree branch with a small hole, showing the ant's flat, armored head perfectly flush with the entrance, followed by a shot of another ant tapping on the 'door' to be let in.\"}",
-      "created_at": "2026-08-19T17:19:12.151690+00:00",
+      "topic": "{'title': 'The ant that uses its head as a door', 'fact': \"The Cephalotes varians ant has a flat, disc-shaped head that perfectly fits the entrance of its nest hole. When a worker returns, it taps on the head of the 'doorkeeper' ant, which then moves aside to let them in, effectively acting as a living security gate.\", 'visual': \"Macro close-up of a tree branch or twig with a tiny hole, showing the ant's head flush against the opening like a plug, then showing another ant tapping it to gain entry.\"}",
+      "created_at": "2026-08-20T17:20:35.455887+00:00",
       "status": "error",
-      "updated_at": "2026-08-19T17:25:36.408985+00:00",
+      "updated_at": "2026-08-20T17:26:21.245088+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
