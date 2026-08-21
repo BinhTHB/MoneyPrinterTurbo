@@ -124,10 +124,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "{'title': 'The ant that uses its head as a door', 'fact': \"The Cephalotes varians ant has a flat, disc-shaped head that perfectly fits the entrance of its nest hole. When a worker returns, it taps on the head of the 'doorkeeper' ant, which then moves aside to let them in, effectively acting as a living security gate.\", 'visual': \"Macro close-up of a tree branch or twig with a tiny hole, showing the ant's head flush against the opening like a plug, then showing another ant tapping it to gain entry.\"}",
-      "created_at": "2026-08-20T17:20:35.455887+00:00",
+      "topic": "{'title': 'The ant that acts like a living door', 'fact': \"The Colobopsis explodens ant has a specialized 'major' worker caste with a flat, disc-shaped head that fits perfectly into the entrance of their nest, acting as a living plug to block intruders from entering.\", 'visual': \"Macro close-up of a tree branch or hollow twig entrance, showing the ant's head perfectly flush with the wood, followed by a shot of other ants walking over the 'door' to enter the colony.\"}",
+      "created_at": "2026-08-21T17:20:24.246350+00:00",
       "status": "error",
-      "updated_at": "2026-08-20T17:26:21.245088+00:00",
+      "updated_at": "2026-08-21T17:24:54.248503+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
