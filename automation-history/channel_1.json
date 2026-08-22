@@ -122,13 +122,6 @@
       "status": "error",
       "updated_at": "2026-08-18T17:40:21.011634+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The ant that acts like a living door', 'fact': \"The Colobopsis explodens ant has a specialized 'major' worker caste with a flat, disc-shaped head that fits perfectly into the entrance of their nest, acting as a living plug to block intruders from entering.\", 'visual': \"Macro close-up of a tree branch or hollow twig entrance, showing the ant's head perfectly flush with the wood, followed by a shot of other ants walking over the 'door' to enter the colony.\"}",
-      "created_at": "2026-08-21T17:20:24.246350+00:00",
-      "status": "error",
-      "updated_at": "2026-08-21T17:24:54.248503+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
