@@ -107,6 +107,13 @@
       "status": "error",
       "updated_at": "2026-08-14T17:51:21.048986+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered wearable badge records and summarizes your entire life. Innovation: A discreet, camera-less AI pendant that uses high-fidelity directional microphones and multimodal LLMs to transcribe and categorize every conversation or meeting you attend. Use Case: Never needing to take notes again, as the device automatically generates a searchable summary, action items, and key takeaways from every physical interaction throughout your workday.",
+      "created_at": "2026-08-24T17:23:15.673150+00:00",
+      "status": "error",
+      "updated_at": "2026-08-24T17:30:10.621667+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
