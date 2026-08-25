@@ -122,6 +122,13 @@
       "status": "error",
       "updated_at": "2026-08-18T17:40:21.011634+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The ant that uses its own head as a door', 'fact': 'The Cephalotes varians, or turtle ant, has a flat, disc-shaped head that perfectly fits the entrance of its nest. When a predator approaches, the ant plugs the hole with its head, acting as a living, impenetrable door to protect the colony inside.', 'visual': \"Macro close-up of a tree branch with a small hole, showing the ant's flat, armored head perfectly sealing the entrance, with other ants walking over it as if it were a floor.\"}",
+      "created_at": "2026-08-24T17:24:23.412325+00:00",
+      "status": "error",
+      "updated_at": "2026-08-24T17:30:29.816118+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
