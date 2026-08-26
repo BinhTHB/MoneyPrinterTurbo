@@ -129,6 +129,13 @@
       "status": "error",
       "updated_at": "2026-08-24T17:30:29.816118+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The fish that builds a skyscraper of rocks', 'fact': 'The Sand Tilefish constructs massive mounds by meticulously stacking coral fragments and shells, creating a protective fortress that can reach several feet in height to shelter itself from predators.', 'visual': 'Underwater footage of a small, colorful fish picking up large shells or coral pieces in its mouth and carefully placing them onto a growing pile on the seafloor.'}",
+      "created_at": "2026-08-25T17:37:47.879604+00:00",
+      "status": "error",
+      "updated_at": "2026-08-25T17:43:46.391668+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
