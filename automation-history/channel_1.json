@@ -136,6 +136,13 @@
       "status": "error",
       "updated_at": "2026-08-25T17:43:46.391668+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The moth that drinks the tears of sleeping birds', 'fact': \"The 'tear-drinking moth' (Arcyophora dentula) uses a specialized proboscis to feed on the lacrimal secretions (tears) of sleeping birds, gaining essential salts and proteins that are otherwise difficult to obtain in their environment.\", 'visual': \"Macro close-up of a moth hovering near the eye of a sleeping bird, with its tongue-like proboscis extended and touching the bird's eyelid, followed by a close-up of the moth's head details.\"}",
+      "created_at": "2026-08-28T01:13:46.472157+00:00",
+      "status": "error",
+      "updated_at": "2026-08-28T01:19:33.555014+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
