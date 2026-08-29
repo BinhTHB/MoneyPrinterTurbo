@@ -107,6 +107,13 @@
       "status": "error",
       "updated_at": "2026-08-14T17:51:21.048986+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered wearable badge records and summarizes your entire life. Innovation: A discreet, camera-less AI pendant that captures ambient audio and visual metadata to create searchable, chronological logs of your daily interactions. Use Case: Never forgetting a detail from a meeting or a grocery list again, as you can simply ask your phone to recall exactly what was discussed or decided at any point in your day.",
+      "created_at": "2026-08-29T00:48:54.087374+00:00",
+      "status": "error",
+      "updated_at": "2026-08-29T00:53:52.863738+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
