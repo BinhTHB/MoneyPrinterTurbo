@@ -136,6 +136,13 @@
       "status": "error",
       "updated_at": "2026-08-25T17:43:46.391668+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The crab that carries a living weapon', 'fact': 'The Boxer Crab (Lybia tessellata) carries a pair of stinging anemones in its claws like pom-poms. It uses these venomous creatures to box away predators, and if it loses an anemone, it will split the remaining one in half to regenerate two.', 'visual': \"Macro close-up of a small, colorful crab waving two tiny, stinging anemones in its claws, followed by a shot of it 'boxing' at a larger, blurry predator in the background.\"}",
+      "created_at": "2026-08-29T19:34:50.375793+00:00",
+      "status": "error",
+      "updated_at": "2026-08-29T19:40:44.517395+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
