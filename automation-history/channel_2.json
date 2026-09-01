@@ -107,13 +107,6 @@
       "status": "error",
       "updated_at": "2026-08-14T17:51:21.048986+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "Title: This AI-powered wearable badge records and summarizes your entire day. Innovation: A discreet, pin-on camera and microphone array that uses multimodal AI to transcribe conversations and log visual events in real-time. Use Case: Never forgetting a detail from a meeting or a grocery list again, as the device automatically generates a searchable timeline of your day's activities and action items.",
-      "created_at": "2026-08-31T21:42:26.293337+00:00",
-      "status": "error",
-      "updated_at": "2026-08-31T21:46:59.846106+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
