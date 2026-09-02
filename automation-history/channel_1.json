@@ -143,13 +143,6 @@
       "status": "error",
       "updated_at": "2026-08-29T19:40:44.517395+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The moth that drinks tears to survive', 'fact': \"The 'teardrop moth' (Hemiceratoides hieroglyphica) feeds on the tears of sleeping birds and mammals. It uses a specialized, harpoon-like proboscis to pierce the eyelid or probe the eye socket, drinking the nutrient-rich fluid to obtain essential salts and proteins not found in its usual diet.\", 'visual': 'Macro footage of a moth resting near the eye of a bird or large animal, with a close-up of its proboscis extending toward the moisture around the eye.'}",
-      "created_at": "2026-09-01T19:41:52.879829+00:00",
-      "status": "error",
-      "updated_at": "2026-09-01T19:47:32.160634+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
