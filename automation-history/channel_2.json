@@ -109,10 +109,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered wearable badge records and summarizes your life. Innovation: A discreet, pin-on camera and microphone array that utilizes long-context LLMs to transcribe and categorize every conversation you have throughout the day. Use Case: Never forgetting a detail from a meeting or a grocery list again, as the device automatically generates organized notes and action items in your cloud storage by the time you get home.",
-      "created_at": "2026-09-02T19:34:14.807427+00:00",
+      "topic": "Title: This AI-powered wearable badge records and summarizes every conversation you have. Innovation: A discreet, voice-activated AI pendant that uses multi-microphone arrays and local LLM processing to transcribe and synthesize meetings in real-time. Use Case: Never needing to take notes during a lecture or business meeting again, as the device automatically generates actionable bullet points and to-do lists sent directly to your phone.",
+      "created_at": "2026-09-03T19:30:39.845293+00:00",
       "status": "error",
-      "updated_at": "2026-09-02T19:41:17.829961+00:00",
+      "updated_at": "2026-09-03T19:37:11.856167+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
