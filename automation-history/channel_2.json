@@ -109,10 +109,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered wearable badge records and summarizes your entire life. Innovation: A discreet, camera-less AI pendant that uses multi-microphone arrays and local processing to capture ambient audio and convert it into structured meeting notes or daily journals. Use Case: Never needing to take notes during a lecture or business meeting again, as the device automatically organizes your day into searchable, chronological summaries on your phone.",
-      "created_at": "2026-09-07T20:17:16.502197+00:00",
+      "topic": "Title: This AI-powered smart ring monitors your metabolic health in real-time. Innovation: Non-invasive optical sensors that measure glucose fluctuations and hydration levels through the skin. Use Case: Instantly knowing exactly which foods spike your blood sugar so you can adjust your diet and energy levels throughout the workday.",
+      "created_at": "2026-09-08T19:40:48.147792+00:00",
       "status": "error",
-      "updated_at": "2026-09-07T20:22:31.636561+00:00",
+      "updated_at": "2026-09-08T19:46:16.837313+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
