@@ -107,6 +107,13 @@
       "status": "error",
       "updated_at": "2026-08-14T17:51:21.048986+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered wearable badge records and summarizes your entire life. Innovation: A discreet, pin-on AI camera and microphone array that captures daily interactions and uses multimodal LLMs to generate searchable, timestamped memories. Use Case: Never forgetting a detail from a meeting or conversation again, as you can simply ask your phone what someone said or what decision was made three hours ago.",
+      "created_at": "2026-09-09T19:36:16.851454+00:00",
+      "status": "error",
+      "updated_at": "2026-09-09T19:44:31.852992+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
