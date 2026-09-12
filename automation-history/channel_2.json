@@ -114,13 +114,6 @@
       "status": "error",
       "updated_at": "2026-09-09T19:44:31.852992+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "Title: This AI-powered ring light automatically tracks your movement. Innovation: Integrated computer vision sensors and motorized gimbal mounts that keep the light source perfectly centered on the user during video calls or content creation. Use Case: Moving freely around your room while recording a video or teaching a class without ever stepping out of the frame or needing a camera operator.",
-      "created_at": "2026-09-11T19:22:20.228853+00:00",
-      "status": "error",
-      "updated_at": "2026-09-11T19:26:49.050334+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
