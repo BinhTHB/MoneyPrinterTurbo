@@ -150,6 +150,13 @@
       "status": "error",
       "updated_at": "2026-09-07T20:28:19.202408+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The bird that grows a poisonous suit of armor', 'fact': \"The Hooded Pitohui of New Guinea is one of the world's few poisonous birds; it sequesters batrachotoxin—the same potent neurotoxin found in poison dart frogs—from its diet of Choresine beetles, storing the toxin in its skin and feathers to chemically burn any predator that touches it.\", 'visual': \"Close-up cinematic shots of the bird's striking black and orange plumage, transitioning to a macro shot of the toxic beetles it feeds on, and a graphic overlay showing the chemical defense mechanism.\"}",
+      "created_at": "2026-09-13T19:06:49.472299+00:00",
+      "status": "error",
+      "updated_at": "2026-09-13T19:14:20.076558+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
