@@ -114,6 +114,20 @@
       "status": "error",
       "updated_at": "2026-09-09T19:44:31.852992+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered hearing aid filters out background noise in real-time. Innovation: Advanced beamforming microphone arrays and deep learning algorithms that isolate specific voices in crowded rooms. Use Case: Holding a clear conversation in a loud, chaotic restaurant or concert venue by muting the crowd while amplifying only the person you are facing.",
+      "created_at": "2026-09-14T20:41:39.264029+00:00",
+      "status": "error",
+      "updated_at": "2026-09-14T20:48:52.920681+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'Title': 'This AI-powered ring light tracks your movement to keep you perfectly lit', 'Innovation': \"Computer vision sensors that detect the user's position and automatically adjust the gimbal-mounted LED array to maintain optimal lighting angles.\", 'Use Case': 'Walking around your room while filming content or video calling without ever having to manually adjust your lighting setup or worrying about shadows.'}",
+      "created_at": "2026-09-15T19:55:53.025395+00:00",
+      "status": "error",
+      "updated_at": "2026-09-15T19:59:39.804606+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
