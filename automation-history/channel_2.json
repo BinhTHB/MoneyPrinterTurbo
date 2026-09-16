@@ -123,10 +123,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "{'Title': 'This AI-powered ring light tracks your movement to keep you perfectly lit', 'Innovation': \"Computer vision sensors that detect the user's position and automatically adjust the gimbal-mounted LED array to maintain optimal lighting angles.\", 'Use Case': 'Walking around your room while filming content or video calling without ever having to manually adjust your lighting setup or worrying about shadows.'}",
-      "created_at": "2026-09-15T19:55:53.025395+00:00",
+      "topic": "Title: This AI-powered ring tracks your metabolic health in real-time. Innovation: Non-invasive optical sensors that measure glucose and lactate levels through the skin using spectroscopy. Use Case: Instantly seeing how specific foods impact your energy levels and blood sugar, allowing you to optimize your diet and performance without a single needle prick.",
+      "created_at": "2026-09-16T19:49:05.943995+00:00",
       "status": "error",
-      "updated_at": "2026-09-15T19:59:39.804606+00:00",
+      "updated_at": "2026-09-16T19:54:27.011862+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
