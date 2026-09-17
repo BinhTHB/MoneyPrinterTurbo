@@ -157,6 +157,13 @@
       "status": "error",
       "updated_at": "2026-09-13T19:14:20.076558+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The fish that plays dead to hunt', 'fact': \"The Livingston's Cichlid performs a 'death feign' by lying on its side in the sand and changing its color pattern to look like a decaying carcass, tricking curious scavengers into coming close enough to be eaten.\", 'visual': 'Underwater macro footage of a fish lying motionless on its side in the substrate, followed by a sudden, fast-motion strike as it lunges at a smaller fish that approaches it.'}",
+      "created_at": "2026-09-16T19:48:46.762816+00:00",
+      "status": "error",
+      "updated_at": "2026-09-16T19:55:43.709224+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
