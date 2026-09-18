@@ -123,10 +123,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered window film turns your glass into a transparent solar panel. Innovation: Quantum dot coating technology that captures infrared and ultraviolet light while remaining perfectly clear. Use Case: Charging your smartphone or laptop simply by placing it on a sunny windowsill, turning every window in your home into a functional power source.",
-      "created_at": "2026-09-17T19:57:00.206130+00:00",
+      "topic": "{'Title': 'This AI-powered ring light automatically tracks your face', 'Innovation': 'Integrated computer vision sensors and motorized gimbal mechanics that detect facial movement to keep the light source centered on the user.', 'Use Case': 'Walking around your room while filming content or video calling, ensuring you are always perfectly lit without ever having to manually adjust your lighting equipment.'}",
+      "created_at": "2026-09-18T19:19:34.826487+00:00",
       "status": "error",
-      "updated_at": "2026-09-17T20:02:14.915408+00:00",
+      "updated_at": "2026-09-18T19:25:09.565097+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
