@@ -123,10 +123,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered smart ring monitors your hydration levels through your skin. Innovation: Non-invasive optical sensors that measure electrolyte concentration and fluid balance via interstitial fluid analysis. Use Case: Getting a subtle vibration alert on your finger when you are dehydrated before you even feel thirsty, ensuring peak physical and mental performance throughout the workday.",
-      "created_at": "2026-09-19T19:05:22.130767+00:00",
+      "topic": "Title: This AI-powered ring identifies your food's nutrition by a simple scan. Innovation: Integrated multispectral sensors that analyze the chemical composition and molecular structure of food items. Use Case: Instantly tracking your daily caloric intake and macronutrients at a restaurant just by pointing your finger at the plate, eliminating the need for manual calorie logging.",
+      "created_at": "2026-09-20T19:11:54.834242+00:00",
       "status": "error",
-      "updated_at": "2026-09-19T19:12:17.945564+00:00",
+      "updated_at": "2026-09-20T19:16:46.135397+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
