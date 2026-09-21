@@ -171,6 +171,20 @@
       "status": "error",
       "updated_at": "2026-09-19T19:18:19.475666+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': \"The fish that 'tastes' with its entire body\", 'fact': \"The Channel Catfish is covered in over 100,000 taste buds from head to tail, allowing it to essentially 'taste' the water around it to locate food in murky, dark conditions without needing to see.\", 'visual': \"Macro close-up of the catfish's barbels and skin texture, followed by a CGI overlay showing a glowing 'sensory map' covering the fish's body as it swims through dark, muddy water.\"}",
+      "created_at": "2026-09-20T19:11:38.128255+00:00",
+      "status": "error",
+      "updated_at": "2026-09-20T19:19:12.930883+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The bird that hides its eggs in a volcano', 'fact': \"The Maleo bird of Indonesia buries its eggs in sun-warmed volcanic sand or geothermal soil, relying on the earth's natural heat to incubate them rather than sitting on them; the chicks are born fully feathered and capable of flight within 24 hours.\", 'visual': 'Footage of a bird digging a deep hole in dark, volcanic sand, followed by a shot of a chick emerging from the sand and shaking off dirt.'}",
+      "created_at": "2026-09-21T20:42:39.240761+00:00",
+      "status": "error",
+      "updated_at": "2026-09-21T20:47:10.070541+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }

@@ -121,13 +121,6 @@
       "status": "error",
       "updated_at": "2026-09-14T20:48:52.920681+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "Title: This AI-powered ring identifies your food's nutrition by a simple scan. Innovation: Integrated multispectral sensors that analyze the chemical composition and molecular structure of food items. Use Case: Instantly tracking your daily caloric intake and macronutrients at a restaurant just by pointing your finger at the plate, eliminating the need for manual calorie logging.",
-      "created_at": "2026-09-20T19:11:54.834242+00:00",
-      "status": "error",
-      "updated_at": "2026-09-20T19:16:46.135397+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
