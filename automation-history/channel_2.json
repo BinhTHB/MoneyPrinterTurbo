@@ -124,9 +124,9 @@
     },
     {
       "topic": "Title: This AI-powered ring tracks your metabolic health in real-time. Innovation: Non-invasive optical sensors that measure glucose fluctuations and hydration levels through the skin. Use Case: Instantly seeing how specific foods affect your energy levels, allowing you to adjust your diet on the fly for peak physical performance.",
-      "created_at": "2026-09-22T19:58:24.184843+00:00",
+      "created_at": "2026-09-23T19:55:29.237807+00:00",
       "status": "error",
-      "updated_at": "2026-09-22T20:04:20.873528+00:00",
+      "updated_at": "2026-09-23T20:00:46.141209+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
