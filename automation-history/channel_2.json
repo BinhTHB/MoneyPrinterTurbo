@@ -123,10 +123,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered ring tracks your metabolic health in real-time. Innovation: Non-invasive optical sensors that measure glucose fluctuations and hydration levels through the skin. Use Case: Instantly seeing how specific foods affect your energy levels, allowing you to adjust your diet on the fly for peak physical performance.",
-      "created_at": "2026-09-23T19:55:29.237807+00:00",
+      "topic": "Title: This AI-powered ring monitors your blood pressure without a cuff. Innovation: Photoplethysmography sensors combined with pulse transit time algorithms to track cardiovascular health continuously. Use Case: Getting instant alerts about hypertension or stress spikes during a busy workday without needing to stop and strap on a bulky medical device.",
+      "created_at": "2026-09-24T20:13:41.837691+00:00",
       "status": "error",
-      "updated_at": "2026-09-23T20:00:46.141209+00:00",
+      "updated_at": "2026-09-24T20:19:19.079125+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
