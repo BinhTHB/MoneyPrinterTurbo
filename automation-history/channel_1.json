@@ -192,13 +192,6 @@
       "status": "error",
       "updated_at": "2026-09-24T20:22:03.668626+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The spider that builds a fake version of itself', 'fact': \"The Cyclosa spider creates a 'decoy' of itself in the center of its web using bits of dead prey, leaves, and debris. It then vibrates the web to make the decoy look like a living spider, tricking predators into attacking the fake while the real spider hides nearby.\", 'visual': 'Macro footage of a spider web with a messy, spider-shaped clump in the center, followed by a close-up of the actual spider hiding at the edge of the web and twitching a silk thread to make the decoy move.'}",
-      "created_at": "2026-09-25T20:12:11.332536+00:00",
-      "status": "error",
-      "updated_at": "2026-09-25T20:17:17.178698+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
