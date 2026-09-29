@@ -206,13 +206,6 @@
       "status": "error",
       "updated_at": "2026-09-27T20:03:04.710752+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The wasp that performs brain surgery on cockroaches', 'fact': \"The Emerald Cockroach Wasp injects venom into specific regions of a cockroach's brain to inhibit its escape reflex, then leads the docile, zombie-like roach by its antennae into a burrow to serve as a living food source for its larvae.\", 'visual': \"Macro footage of a vibrant metallic-green wasp interacting with a cockroach, followed by a stylized animation showing the wasp's stinger targeting the cockroach's head.\"}",
-      "created_at": "2026-09-28T22:21:45.787837+00:00",
-      "status": "error",
-      "updated_at": "2026-09-28T22:29:18.979361+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
