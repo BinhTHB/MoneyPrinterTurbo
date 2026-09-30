@@ -206,6 +206,20 @@
       "status": "error",
       "updated_at": "2026-09-27T20:03:04.710752+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The fish that can smell rain in the ocean', 'fact': 'The Salmon uses its highly sensitive olfactory system to detect microscopic chemical traces in the water, allowing it to navigate thousands of miles across the open ocean back to the exact freshwater stream where it was born to spawn.', 'visual': \"Cinematic shots of a salmon leaping up a river rapid, transitioning to a split-screen showing a vast, deep blue ocean and a detailed animation of chemical particles flowing through the water toward the fish's nose.\"}",
+      "created_at": "2026-09-29T21:14:15.763454+00:00",
+      "status": "error",
+      "updated_at": "2026-09-29T21:21:00.270341+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The spider that builds a fake version of itself', 'fact': \"The Cyclosa spider creates a 'decoy' of itself in the center of its web using bits of prey, dead leaves, and debris. By arranging this trash to look like a larger spider, it confuses predators and distracts them from its actual location.\", 'visual': 'Macro close-up of a spider web with a weird, lumpy structure in the center that looks like a messy spider, followed by the actual spider hiding just off to the side.'}",
+      "created_at": "2026-09-30T21:06:25.579105+00:00",
+      "status": "error",
+      "updated_at": "2026-09-30T21:11:14.868440+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
