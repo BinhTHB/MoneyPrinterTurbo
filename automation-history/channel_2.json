@@ -128,6 +128,13 @@
       "status": "error",
       "updated_at": "2026-09-28T22:30:19.388046+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "Title: This AI-powered smart fabric changes color on command. Innovation: Electrochromic fibers embedded in clothing that shift patterns or colors based on electrical signals from a smartphone app. Use Case: Instantly matching your outfit to your environment or mood without needing to change your clothes, perfect for quick transitions from professional meetings to evening social events.",
+      "created_at": "2026-10-02T21:07:19.923182+00:00",
+      "status": "error",
+      "updated_at": "2026-10-02T21:12:43.755014+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
