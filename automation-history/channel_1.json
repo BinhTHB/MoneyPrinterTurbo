@@ -220,13 +220,6 @@
       "status": "error",
       "updated_at": "2026-10-01T21:37:09.072087+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
-    },
-    {
-      "topic": "{'title': 'The fish that carries its eggs in its mouth', 'fact': 'The Jawfish is a mouthbrooder; after the female lays eggs, the male scoops them all into his mouth and holds them there for over a week, refusing to eat until they hatch to ensure their safety from predators.', 'visual': 'Macro close-up of a Jawfish hovering above its burrow, followed by a shot of it opening its mouth to reveal a large, shimmering cluster of eggs tucked safely inside.'}",
-      "created_at": "2026-10-03T19:36:44.131127+00:00",
-      "status": "error",
-      "updated_at": "2026-10-03T19:40:50.750075+00:00",
-      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
