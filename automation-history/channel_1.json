@@ -220,6 +220,13 @@
       "status": "error",
       "updated_at": "2026-10-01T21:37:09.072087+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The bird that can sleep while flying', 'fact': 'The Great Frigatebird can remain in the air for months at a time without landing, achieving sleep by shutting down only one hemisphere of its brain at a time—a process called unihemispheric slow-wave sleep—while continuing to glide on thermal currents.', 'visual': \"Cinematic wide shots of a Frigatebird soaring over the open ocean, transitioning to a close-up of its eye, and a simplified brain-scan graphic showing one side 'lit up' while the other is dark.\"}",
+      "created_at": "2026-10-06T21:26:01.534139+00:00",
+      "status": "error",
+      "updated_at": "2026-10-06T21:32:31.900589+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }

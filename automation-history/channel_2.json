@@ -130,10 +130,10 @@
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     },
     {
-      "topic": "Title: This AI-powered smart fabric changes color on command. Innovation: Electrochromic polymer fibers woven into textiles that shift color and pattern via a smartphone app. Use Case: Changing your outfit's color or design instantly to match your mood or the occasion without ever needing to buy new clothes.",
-      "created_at": "2026-10-06T21:24:30.429922+00:00",
+      "topic": "Title: This AI-powered smart fabric changes color on command. Innovation: Electrochromic fibers woven into textiles that shift patterns and hues using low-voltage electrical signals controlled via a smartphone app. Use Case: Instantly changing the color or design of your shirt to match your mood or environment without ever needing to buy new clothes.",
+      "created_at": "2026-10-07T21:42:42.576953+00:00",
       "status": "error",
-      "updated_at": "2026-10-06T21:30:49.523550+00:00",
+      "updated_at": "2026-10-07T21:47:10.380757+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
