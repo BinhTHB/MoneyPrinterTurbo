@@ -227,6 +227,13 @@
       "status": "error",
       "updated_at": "2026-10-06T21:32:31.900589+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The fish that builds a house of stolen pebbles', 'fact': \"The Cichlid fish known as the 'Shell Dweller' collects empty snail shells and buries them in the sand to create a fortress; they then live inside these shells, dragging them around to expand their territory and protect their young.\", 'visual': 'Macro underwater footage of a tiny, colorful fish gripping a snail shell in its mouth and carefully burying it in the sand, followed by the fish poking its head out from inside the shell.'}",
+      "created_at": "2026-10-07T21:42:23.945331+00:00",
+      "status": "error",
+      "updated_at": "2026-10-07T21:48:41.151176+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
