@@ -234,6 +234,13 @@
       "status": "error",
       "updated_at": "2026-10-07T21:48:41.151176+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': 'The moth that mimics a wasp to survive', 'fact': 'The Hornet Moth (Sesia apiformis) is a clearwing moth that has evolved to perfectly mimic the appearance, size, and flight patterns of a hornet, effectively tricking predators into avoiding it despite being completely harmless.', 'visual': 'Macro side-by-side comparison of a hornet and the moth on a tree bark, followed by slow-motion footage of the moth flying to show its deceptive, wasp-like movement.'}",
+      "created_at": "2026-10-08T21:40:04.390928+00:00",
+      "status": "error",
+      "updated_at": "2026-10-08T21:45:30.640886+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
