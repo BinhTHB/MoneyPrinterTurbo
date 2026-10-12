@@ -248,6 +248,13 @@
       "status": "error",
       "updated_at": "2026-10-09T21:32:06.910077+00:00",
       "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
+    },
+    {
+      "topic": "{'title': \"The lizard that uses a 'scuba tank' to breathe underwater\", 'fact': 'The Water Anole can remain submerged for up to 18 minutes by trapping a bubble of air against its snout, which it repeatedly inhales and exhales to extract oxygen and expel carbon dioxide while hiding from predators.', 'visual': 'Macro underwater footage of a small lizard clinging to a rock in a stream with a shimmering silver air bubble attached to its nose, expanding and contracting as it breathes.'}",
+      "created_at": "2026-10-11T20:43:09.589209+00:00",
+      "status": "error",
+      "updated_at": "2026-10-11T20:49:51.253920+00:00",
+      "error": "('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})"
     }
   ]
 }
